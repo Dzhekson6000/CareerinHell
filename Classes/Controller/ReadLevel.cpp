@@ -6,57 +6,6 @@ ReadLevel::ReadLevel(){
 
 void ReadLevel::readFile(std:: string fileName){
 	List<Cell*>* cells = new List<Cell*>();
-	
-	/*std::string fullPath = CCFileUtils::sharedFileUtils()->fullPathForFilename(fileName.c_str());
-	ssize_t fileSize = 0;
-
-	unsigned char * fileContents = CCFileUtils::sharedFileUtils( ) -> getFileData( fullPath.c_str() , "r", &fileSize );
-
-	std::stringstream strValue;
-	strValue<<fileContents;
-
-	int maxW = 0;
-	strValue>>maxW;
-	int number;
-	int x =0,y =0;
-	while(strValue>>number){
-
-		switch (number) {
-		case 1:
-			cells->append(new Wall(new PPoint(x*50, y*50), 1, false, true ));
-			break;
-		case 2:
-			cells->append(new Wall(new PPoint(x*50, y*50), 1, true, true ));
-			break;
-		case 3:
-			cells->append(new Wall(new PPoint(x*50, y*50), 2, false, true ));
-			break;
-		case 4:
-			cells->append(new Wall(new PPoint(x*50, y*50), 3, false, true ));
-			break;
-		case 5:
-			cells->append(new Wall(new PPoint(x*50, y*50), 3, true, true));
-			break;
-		case 6:
-			cells->append(new Wall(new PPoint(x*50, y*50), 1, false, false));
-			break;
-		case 7:
-			cells->append(new Wall(new PPoint(x*50, y*50), 1, true, false));
-			break;
-		case 8:
-			cells->append(new Wall(new PPoint(x*50, y*50), 4, false, false));
-			break;
-		default:
-			cells->append(new Floor(new PPoint(x*50, y*50) ));
-			break;
-		}
-
-		x++;
-		if(x == maxW){
-			x = 0;
-			y++;
-		}
-	}*/
 
 	std::string fullPath = FileUtils::sharedFileUtils()->fullPathForFilename("map/map1.xml");
 
