@@ -7,7 +7,7 @@ ReadLevel::ReadLevel(){
 void ReadLevel::readFile(std:: string fileName){
 	List<Cell*>* cells = new List<Cell*>();
 
-	std::string fullPath = FileUtils::sharedFileUtils()->fullPathForFilename("map/map1.xml");
+	std::string fullPath = FileUtils::sharedFileUtils()->fullPathForFilename(fileName);
 
 	TiXmlDocument *xmlFile = new TiXmlDocument(fullPath.c_str());
 	if(!xmlFile->LoadFile()) //файл не открылся
@@ -52,12 +52,6 @@ void ReadLevel::readFile(std:: string fileName){
 				for(int i = x; i <= x2; i++) for(int j = y; j <= y2; j++)
 					cells->append(new Wall(new PPoint(i*50, j*50), tip, rotate, show) );
 			}
-			
-			//cells->append();
-
-
-
-
 		}else
 		if(!strcmp(nameElement, "Flooring") )
 		{
@@ -77,6 +71,21 @@ void ReadLevel::readFile(std:: string fileName){
 				for(int i = x; i <= x2; i++) for(int j = y; j <= y2; j++)
 					cells->append(new Flooring(new PPoint(i*50, j*50), tip) );
 			}
+		}else
+		if(!strcmp(nameElement, "AngleWall") )
+		{
+			int tipAngle = 1;
+			bool show = true;
+
+			std::string tip = xmlElement->Attribute("tip");
+
+			if(!strcmp(xmlElement->Attribute("show"), "false") ) show = false;
+			tipAngle = atoi(xmlElement->Attribute("tipAngle"));
+
+			int x = atoi(xmlElement->Attribute("x"));
+			int y = atoi(xmlElement->Attribute("y"));
+
+			cells->append(new AngleWall(new PPoint(x*50, y*50), tip, tipAngle, show) );
 		}
 
 		xmlElement = xmlElement->NextSiblingElement();

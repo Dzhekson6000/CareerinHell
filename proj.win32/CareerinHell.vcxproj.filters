@@ -75,6 +75,9 @@
     <ClCompile Include="..\Classes\Model\Flooring.cpp">
       <Filter>Classes\Model</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Model\AngleWall.cpp">
+      <Filter>Classes\Model</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -123,6 +126,9 @@
       <Filter>Classes\Model</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Model\Flooring.h">
+      <Filter>Classes\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\AngleWall.h">
       <Filter>Classes\Model</Filter>
     </ClInclude>
   </ItemGroup>

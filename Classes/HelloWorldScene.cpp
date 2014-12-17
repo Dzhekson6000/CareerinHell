@@ -17,7 +17,7 @@ bool HelloWorld::init()
     }
 
 	ReadLevel rl = ReadLevel();
-	rl.readFile("map/map1.txt");
+	rl.readFile("map/map1.xml");
 	
 	Level* level = rl._level;
 	for(int i = 0; i < level->_cells->size(); i++)

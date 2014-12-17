@@ -137,6 +137,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Controller\MenuController.cpp" />
     <ClCompile Include="..\Classes\Controller\ReadLevel.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="..\Classes\Model\AngleWall.cpp" />
     <ClCompile Include="..\Classes\Model\Cell.cpp" />
     <ClCompile Include="..\Classes\Model\Flooring.cpp" />
     <ClCompile Include="..\Classes\Model\Wall.cpp" />
@@ -156,6 +157,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Controller\MenuController.h" />
     <ClInclude Include="..\Classes\Controller\ReadLevel.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\Model\AngleWall.h" />
     <ClInclude Include="..\Classes\Model\Cell.h" />
     <ClInclude Include="..\Classes\Model\Flooring.h" />
     <ClInclude Include="..\Classes\Model\Wall.h" />

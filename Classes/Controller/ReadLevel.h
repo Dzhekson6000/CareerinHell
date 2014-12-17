@@ -11,6 +11,7 @@
 
 #include "Model/Wall.h"
 #include "Model/Flooring.h"
+#include "Model/AngleWall.h"
 
 #include <TinyXml/tinyxml.h>
 
