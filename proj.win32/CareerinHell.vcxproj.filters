@@ -78,6 +78,12 @@
     <ClCompile Include="..\Classes\Model\AngleWall.cpp">
       <Filter>Classes\Model</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Model\IntersectionWall.cpp">
+      <Filter>Classes\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\EndWall.cpp">
+      <Filter>Classes\Model</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -129,6 +135,12 @@
       <Filter>Classes\Model</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Model\AngleWall.h">
+      <Filter>Classes\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\IntersectionWall.h">
+      <Filter>Classes\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\EndWall.h">
       <Filter>Classes\Model</Filter>
     </ClInclude>
   </ItemGroup>

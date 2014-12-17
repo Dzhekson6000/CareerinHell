@@ -15,4 +15,4 @@ public:
 		);
 
 };
-#endif // WALL_H__
+#endif // ANGLE_WALL_H__

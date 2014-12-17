@@ -9,9 +9,12 @@
 #include "Tools/List.h"
 #include "Level.h"
 
-#include "Model/Wall.h"
 #include "Model/Flooring.h"
+
+#include "Model/Wall.h"
 #include "Model/AngleWall.h"
+#include "Model/IntersectionWall.h"
+#include "Model/EndWall.h"
 
 #include <TinyXml/tinyxml.h>
 

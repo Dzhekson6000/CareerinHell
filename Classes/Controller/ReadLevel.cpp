@@ -86,6 +86,36 @@ void ReadLevel::readFile(std:: string fileName){
 			int y = atoi(xmlElement->Attribute("y"));
 
 			cells->append(new AngleWall(new PPoint(x*50, y*50), tip, tipAngle, show) );
+		}else
+		if(!strcmp(nameElement, "IntersectionWall") )
+		{
+			int tipIntersection = 0;
+			bool show = true;
+
+			std::string tip = xmlElement->Attribute("tip");
+
+			if(!strcmp(xmlElement->Attribute("show"), "false") ) show = false;
+			tipIntersection = atoi(xmlElement->Attribute("tipIntersection"));
+
+			int x = atoi(xmlElement->Attribute("x"));
+			int y = atoi(xmlElement->Attribute("y"));
+
+			cells->append(new IntersectionWall(new PPoint(x*50, y*50), tip, tipIntersection, show) );
+		}else
+		if(!strcmp(nameElement, "EndWall") )
+		{
+			int tipEnd = 0;
+			bool show = true;
+
+			std::string tip = xmlElement->Attribute("tip");
+
+			if(!strcmp(xmlElement->Attribute("show"), "false") ) show = false;
+			tipEnd = atoi(xmlElement->Attribute("tipEnd"));
+
+			int x = atoi(xmlElement->Attribute("x"));
+			int y = atoi(xmlElement->Attribute("y"));
+
+			cells->append(new EndWall(new PPoint(x*50, y*50), tip, tipEnd, show) );
 		}
 
 		xmlElement = xmlElement->NextSiblingElement();

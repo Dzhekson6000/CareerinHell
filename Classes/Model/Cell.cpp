@@ -55,6 +55,6 @@ void Cell::setInversionY(bool inversion)
 
 void Cell::updateInversion()
 {
-	if(_inversionX) _sprite->setScaleX(1); else _sprite->setScaleX(-1);
+	if(_inversionX) _sprite->setScaleX(-1); else _sprite->setScaleX(1);
 	if(_inversionY) _sprite->setScaleY(-1); else _sprite->setScaleY(1);
 }
