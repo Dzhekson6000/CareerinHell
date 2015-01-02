@@ -19,4 +19,5 @@
 	<EndWall  x="13" y="5" tipEnd="2" tip="def" show="true" />
 	<EndWall  x="14" y="5" tipEnd="3" tip="def" show="true" />
 	<EndWall  x="15" y="5" tipEnd="4" tip="def" show="true" />-->
+	<Flooring x="5" y="0" x2="10" y2="0" tip="def" />
 </level> 
