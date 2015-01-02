@@ -137,12 +137,15 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Controller\MenuController.cpp" />
     <ClCompile Include="..\Classes\Controller\ReadLevel.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
-    <ClCompile Include="..\Classes\Model\AngleWall.cpp" />
-    <ClCompile Include="..\Classes\Model\Cell.cpp" />
-    <ClCompile Include="..\Classes\Model\EndWall.cpp" />
-    <ClCompile Include="..\Classes\Model\Flooring.cpp" />
-    <ClCompile Include="..\Classes\Model\IntersectionWall.cpp" />
-    <ClCompile Include="..\Classes\Model\Wall.cpp" />
+    <ClCompile Include="..\Classes\Model\Cell\AngleWall.cpp" />
+    <ClCompile Include="..\Classes\Model\Cell\Cell.cpp" />
+    <ClCompile Include="..\Classes\Model\Cell\EndWall.cpp" />
+    <ClCompile Include="..\Classes\Model\Cell\Flooring.cpp" />
+    <ClCompile Include="..\Classes\Model\Cell\IntersectionWall.cpp" />
+    <ClCompile Include="..\Classes\Model\Cell\Wall.cpp" />
+    <ClCompile Include="..\Classes\Model\Characters\Boat.cpp" />
+    <ClCompile Include="..\Classes\Model\Characters\Character.cpp" />
+    <ClCompile Include="..\Classes\Model\Weather\Snow.cpp" />
     <ClCompile Include="..\Classes\Scene\LogoScene.cpp" />
     <ClCompile Include="..\Classes\Scene\MenuScene.cpp" />
     <ClCompile Include="..\Classes\TinyXml\tinystr.cpp" />
@@ -151,6 +154,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\TinyXml\tinyxmlparser.cpp" />
     <ClCompile Include="..\Classes\Tools\AbstractScene.cpp" />
     <ClCompile Include="..\Classes\Tools\PPoint.cpp" />
+    <ClCompile Include="..\Classes\Tools\Scroller.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -159,12 +163,15 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Controller\MenuController.h" />
     <ClInclude Include="..\Classes\Controller\ReadLevel.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
-    <ClInclude Include="..\Classes\Model\AngleWall.h" />
-    <ClInclude Include="..\Classes\Model\Cell.h" />
-    <ClInclude Include="..\Classes\Model\EndWall.h" />
-    <ClInclude Include="..\Classes\Model\Flooring.h" />
-    <ClInclude Include="..\Classes\Model\IntersectionWall.h" />
-    <ClInclude Include="..\Classes\Model\Wall.h" />
+    <ClInclude Include="..\Classes\Model\Cell\AngleWall.h" />
+    <ClInclude Include="..\Classes\Model\Cell\Cell.h" />
+    <ClInclude Include="..\Classes\Model\Cell\EndWall.h" />
+    <ClInclude Include="..\Classes\Model\Cell\Flooring.h" />
+    <ClInclude Include="..\Classes\Model\Cell\IntersectionWall.h" />
+    <ClInclude Include="..\Classes\Model\Cell\Wall.h" />
+    <ClInclude Include="..\Classes\Model\Characters\Boat.h" />
+    <ClInclude Include="..\Classes\Model\Characters\Character.h" />
+    <ClInclude Include="..\Classes\Model\Weather\Snow.h" />
     <ClInclude Include="..\Classes\Scene\LogoScene.h" />
     <ClInclude Include="..\Classes\Scene\MenuScene.h" />
     <ClInclude Include="..\Classes\TinyXml\tinystr.h" />
@@ -172,6 +179,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Tools\AbstractScene.h" />
     <ClInclude Include="..\Classes\Tools\List.h" />
     <ClInclude Include="..\Classes\Tools\PPoint.h" />
+    <ClInclude Include="..\Classes\Tools\Scroller.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

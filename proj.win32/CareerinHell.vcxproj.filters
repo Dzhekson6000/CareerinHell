@@ -25,6 +25,15 @@
     <Filter Include="Classes\Model">
       <UniqueIdentifier>{f0911ba0-0fdc-43eb-aff7-c0412a1a4353}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Model\Characters">
+      <UniqueIdentifier>{59f6ce79-130d-45f1-9ba6-7488f23618fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Model\Cell">
+      <UniqueIdentifier>{98aa2d6c-bfc6-4220-854b-c8c3525f8374}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Model\Weather">
+      <UniqueIdentifier>{5753ea50-eca8-40ac-97bb-ea6111b88688}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -66,23 +75,35 @@
     <ClCompile Include="..\Classes\Controller\ReadLevel.cpp">
       <Filter>Classes\Controller</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Model\Cell.cpp">
-      <Filter>Classes\Model</Filter>
+    <ClCompile Include="..\Classes\Model\Cell\AngleWall.cpp">
+      <Filter>Classes\Model\Cell</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Model\Wall.cpp">
-      <Filter>Classes\Model</Filter>
+    <ClCompile Include="..\Classes\Model\Cell\Cell.cpp">
+      <Filter>Classes\Model\Cell</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Model\Flooring.cpp">
-      <Filter>Classes\Model</Filter>
+    <ClCompile Include="..\Classes\Model\Cell\EndWall.cpp">
+      <Filter>Classes\Model\Cell</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Model\AngleWall.cpp">
-      <Filter>Classes\Model</Filter>
+    <ClCompile Include="..\Classes\Model\Cell\Flooring.cpp">
+      <Filter>Classes\Model\Cell</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Model\IntersectionWall.cpp">
-      <Filter>Classes\Model</Filter>
+    <ClCompile Include="..\Classes\Model\Cell\IntersectionWall.cpp">
+      <Filter>Classes\Model\Cell</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Model\EndWall.cpp">
-      <Filter>Classes\Model</Filter>
+    <ClCompile Include="..\Classes\Model\Cell\Wall.cpp">
+      <Filter>Classes\Model\Cell</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\Weather\Snow.cpp">
+      <Filter>Classes\Model\Weather</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\Characters\Character.cpp">
+      <Filter>Classes\Model\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\Characters\Boat.cpp">
+      <Filter>Classes\Model\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Tools\Scroller.cpp">
+      <Filter>Classes\Tools</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -125,23 +146,35 @@
     <ClInclude Include="..\Classes\Controller\ReadLevel.h">
       <Filter>Classes\Controller</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Model\Cell.h">
-      <Filter>Classes\Model</Filter>
+    <ClInclude Include="..\Classes\Model\Cell\AngleWall.h">
+      <Filter>Classes\Model\Cell</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Model\Wall.h">
-      <Filter>Classes\Model</Filter>
+    <ClInclude Include="..\Classes\Model\Cell\Cell.h">
+      <Filter>Classes\Model\Cell</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Model\Flooring.h">
-      <Filter>Classes\Model</Filter>
+    <ClInclude Include="..\Classes\Model\Cell\EndWall.h">
+      <Filter>Classes\Model\Cell</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Model\AngleWall.h">
-      <Filter>Classes\Model</Filter>
+    <ClInclude Include="..\Classes\Model\Cell\Flooring.h">
+      <Filter>Classes\Model\Cell</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Model\IntersectionWall.h">
-      <Filter>Classes\Model</Filter>
+    <ClInclude Include="..\Classes\Model\Cell\IntersectionWall.h">
+      <Filter>Classes\Model\Cell</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Model\EndWall.h">
-      <Filter>Classes\Model</Filter>
+    <ClInclude Include="..\Classes\Model\Cell\Wall.h">
+      <Filter>Classes\Model\Cell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\Weather\Snow.h">
+      <Filter>Classes\Model\Weather</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\Characters\Character.h">
+      <Filter>Classes\Model\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\Characters\Boat.h">
+      <Filter>Classes\Model\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Tools\Scroller.h">
+      <Filter>Classes\Tools</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,7 @@
 #include "HelloWorldScene.h"
 #include "Controller/ReadLevel.h"
+#include "Model\Weather\Snow.h"
+#include "Tools\Scroller.h"
 
 Scene* HelloWorld::createScene()
 {
@@ -17,13 +19,24 @@ bool HelloWorld::init()
     }
 
 	ReadLevel rl = ReadLevel();
-	rl.readFile("map/map1.xml");
+	rl.readFile("map/home.xml");
 	
+	Scroller* scroll = Scroller::create();
+	this->addChild(scroll);
+
 	Level* level = rl._level;
 	for(int i = 0; i < level->_cells->size(); i++)
 	{
-		this->addChild(level->_cells->get(level->_cells->size() -1 -i   )->getTexture() );
+		scroll->addChild(level->_cells->get(level->_cells->size() -1 -i   )->getTexture() );
 	}
+
+	for(int i = 0; i < level->_characters->size(); i++)
+	{
+		scroll->addChild(level->_characters->get(level->_characters->size() -1 -i   )->getTexture() );
+	}
+
+	Snow * s = Snow::create();
+	this->addChild(s);
 
 
     return true;

@@ -119,7 +119,12 @@ void ReadLevel::readFile(std:: string fileName){
 		}
 
 		xmlElement = xmlElement->NextSiblingElement();
-	} 
+	}
+
+	
+	List<Character*>* characters = new List<Character*>();
+	characters->append(new Boat(new PPoint(5*50, 50*5), "boat", true ) );
 
 	_level->_cells = cells;
+	_level->_characters = characters;
 }
