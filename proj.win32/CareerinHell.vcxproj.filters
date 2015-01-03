@@ -34,6 +34,9 @@
     <Filter Include="Classes\Model\Weather">
       <UniqueIdentifier>{5753ea50-eca8-40ac-97bb-ea6111b88688}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Model\Interface">
+      <UniqueIdentifier>{038c2fea-1b21-44cd-84ff-06ffdb75bcca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -105,6 +108,12 @@
     <ClCompile Include="..\Classes\Tools\Scroller.cpp">
       <Filter>Classes\Tools</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Controller\InterfaceGame.cpp">
+      <Filter>Classes\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\Interface\CardCharacter.cpp">
+      <Filter>Classes\Model\Interface</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -175,6 +184,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Tools\Scroller.h">
       <Filter>Classes\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Controller\InterfaceGame.h">
+      <Filter>Classes\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\Interface\CardCharacter.h">
+      <Filter>Classes\Model\Interface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -2,6 +2,7 @@
 #include "Controller/ReadLevel.h"
 #include "Model\Weather\Snow.h"
 #include "Tools\Scroller.h"
+#include "Controller\InterfaceGame.h"
 
 Scene* HelloWorld::createScene()
 {
@@ -24,6 +25,9 @@ bool HelloWorld::init()
 	Scroller* scroll = Scroller::create();
 	this->addChild(scroll);
 
+	InterfaceGame* interfaceGame = InterfaceGame::create();
+	this->addChild(interfaceGame);
+
 	Level* level = rl._level;
 	for(int i = 0; i < level->_cells->size(); i++)
 	{
@@ -32,6 +36,7 @@ bool HelloWorld::init()
 
 	for(int i = 0; i < level->_characters->size(); i++)
 	{
+		interfaceGame->addCharacter(level->_characters->get(level->_characters->size() -1 -i   ));
 		scroll->addChild(level->_characters->get(level->_characters->size() -1 -i   )->getTexture() );
 	}
 
