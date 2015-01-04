@@ -32,8 +32,9 @@ bool HelloWorld::init()
 
 	for(time_t i = 0; i < cells->size(); i++)
 	{
+		PPoint * point =  cells->at(cells->size() -1 -i)->getPosition();
 		_scroll->addChild(cells->at(cells->size() -1 -i)->getTexture(),
-			(cells->at(cells->size() -1 -i)->getPosition()->getXOriginal()  + cells->at(cells->size() -1 -i)->getPosition()->getYOriginal()) * -1 + cells->at(cells->size() -1 -i)->getOrder()
+			-(point->getXOriginal() + point->getYOriginal()) + cells->at(cells->size() -1 -i)->getOrder() * 200
 			);
 	}
 
