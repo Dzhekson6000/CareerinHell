@@ -25,6 +25,8 @@ public:
 	virtual void touchMoved(Touch* touch, Event* event);
 	virtual void touchEnded(Touch* touch, Event* event);
 
+	bool isInterfaceClick(Touch* touch);
+
 	void addCharacter(Character* character);
 
 	bool isSelectCharacter();

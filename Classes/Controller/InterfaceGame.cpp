@@ -2,6 +2,8 @@
 
 bool InterfaceGame::init()
 {
+	_selectCharacter = NULL;
+
 	_cardCharacters = new List<CardCharacter*>;
 	_cardCharacterLayer = Layer::create();
 	this->addChild(_cardCharacterLayer);
@@ -40,13 +42,13 @@ void InterfaceGame::addCharacter(Character* character)
 
 bool InterfaceGame::isSelectCharacter()
 {
-	if(_selectCharacter != nullptr) return true;
+	if(_selectCharacter != NULL) return true;
 	return false;
 }
 
 bool InterfaceGame::touchBegan(Touch* touch, Event* event)
 {
-	if(touch->getLocation().x < 138)
+	if(isInterfaceClick(touch))
 	{
 		_click = true;
 	}
@@ -75,4 +77,12 @@ void InterfaceGame::touchEnded(Touch* touch, Event* event)
 		}
 	}
 	_click = false;
+}
+
+bool InterfaceGame::isInterfaceClick(Touch* touch)
+{
+	if(touch->getLocation().x < 138 && touch->getLocation().y < (175 * _cardCharacters->size()) )
+		return true;
+
+	return false;
 }

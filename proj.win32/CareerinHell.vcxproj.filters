@@ -114,6 +114,9 @@
     <ClCompile Include="..\Classes\Model\Interface\CardCharacter.cpp">
       <Filter>Classes\Model\Interface</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Controller\MapController.cpp">
+      <Filter>Classes\Controller</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -190,6 +193,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Model\Interface\CardCharacter.h">
       <Filter>Classes\Model\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Controller\MapController.h">
+      <Filter>Classes\Controller</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
