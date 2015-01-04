@@ -157,6 +157,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\TinyXml\tinyxmlparser.cpp" />
     <ClCompile Include="..\Classes\Tools\PPoint.cpp" />
     <ClCompile Include="..\Classes\Tools\Scroller.cpp" />
+    <ClCompile Include="..\Classes\Tools\Snow.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -183,6 +184,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\TinyXml\tinyxml.h" />
     <ClInclude Include="..\Classes\Tools\PPoint.h" />
     <ClInclude Include="..\Classes\Tools\Scroller.h" />
+    <ClInclude Include="..\Classes\Tools\Snow.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

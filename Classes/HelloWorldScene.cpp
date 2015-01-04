@@ -28,6 +28,7 @@ bool HelloWorld::init()
 	_interfaceGame = InterfaceGame::create();
 	this->addChild(_interfaceGame);
 
+	_mapController = new MapController(rl.getLevel(), _scroll, _interfaceGame);
 
 	std::vector<Cell*>* cells = rl.getLevel()->getCells();
 
@@ -44,7 +45,10 @@ bool HelloWorld::init()
 	}
 
 	initTouch();
-    return true;
+    
+	
+	
+	return true;
 }
 
 void HelloWorld::initTouch()
