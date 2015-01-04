@@ -4,6 +4,8 @@
 #include "Tools\Scroller.h"
 #include "Controller\InterfaceGame.h"
 
+#define OFFSET    20
+
 Scene* HelloWorld::createScene()
 {
     auto scene = Scene::create();
@@ -72,10 +74,12 @@ void HelloWorld::touchMoved(Touch* touch, Event* event)
 
 void HelloWorld::touchEnded(Touch* touch, Event* event)
 {
-	if(_touchClick.getLocation().x == touch->getLocation().x &&
-		_touchClick.getLocation().y == touch->getLocation().y
-		)
+	if(!isScrollMap(touch))
 	{
 		_mapController->click(touch);
 	}
+}
+
+bool HelloWorld::isScrollMap(Touch* touch) {
+	return std::abs(_touchClick.getLocation().x - touch->getLocation().x) > OFFSET || std::abs(_touchClick.getLocation().y - touch->getLocation().y) > OFFSET;
 }

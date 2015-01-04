@@ -1,5 +1,6 @@
 #include "Scroller.h"
 
+#define OFFSET    20
 
 bool Scroller::init()
 {
@@ -32,6 +33,8 @@ bool Scroller::touchBegan(Touch* touch, Event* event)
 		_xPosition = touch->getLocation().x;
 		_yPosition = touch->getLocation().y;
 	}
+
+	_offsetPoint = touch->getLocation();
 	return true;
 }
 
@@ -40,7 +43,7 @@ void Scroller::touchMoved(Touch* touch, Event* event)
 
 	if(touch->getLocation().x < 0 || touch->getLocation().x > _size.width) return;
 
-	if(_moved)
+	if(_moved && isScrollMap(touch, _offsetPoint))
 	{
 		this->setPositionX(this->getPositionX() + (touch->getLocation().x - _xPosition) );
 		this->setPositionY(this->getPositionY() + (touch->getLocation().y - _yPosition) );
@@ -52,7 +55,12 @@ void Scroller::touchMoved(Touch* touch, Event* event)
 
 }
 
+bool Scroller::isScrollMap(Touch* touch, const CCPoint point) {
+	return std::abs(point.x - touch->getLocation().x) > OFFSET || std::abs(point.y - touch->getLocation().y) > OFFSET;
+}
+
 void Scroller::touchEnded(Touch* touch, Event* event)
 {
+	_offsetPoint = touch->getLocation();
 	_moved = false;
 }

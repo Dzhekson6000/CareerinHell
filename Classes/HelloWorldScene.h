@@ -26,6 +26,8 @@ private:
 	
 	Touch _touchClick;
 
+	bool isScrollMap(Touch* touch);
+
 public:
     static cocos2d::Scene* createScene();
 

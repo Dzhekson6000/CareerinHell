@@ -5,7 +5,7 @@
 
 USING_NS_CC;
 
-class Scroller : public cocos2d::Layer
+class Scroller : public Layer
 {
 private:
 	void initTouch();
@@ -15,6 +15,8 @@ private:
 	bool _moved;
 	float _xPosition;
 	float _yPosition;
+	CCPoint _offsetPoint;
+	bool isScrollMap(Touch* touch, const CCPoint point);
 
 public:
 	virtual bool touchBegan(Touch* touch, Event* event);
