@@ -110,6 +110,7 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Controller\MapController.cpp">
       <Filter>Classes\Controller</Filter>
+    </ClCompile>
     <ClCompile Include="..\Classes\Scene\AbstractScene.cpp">
       <Filter>Classes\Scene</Filter>
     </ClCompile>
@@ -183,6 +184,7 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Controller\MapController.h">
       <Filter>Classes\Controller</Filter>
+    </ClInclude>
     <ClInclude Include="..\Classes\Scene\AbstractScene.h">
       <Filter>Classes\Scene</Filter>
     </ClInclude>
