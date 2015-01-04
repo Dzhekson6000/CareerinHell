@@ -16,6 +16,7 @@ private:
 	bool _inversionY;
 	void updateInversion();
 protected:
+	int _order;
 	PPoint* _point;
 	Sprite* _sprite;
 	void createSprite(std::string textureName);
@@ -28,6 +29,8 @@ public:
 	void setPosition(PPoint* point);
 	void setInversionX(bool inversion);
 	void setInversionY(bool inversion);
+
+	int getOrder(){ return _order; }
 
 };
 #endif // CELL_H__

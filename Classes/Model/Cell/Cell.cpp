@@ -2,6 +2,7 @@
 
 Cell::Cell(PPoint* point)
 {
+	_order = 0;
 	_width = 0;
 	_height = 0;
 	_inversionX = false;

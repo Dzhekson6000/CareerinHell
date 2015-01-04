@@ -1,9 +1,5 @@
 #include "HelloWorldScene.h"
 
-#include "Controller/ReadLevel.h"
-#include "Tools\Scroller.h"
-#include "Controller\InterfaceGame.h"
-
 #define OFFSET    20
 
 Scene* HelloWorld::createScene()
@@ -36,7 +32,9 @@ bool HelloWorld::init()
 
 	for(time_t i = 0; i < cells->size(); i++)
 	{
-		_scroll->addChild(cells->at(cells->size() -1 -i   )->getTexture() );
+		_scroll->addChild(cells->at(cells->size() -1 -i)->getTexture(),
+			(cells->at(cells->size() -1 -i)->getPosition()->getXOriginal()  + cells->at(cells->size() -1 -i)->getPosition()->getYOriginal()) * -1 + cells->at(cells->size() -1 -i)->getOrder()
+			);
 	}
 
 	std::vector<Character*>* characters = rl.getLevel()->getCharacters();
