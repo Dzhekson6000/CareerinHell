@@ -5,7 +5,6 @@
 USING_NS_CC;
 
 #include "Controller/ReadLevel.h"
-#include "Model\Weather\Snow.h"
 #include "Tools\Scroller.h"
 #include "Controller\InterfaceGame.h"
 #include "Controller\MapController.h"
@@ -26,6 +25,7 @@ private:
 	MapController* _mapController;
 	
 	Touch _touchClick;
+
 public:
     static cocos2d::Scene* createScene();
 

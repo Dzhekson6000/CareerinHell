@@ -2,7 +2,7 @@
 #ifndef LOGO_SCENE_H_
 #define LOGO_SCENE_H_
 
-#include "Tools\AbstractScene.h"
+#include "Scene\AbstractScene.h"
 #include "MenuScene.h"
 
 

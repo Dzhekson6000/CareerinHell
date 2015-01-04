@@ -3,7 +3,6 @@
 
 #include "cocos2d.h"
 #include "Model\Interface\CardCharacter.h"
-#include "Tools\List.h"
 
 USING_NS_CC;
 
@@ -13,13 +12,12 @@ private:
 	Sprite* _spellbook;
 	Sprite* _buttonEnd—ourse;
 	Layer* _cardCharacterLayer;
-	List<CardCharacter*>* _cardCharacters;
+	std::vector<CardCharacter*>* _cardCharacters;
 
 	void initTouch();
 	EventListenerTouchOneByOne* _touchListener;
-
 	bool _click;
-	Character* _selectCharacter;
+	
 public:
 	virtual bool touchBegan(Touch* touch, Event* event);
 	virtual void touchMoved(Touch* touch, Event* event);
@@ -30,7 +28,8 @@ public:
 	void addCharacter(Character* character);
 
 	bool isSelectCharacter();
-	Character* getSelectCharacter(){ return _selectCharacter; };
+
+	CC_SYNTHESIZE_READONLY(Character*, _selectCharacter, SelectCharacter);
 
 	virtual bool init();  
     CREATE_FUNC(InterfaceGame);

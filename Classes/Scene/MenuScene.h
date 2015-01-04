@@ -1,7 +1,7 @@
 #ifndef MENU_SCENE_H__
 #define MENU_SCENE_H__
 
-#include "Tools/AbstractScene.h"
+#include "Scene\AbstractScene.h"
 #include "Controller\MenuController.h"
 #include "HelloWorldScene.h"
 

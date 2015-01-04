@@ -1,7 +1,5 @@
 #include "MenuScene.h"
 
-
-
 MenuScene* MenuScene::create() {
 	MenuScene* scene = new MenuScene();
 	if(scene && scene->init()){

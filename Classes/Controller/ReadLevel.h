@@ -6,7 +6,6 @@
 
 #include <fstream>
 #include "cocos2d.h"
-#include "Tools/List.h"
 #include "Level.h"
 
 #include "Model/Cell/Flooring.h"
@@ -26,7 +25,7 @@ USING_NS_CC;
 class ReadLevel {
 private:
 public:
-	Level* _level;
+	CC_SYNTHESIZE(Level*, _level, Level);
 	ReadLevel();
 	void readFile(std:: string fileName);
 

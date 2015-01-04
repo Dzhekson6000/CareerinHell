@@ -3,8 +3,7 @@
 bool InterfaceGame::init()
 {
 	_selectCharacter = NULL;
-
-	_cardCharacters = new List<CardCharacter*>;
+	_cardCharacters = new std::vector<CardCharacter*>;
 	_cardCharacterLayer = Layer::create();
 	this->addChild(_cardCharacterLayer);
 
@@ -37,7 +36,7 @@ void InterfaceGame::addCharacter(Character* character)
 	cardCharacter->getTexture()->setPosition(70, 83.5+ (175 * _cardCharacters->size()) );
 	this->addChild(cardCharacter->getTexture());
 
-	_cardCharacters->append(cardCharacter);
+	_cardCharacters->push_back(cardCharacter);
 }
 
 bool InterfaceGame::isSelectCharacter()
@@ -66,11 +65,11 @@ void InterfaceGame::touchEnded(Touch* touch, Event* event)
 		if(touch->getLocation().x < 138 && touch->getLocation().y < (175 * _cardCharacters->size()) ){
 		//клик по карте героя
 
-			for(int i = 0; i < _cardCharacters->size(); i++)//определяем по какой карте
+			for(time_t i = 0; i < _cardCharacters->size(); i++)//определяем по какой карте
 			{
 				if(touch->getLocation().y > (175 * i) && touch->getLocation().y < 175 + (175 * i) )
 				{
-					_selectCharacter = _cardCharacters->get(i)->getCharacter();
+					_selectCharacter = _cardCharacters->at(i)->getCharacter();
 					break;
 				}
 			}

@@ -5,7 +5,7 @@ ReadLevel::ReadLevel(){
 }
 
 void ReadLevel::readFile(std:: string fileName){
-	List<Cell*>* cells = new List<Cell*>();
+	std::vector<Cell*>* cells = new std::vector<Cell*>;
 
 	std::string fullPath = FileUtils::sharedFileUtils()->fullPathForFilename(fileName);
 
@@ -42,7 +42,7 @@ void ReadLevel::readFile(std:: string fileName){
 			{
 				int x = atoi(xmlElement->Attribute("x"));
 				int y = atoi(xmlElement->Attribute("y"));
-				cells->append(new Wall(new PPoint(x*50, y*50), tip, rotate, show) );
+				cells->push_back(new Wall(new PPoint(x*50, y*50), tip, rotate, show) );
 			} else {
 				int x = atoi(xmlElement->Attribute("x"));
 				int y = atoi(xmlElement->Attribute("y"));
@@ -50,7 +50,7 @@ void ReadLevel::readFile(std:: string fileName){
 				int y2 = atoi(xmlElement->Attribute("y2"));
 
 				for(int i = x; i <= x2; i++) for(int j = y; j <= y2; j++)
-					cells->append(new Wall(new PPoint(i*50, j*50), tip, rotate, show) );
+					cells->push_back(new Wall(new PPoint(i*50, j*50), tip, rotate, show) );
 			}
 		}else
 		if(!strcmp(nameElement, "Flooring") )
@@ -61,7 +61,7 @@ void ReadLevel::readFile(std:: string fileName){
 			{
 				int x = atoi(xmlElement->Attribute("x"));
 				int y = atoi(xmlElement->Attribute("y"));
-				cells->append(new Flooring(new PPoint(x*50, y*50), tip) );
+				cells->push_back(new Flooring(new PPoint(x*50, y*50), tip) );
 			} else {
 				int x = atoi(xmlElement->Attribute("x"));
 				int y = atoi(xmlElement->Attribute("y"));
@@ -69,7 +69,7 @@ void ReadLevel::readFile(std:: string fileName){
 				int y2 = atoi(xmlElement->Attribute("y2"));
 
 				for(int i = x; i <= x2; i++) for(int j = y; j <= y2; j++)
-					cells->append(new Flooring(new PPoint(i*50, j*50), tip) );
+					cells->push_back(new Flooring(new PPoint(i*50, j*50), tip) );
 			}
 		}else
 		if(!strcmp(nameElement, "AngleWall") )
@@ -85,7 +85,7 @@ void ReadLevel::readFile(std:: string fileName){
 			int x = atoi(xmlElement->Attribute("x"));
 			int y = atoi(xmlElement->Attribute("y"));
 
-			cells->append(new AngleWall(new PPoint(x*50, y*50), tip, tipAngle, show) );
+			cells->push_back(new AngleWall(new PPoint(x*50, y*50), tip, tipAngle, show) );
 		}else
 		if(!strcmp(nameElement, "IntersectionWall") )
 		{
@@ -100,7 +100,7 @@ void ReadLevel::readFile(std:: string fileName){
 			int x = atoi(xmlElement->Attribute("x"));
 			int y = atoi(xmlElement->Attribute("y"));
 
-			cells->append(new IntersectionWall(new PPoint(x*50, y*50), tip, tipIntersection, show) );
+			cells->push_back(new IntersectionWall(new PPoint(x*50, y*50), tip, tipIntersection, show) );
 		}else
 		if(!strcmp(nameElement, "EndWall") )
 		{
@@ -115,16 +115,16 @@ void ReadLevel::readFile(std:: string fileName){
 			int x = atoi(xmlElement->Attribute("x"));
 			int y = atoi(xmlElement->Attribute("y"));
 
-			cells->append(new EndWall(new PPoint(x*50, y*50), tip, tipEnd, show) );
+			cells->push_back(new EndWall(new PPoint(x*50, y*50), tip, tipEnd, show) );
 		}
 
 		xmlElement = xmlElement->NextSiblingElement();
 	}
 
 	
-	List<Character*>* characters = new List<Character*>();
-	characters->append(new Boat(new PPoint(5*50, 50*5), "boat", true ) );
+	std::vector<Character*>* characters = new std::vector<Character*>;
+	characters->push_back(new Boat(new PPoint(5*50, 50*5), "boat", true ) );
 
-	_level->_cells = cells;
-	_level->_characters = characters;
+	_level->setCells(cells);
+	_level->setCharacters(characters);
 }

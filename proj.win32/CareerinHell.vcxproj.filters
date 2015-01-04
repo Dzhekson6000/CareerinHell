@@ -51,9 +51,6 @@
     <ClCompile Include="..\Classes\Scene\LogoScene.cpp">
       <Filter>Classes\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Tools\AbstractScene.cpp">
-      <Filter>Classes\Tools</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Controller\MenuController.cpp">
       <Filter>Classes\Controller</Filter>
     </ClCompile>
@@ -96,9 +93,6 @@
     <ClCompile Include="..\Classes\Model\Cell\Wall.cpp">
       <Filter>Classes\Model\Cell</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Model\Weather\Snow.cpp">
-      <Filter>Classes\Model\Weather</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Model\Characters\Character.cpp">
       <Filter>Classes\Model\Characters</Filter>
     </ClCompile>
@@ -116,6 +110,8 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Controller\MapController.cpp">
       <Filter>Classes\Controller</Filter>
+    <ClCompile Include="..\Classes\Scene\AbstractScene.cpp">
+      <Filter>Classes\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -131,9 +127,6 @@
     <ClInclude Include="..\Classes\Scene\LogoScene.h">
       <Filter>Classes\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Tools\AbstractScene.h">
-      <Filter>Classes\Tools</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Controller\MenuController.h">
       <Filter>Classes\Controller</Filter>
     </ClInclude>
@@ -145,9 +138,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Scene\MenuScene.h">
       <Filter>Classes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Tools\List.h">
-      <Filter>Classes\Tools</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Tools\PPoint.h">
       <Filter>Classes\Tools</Filter>
@@ -176,9 +166,6 @@
     <ClInclude Include="..\Classes\Model\Cell\Wall.h">
       <Filter>Classes\Model\Cell</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Model\Weather\Snow.h">
-      <Filter>Classes\Model\Weather</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Model\Characters\Character.h">
       <Filter>Classes\Model\Characters</Filter>
     </ClInclude>
@@ -196,6 +183,8 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Controller\MapController.h">
       <Filter>Classes\Controller</Filter>
+    <ClInclude Include="..\Classes\Scene\AbstractScene.h">
+      <Filter>Classes\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

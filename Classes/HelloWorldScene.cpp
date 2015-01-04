@@ -1,5 +1,9 @@
 #include "HelloWorldScene.h"
 
+#include "Controller/ReadLevel.h"
+#include "Tools\Scroller.h"
+#include "Controller\InterfaceGame.h"
+
 Scene* HelloWorld::createScene()
 {
     auto scene = Scene::create();
@@ -24,27 +28,22 @@ bool HelloWorld::init()
 	_interfaceGame = InterfaceGame::create();
 	this->addChild(_interfaceGame);
 
-	Level* level = rl._level;
-	for(int i = 0; i < level->_cells->size(); i++)
+
+	std::vector<Cell*>* cells = rl.getLevel()->getCells();
+
+	for(time_t i = 0; i < cells->size(); i++)
 	{
-		_scroll->addChild(level->_cells->get(level->_cells->size() -1 -i   )->getTexture() );
+		_scroll->addChild(cells->at(cells->size() -1 -i   )->getTexture() );
 	}
 
-	for(int i = 0; i < level->_characters->size(); i++)
+	std::vector<Character*>* characters = rl.getLevel()->getCharacters();
+	for(time_t i = 0; i < characters->size(); i++)
 	{
-		_interfaceGame->addCharacter(level->_characters->get(level->_characters->size() -1 -i   ));
-		_scroll->addChild(level->_characters->get(level->_characters->size() -1 -i   )->getTexture() );
+		_interfaceGame->addCharacter(characters->at(characters->size() -1 -i   ));
+		_scroll->addChild(characters->at(characters->size() -1 -i   )->getTexture() );
 	}
-
-	_mapController = new MapController(level, _scroll, _interfaceGame);
-
-
-	Snow * s = Snow::create();
-	this->addChild(s);
-
 
 	initTouch();
-
     return true;
 }
 
