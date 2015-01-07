@@ -18,7 +18,7 @@ bool HelloWorld::init()
     }
 
 	ReadLevel rl = ReadLevel();
-	rl.readFile("map/home.xml");
+	rl.readFile("map/hell.xml");
 	
 	_scroll = Scroller::create();
 	this->addChild(_scroll);
