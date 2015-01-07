@@ -14,8 +14,8 @@ void MapController::click(Touch* touch)
 	float xClick = touch->getLocation().x - _scroll->getPositionX();
 	float yClick = touch->getLocation().y - _scroll->getPositionY();
 
-	int xCell = (yClick + xClick / 2)/50;
-	int yCell = (yClick - xClick / 2)/50;
+	int xCell = floor( (yClick + xClick / 2)/50 );
+	int yCell = floor(  (yClick - xClick / 2)/50 );
 
 
 	if(_interfaceGame->isSelectCharacter())
