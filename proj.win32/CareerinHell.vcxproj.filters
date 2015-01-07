@@ -117,6 +117,9 @@
     <ClCompile Include="..\Classes\Tools\Snow.cpp">
       <Filter>Classes\Tools</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Model\Cell\CellPortal.cpp">
+      <Filter>Classes\Model\Cell</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -193,6 +196,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Tools\Snow.h">
       <Filter>Classes\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\Cell\CellPortal.h">
+      <Filter>Classes\Model\Cell</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

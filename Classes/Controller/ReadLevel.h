@@ -14,6 +14,7 @@
 #include "Model/Cell/AngleWall.h"
 #include "Model/Cell/IntersectionWall.h"
 #include "Model/Cell/EndWall.h"
+#include "Model/Cell/CellPortal.h"
 
 #include "Model/Characters/Boat.h"
 

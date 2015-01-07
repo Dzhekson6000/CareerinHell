@@ -116,6 +116,18 @@ void ReadLevel::readFile(std:: string fileName){
 			int y = atoi(xmlElement->Attribute("y"));
 
 			cells->push_back(new EndWall(new PPoint(x*50, y*50), tip, tipEnd, show) );
+		}else
+		if(!strcmp(nameElement, "Portal") )
+		{
+			bool rotate=false;
+			
+			std::string tip = xmlElement->Attribute("tip");
+
+			if(!strcmp(xmlElement->Attribute("rotate"), "l") ) rotate = true;
+			int x = atoi(xmlElement->Attribute("x"));
+			int y = atoi(xmlElement->Attribute("y"));
+
+			cells->push_back(new CellPortal(new PPoint(x*50, y*50), tip, rotate) );
 		}
 
 		xmlElement = xmlElement->NextSiblingElement();

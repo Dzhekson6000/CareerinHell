@@ -32,5 +32,7 @@ public:
 
 	int getOrder(){ return _order; }
 
+	virtual void click(){};
+
 };
 #endif // CELL_H__
