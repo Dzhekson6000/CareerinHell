@@ -135,7 +135,7 @@ void ReadLevel::readFile(std:: string fileName){
 
 	
 	std::vector<Character*>* characters = new std::vector<Character*>;
-	characters->push_back(new Boat(new PPoint(5*50, 50*5), "boat", true ) );
+	characters->push_back(new Boat(1, new PPoint(5*50, 50*5), "boat", true ) );
 
 	_level->setCells(cells);
 	_level->setCharacters(characters);

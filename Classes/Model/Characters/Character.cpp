@@ -1,7 +1,8 @@
 #include "Character.h"
 
-Character::Character(PPoint* point)
+Character::Character(int id, PPoint* point)
 {
+	_id = id;
 	_width = 0;
 	_height = 0;
 	_inversionX = false;

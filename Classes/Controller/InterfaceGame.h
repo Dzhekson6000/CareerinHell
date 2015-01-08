@@ -17,6 +17,8 @@ private:
 	void initTouch();
 	EventListenerTouchOneByOne* _touchListener;
 	bool _click;
+
+	void cardClear();
 	
 public:
 	virtual bool touchBegan(Touch* touch, Event* event);

@@ -8,7 +8,8 @@ class Boat:public Character
 {
 private:
 public:
-	Boat(PPoint* point, //начальное положение
+	Boat(int id,
+		PPoint* point, //начальное положение
 		std::string tip, //тип существа
 		bool angle // поворот true=l=налево, false=r=направо
 		);

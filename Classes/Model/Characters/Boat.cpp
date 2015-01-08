@@ -1,6 +1,6 @@
 #include "Boat.h"
 
-Boat::Boat(PPoint* point,std::string tip,bool angle):Character(point)
+Boat::Boat(int id, PPoint* point,std::string tip,bool angle):Character(id, point)
 {
 	setInversionX(true);
 	setCenter(16, 77);

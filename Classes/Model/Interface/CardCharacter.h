@@ -8,10 +8,14 @@ USING_NS_CC;
 
 class CardCharacter
 {
-
+private:
+	Sprite* _card;
+	Sprite* _cardSelect;
 public:
 	CardCharacter(Character * character);
 	CC_SYNTHESIZE(Character*, _character, Character);
-	CC_SYNTHESIZE_READONLY(Sprite*, _sprite, Texture);
+	CC_SYNTHESIZE_READONLY(Layer*, _sprite, Texture);
+
+	void setSelect(bool select);
 };
 #endif // CARDCHARACTERS_H__

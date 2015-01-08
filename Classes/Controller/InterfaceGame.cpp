@@ -62,14 +62,23 @@ void InterfaceGame::touchEnded(Touch* touch, Event* event)
 {
 	if(_click)
 	{
-		if(touch->getLocation().x < 138 && touch->getLocation().y < (175 * _cardCharacters->size()) ){
+		if(isInterfaceClick(touch) ){
 		//клик по карте героя
 
 			for(time_t i = 0; i < _cardCharacters->size(); i++)//определяем по какой карте
 			{
 				if(touch->getLocation().y > (175 * i) && touch->getLocation().y < 175 + (175 * i) )
 				{
-					_selectCharacter = _cardCharacters->at(i)->getCharacter();
+					 
+					 if(isSelectCharacter() && _selectCharacter->getId() == _cardCharacters->at(i)->getCharacter()->getId())
+					 {
+						 _cardCharacters->at(i)->setSelect(false);
+						 _selectCharacter = NULL;
+					 } else {
+						 cardClear();
+						 _cardCharacters->at(i)->setSelect(true);
+						_selectCharacter = _cardCharacters->at(i)->getCharacter();
+					 }
 					break;
 				}
 			}
@@ -84,4 +93,12 @@ bool InterfaceGame::isInterfaceClick(Touch* touch)
 		return true;
 
 	return false;
+}
+
+void InterfaceGame::cardClear()
+{
+	for(time_t i = 0; i < _cardCharacters->size(); i++)//определяем по какой карте
+	{
+		_cardCharacters->at(i)->setSelect(false);
+	}
 }
