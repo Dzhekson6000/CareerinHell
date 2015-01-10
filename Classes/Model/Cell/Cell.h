@@ -2,10 +2,9 @@
 #define CELL_H__
 #include "cocos2d.h"
 #include "Tools/PPoint.h"
+#include "Common/common.h"
 
 USING_NS_CC;
-
-#define defaultImage "img/defaultImage.png"
 
 class Cell
 {
@@ -14,7 +13,7 @@ private:
 	int _height;
 	bool _inversionX;
 	bool _inversionY;
-	void updateInversion();
+	int getInverse(bool inversion);
 protected:
 	int _order;
 	PPoint* _point;
@@ -25,7 +24,7 @@ public:
 	PPoint* getPosition();
 	Sprite* getTexture();
 
-	void setDimensions(int width, int height);
+	void setSize(int width, int height);
 	void setPosition(PPoint* point);
 	void setInversionX(bool inversion);
 	void setInversionY(bool inversion);

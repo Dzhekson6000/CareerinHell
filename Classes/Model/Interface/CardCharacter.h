@@ -2,7 +2,8 @@
 #define CARDCHARACTERS_H__
 
 #include "cocos2d.h"
-#include "..\Characters\Character.h"
+#include "Model/Characters/Character.h"
+#include "Common/common.h"
 
 USING_NS_CC;
 

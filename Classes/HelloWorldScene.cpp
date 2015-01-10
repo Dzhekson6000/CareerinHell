@@ -46,9 +46,7 @@ bool HelloWorld::init()
 	}
 
 	initTouch();
-    
-	
-	
+  	
 	return true;
 }
 

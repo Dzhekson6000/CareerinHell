@@ -3,9 +3,9 @@
 Wall::Wall(PPoint* point, std::string tip, bool rotate, bool show):Cell(point)
 {
 	setInversionX(!rotate);
-	if(show) setDimensions(100, 204); else setDimensions(100, 64);
+	if(show) setSize(100, 204); else setSize(100, 64);
 
-	std::string path = "img/walls/" + tip;
+	std::string path = PATH_WALLS + tip;
 	if(!show) path+= "_s";
 
 	createSprite(path);

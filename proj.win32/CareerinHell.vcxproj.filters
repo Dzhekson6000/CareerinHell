@@ -37,6 +37,9 @@
     <Filter Include="Classes\Model\Interface">
       <UniqueIdentifier>{038c2fea-1b21-44cd-84ff-06ffdb75bcca}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Common">
+      <UniqueIdentifier>{b5731c19-d0e3-4746-a94a-951d220ab007}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -199,6 +202,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Model\Cell\CellPortal.h">
       <Filter>Classes\Model\Cell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Common\common.h">
+      <Filter>Classes\Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

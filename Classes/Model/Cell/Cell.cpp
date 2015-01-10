@@ -5,10 +5,8 @@ Cell::Cell(PPoint* point)
 	_order = 0;
 	_width = 0;
 	_height = 0;
-	_inversionX = false;
-	_inversionY = false;
 	this->_sprite = Sprite::create(defaultImage);
-	this->setDimensions(100,100);
+	this->setSize(100,100);
 	setPosition(point);
 }
 
@@ -22,7 +20,8 @@ void Cell::createSprite(std::string textureName)
 {
 	_sprite = Sprite::create(textureName + ".png");
 	setPosition(_point);
-	updateInversion();
+	_sprite->setScaleX(getInverse(_inversionX));
+	_sprite->setScaleY(getInverse(_inversionY));
 }
 
 Sprite* Cell::getTexture()
@@ -36,7 +35,7 @@ void Cell::setPosition(PPoint* point)
 	this->_sprite->setPosition(point->getX(), point->getY() + (_height/2) );
 }
 
-void Cell::setDimensions(int width, int height)
+void Cell::setSize(int width, int height)
 {
 	_width = width;
 	_height = height;
@@ -45,17 +44,16 @@ void Cell::setDimensions(int width, int height)
 void Cell::setInversionX(bool inversion)
 {
 	_inversionX = inversion;
-	updateInversion();
+	_sprite->setScaleX(getInverse(inversion));
 }
 
 void Cell::setInversionY(bool inversion)
 {
 	_inversionY = inversion;
-	updateInversion();
+	_sprite->setScaleY(getInverse(inversion));
 }
 
-void Cell::updateInversion()
+int Cell::getInverse(bool inversion)
 {
-	if(_inversionX) _sprite->setScaleX(-1); else _sprite->setScaleX(1);
-	if(_inversionY) _sprite->setScaleY(-1); else _sprite->setScaleY(1);
+	return inversion ? -1: 1;
 }

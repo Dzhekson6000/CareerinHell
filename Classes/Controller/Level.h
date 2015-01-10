@@ -1,8 +1,8 @@
 #ifndef Level_H_
 #define Level_H_
 
-#include "Model\Cell\Cell.h"
-#include "Model\Characters\Character.h"
+#include "Model/Cell/Cell.h"
+#include "Model/Characters/Character.h"
 
 class Level {
 

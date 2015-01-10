@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "Tools/PPoint.h"
+#include "Common/common.h"
 USING_NS_CC;
 
 class Snow : public Layer

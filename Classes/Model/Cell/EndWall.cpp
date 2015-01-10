@@ -3,7 +3,7 @@
 EndWall::EndWall(PPoint* point, std::string tip, int tipEnd, bool show):Cell(point)
 {
 	
-	if(show) setDimensions(100, 204); else setDimensions(100, 64);
+	if(show) setSize(100, 204); else setSize(100, 64);
 
 	if(tipEnd == 1)
 	{
@@ -19,7 +19,7 @@ EndWall::EndWall(PPoint* point, std::string tip, int tipEnd, bool show):Cell(poi
 	char tipEnd_str[25];
 	_itoa(tipEnd,tipEnd_str,10);
 
-	std::string path = "img/walls/" + tip + "_e" + tipEnd_str;
+	std::string path = PATH_WALLS + tip + "_e" + tipEnd_str;
 
 	if(!show) path+= "_s";
 

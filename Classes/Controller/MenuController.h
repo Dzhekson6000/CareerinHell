@@ -2,6 +2,7 @@
 #define MENU_CONTROLLER_H_
 
 #include "cocos2d.h"
+#include "Common/common.h"
 
 USING_NS_CC;
 class MenuController{

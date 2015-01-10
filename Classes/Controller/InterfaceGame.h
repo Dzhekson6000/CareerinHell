@@ -2,7 +2,7 @@
 #define INTERFACEGAME_H__
 
 #include "cocos2d.h"
-#include "Model\Interface\CardCharacter.h"
+#include "Model/Interface/CardCharacter.h"
 
 USING_NS_CC;
 

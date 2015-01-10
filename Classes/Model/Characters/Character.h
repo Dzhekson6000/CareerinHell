@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "Tools/PPoint.h"
+#include "Common/common.h"
 
 USING_NS_CC;
 
@@ -13,8 +14,8 @@ private:
 	int _height;
 	bool _inversionX;
 	bool _inversionY;
-	void updateInversion();
 	void update();
+	int getInverse(bool inversion);
 protected:
 	int _id;
 	PPoint* _point;
@@ -26,7 +27,7 @@ public:
 	Sprite* getTexture();
 	int getId(){ return _id; };
 
-	void setCenter(int width, int height);
+	void setSize(int width, int height);
 	void setPosition(PPoint* point);
 	void setInversionX(bool inversion);
 	void setInversionY(bool inversion);

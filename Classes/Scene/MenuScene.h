@@ -1,8 +1,8 @@
 #ifndef MENU_SCENE_H__
 #define MENU_SCENE_H__
 
-#include "Scene\AbstractScene.h"
-#include "Controller\MenuController.h"
+#include "Scene/AbstractScene.h"
+#include "Controller/MenuController.h"
 #include "HelloWorldScene.h"
 
 class MenuScene : public AbstractScene {

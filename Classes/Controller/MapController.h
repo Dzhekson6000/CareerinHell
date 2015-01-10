@@ -4,8 +4,8 @@
 #include "cocos2d.h"
 #include "InterfaceGame.h"
 #include "Level.h"
-#include "Tools\Scroller.h"
-#include "Tools\PPoint.h"
+#include "Tools/Scroller.h"
+#include "Tools/PPoint.h"
 
 USING_NS_CC;
 

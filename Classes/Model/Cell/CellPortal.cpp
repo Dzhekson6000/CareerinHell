@@ -3,9 +3,9 @@
 CellPortal::CellPortal(PPoint* point, std::string tip, bool rotate):Cell(point)
 {
 	setInversionX(!rotate);
-	setDimensions(100, 204);
+	setSize(100, 204);
 
-	std::string path = "img/portals/" + tip;
+	std::string path = PATH_PORTALS + tip;
 
 	createSprite(path);
 

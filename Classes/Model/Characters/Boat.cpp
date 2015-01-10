@@ -3,9 +3,9 @@
 Boat::Boat(int id, PPoint* point,std::string tip,bool angle):Character(id, point)
 {
 	setInversionX(true);
-	setCenter(16, 77);
+	setSize(16, 77);
 
-	std::string path = "img/characters/" + tip;
+	std::string path = PATH_CHARACTERS + tip;
 
 	createSprite(path);
 }

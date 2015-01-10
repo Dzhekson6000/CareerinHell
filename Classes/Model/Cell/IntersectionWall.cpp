@@ -3,9 +3,9 @@
 IntersectionWall::IntersectionWall(PPoint* point, std::string tip, int tipIntersection, bool show):Cell(point)
 {
 	
-	if(show) setDimensions(100, 204); else setDimensions(100, 64);
+	if(show) setSize(100, 204); else setSize(100, 64);
 
-	std::string path = "img/walls/" + tip + "_i";
+	std::string path = PATH_WALLS + tip + "_i";
 
 	if(tipIntersection == 1)
 	{
