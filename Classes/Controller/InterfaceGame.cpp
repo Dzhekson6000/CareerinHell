@@ -7,12 +7,12 @@ bool InterfaceGame::init()
 	_cardCharacterLayer = Layer::create();
 	this->addChild(_cardCharacterLayer);
 
-	_spellbook = Sprite::create(PATH_INTERFACE + "spellbook.png");
+	_spellbook = Sprite::create(PATH_INTERFACE  "spellbook.png");
 	_spellbook->setPosition(1214, 83);
 	this->addChild(_spellbook);
 
 
-	_buttonEndÑourse = Sprite::create(PATH_INTERFACE + "buttonEndCourse.png");
+	_buttonEndÑourse = Sprite::create(PATH_INTERFACE  "buttonEndCourse.png");
 	_buttonEndÑourse->setPosition(650, 64);
 	this->addChild(_buttonEndÑourse);
 

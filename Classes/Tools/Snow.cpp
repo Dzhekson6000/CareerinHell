@@ -31,7 +31,7 @@ void Snow::update(float dt)
 
 void Snow::createSnow(float dt)
 {
-	Sprite* sprite = Sprite::create(PATH_EXTRA + "Snow.png");
+	Sprite* sprite = Sprite::create(PATH_EXTRA "Snow.png");
 	sprite->setPosition(
 			rand()%1300,
 			750

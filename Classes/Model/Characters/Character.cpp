@@ -7,7 +7,7 @@ Character::Character(int id, PPoint* point)
 	_height = 0;
 	_inversionX = false;
 	_inversionY = false;
-	this->_sprite = Sprite::create(PATH_CHARACTERS + "boat.png");
+	this->_sprite = Sprite::create(PATH_CHARACTERS "boat.png");
 	this->setSize(100,100);
 	setPosition(point);
 }

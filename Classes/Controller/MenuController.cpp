@@ -1,16 +1,16 @@
 #include "Controller\MenuController.h"
 void MenuController::init(){
 
-	_fon = Sprite::create(PATH_IMG + "MenuSceneFon.png");
+	_fon = Sprite::create(PATH_IMG  "MenuSceneFon.png");
 	_fon->setPosition(Point(620, 360));
 
-	_buttonNext = Sprite::create(PATH_IMG + "MenuSceneButtonNext.png");
+	_buttonNext = Sprite::create(PATH_IMG  "MenuSceneButtonNext.png");
 	_buttonNext->setPosition(Point(620, 360));
 
-	_buttonNewGame = Sprite::create(PATH_IMG + "MenuSceneButtonNewGame.png");
+	_buttonNewGame = Sprite::create(PATH_IMG  "MenuSceneButtonNewGame.png");
 	_buttonNewGame->setPosition(Point(620, 360));
 
-	_buttonExit = Sprite::create(PATH_IMG + "MenuSceneButtonExit.png");
+	_buttonExit = Sprite::create(PATH_IMG  "MenuSceneButtonExit.png");
 	_buttonExit->setPosition(Point(620, 360));
 
 }
