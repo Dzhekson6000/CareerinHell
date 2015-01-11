@@ -1,16 +1,18 @@
-#include "HelloWorldScene.h"
+#include "GameScene.h"
 
 #define OFFSET    20
 
-Scene* HelloWorld::createScene()
+GameScene* GameScene::create(SoundController* soundController)
 {
-    auto scene = Scene::create();
-    auto layer = HelloWorld::create();
-    scene->addChild(layer);
-    return scene;
+	GameScene* scene = new GameScene();
+	if(scene && scene->init(soundController)){
+		return (GameScene*)scene->autorelease();
+	}
+	CC_SAFE_DELETE(scene);
+	return scene;
 }
 
-bool HelloWorld::init()
+bool GameScene::init(SoundController* soundController)
 {
     if ( !Layer::init() )
     {
@@ -18,7 +20,7 @@ bool HelloWorld::init()
     }
 
 	ReadLevel rl = ReadLevel();
-	rl.readFile("map/hell.xml");
+	rl.readFile("map/home.xml");
 	
 	_scroll = Scroller::create();
 	this->addChild(_scroll);
@@ -47,29 +49,32 @@ bool HelloWorld::init()
 
 	initTouch();
   	
+	scene_ = Scene::create();
+	scene_->addChild(this);
+
 	return true;
 }
 
-void HelloWorld::initTouch()
+void GameScene::initTouch()
 {
 	_touchListener = EventListenerTouchOneByOne::create();
-	_touchListener->onTouchBegan = CC_CALLBACK_2(HelloWorld::touchBegan,this);
-	_touchListener->onTouchMoved = CC_CALLBACK_2(HelloWorld::touchMoved, this);
-	_touchListener->onTouchEnded = CC_CALLBACK_2(HelloWorld::touchEnded,this);
+	_touchListener->onTouchBegan = CC_CALLBACK_2(GameScene::touchBegan,this);
+	_touchListener->onTouchMoved = CC_CALLBACK_2(GameScene::touchMoved, this);
+	_touchListener->onTouchEnded = CC_CALLBACK_2(GameScene::touchEnded,this);
 	getEventDispatcher()->addEventListenerWithFixedPriority(_touchListener, 103);
 }
 
-bool HelloWorld::touchBegan(Touch* touch, Event* event)
+bool GameScene::touchBegan(Touch* touch, Event* event)
 {
 	_touchClick = *touch;
 	return true;
 }
 
-void HelloWorld::touchMoved(Touch* touch, Event* event)
+void GameScene::touchMoved(Touch* touch, Event* event)
 {
 }
 
-void HelloWorld::touchEnded(Touch* touch, Event* event)
+void GameScene::touchEnded(Touch* touch, Event* event)
 {
 	if(!isScrollMap(touch))
 	{
@@ -77,6 +82,6 @@ void HelloWorld::touchEnded(Touch* touch, Event* event)
 	}
 }
 
-bool HelloWorld::isScrollMap(Touch* touch) {
+bool GameScene::isScrollMap(Touch* touch) {
 	return std::abs(_touchClick.getLocation().x - touch->getLocation().x) > OFFSET || std::abs(_touchClick.getLocation().y - touch->getLocation().y) > OFFSET;
 }

@@ -1,10 +1,12 @@
 #include "MenuScene.h"
+#include "SimpleAudioEngine.h"
 
-MenuScene* MenuScene::create() {
+
+
+MenuScene* MenuScene::create()
+{
 	MenuScene* scene = new MenuScene();
-	if(scene && scene->init()){
-		return (MenuScene*)scene->autorelease();
-	}
+	if(scene && scene->init()) return (MenuScene*)scene->autorelease();
 	CC_SAFE_DELETE(scene);
 	return scene;
 }
@@ -14,7 +16,15 @@ bool MenuScene::init() {
     if (!Layer::init()) {
         return false;
     }
-	
+
+	_soundController = new SoundController();
+	_soundController->preloadEffect(ES_FIRE);
+	_soundController->preloadMusic("sound/1.wav");
+	_soundController->preloadMusic("sound/2.wav");
+	_soundController->preloadMusic("sound/3.wav");
+	_soundController->preloadMusic("sound/4.wav");
+	_soundController->preloadMusic("sound/5.wav");
+
 	menuController_ = new MenuController();
 	menuController_->init();
 
@@ -64,16 +74,19 @@ void MenuScene::TouchEnded(Touch* touch, Event* event) {
  switch (item) {
 		case 1:
 			//клик на кнопку продолжить
+			_soundController->playEffect(ES_FIRE);
 			getEventDispatcher()->removeEventListener(touchListener_);
-			Director::getInstance()->pushScene(HelloWorld::createScene() );
+			Director::getInstance()->pushScene(GameScene::create(_soundController)->getScene() );
 			break;
 		case 2:
 			//клик на кнопку новая игра
-			getEventDispatcher()->removeEventListener(touchListener_);
+			_soundController->playEffect(ES_FIRE);
+			//getEventDispatcher()->removeEventListener(touchListener_);
 			//Director::getInstance()->pushScene(LevelMenuScene::create()->getScene());
 			break;
 		case 3:
 			//клик на кнопку выход
+			_soundController->playEffect(ES_FIRE);
 			Director::getInstance()->end();
 			break;
 		default:

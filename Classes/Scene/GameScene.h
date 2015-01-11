@@ -1,21 +1,15 @@
-#ifndef __HELLOWORLD_SCENE_H__
-#define __HELLOWORLD_SCENE_H__
+#ifndef GAME_SCENE_H__
+#define GAME_SCENE_H__
 
-#include "cocos2d.h"
-USING_NS_CC;
+#include "Scene/AbstractScene.h"
+#include "Tools/Scroller.h"
 
 #include "Controller/ReadLevel.h"
-#include "Tools\Scroller.h"
-#include "Controller\InterfaceGame.h"
-#include "Controller\MapController.h"
+#include "Controller/SoundController.h"
+#include "Controller/InterfaceGame.h"
+#include "Controller/MapController.h"
 
-struct Room
-{
-    int tip;     
-};
-
-class HelloWorld : public cocos2d::Layer
-{
+class GameScene : public AbstractScene {
 private:
 	void initTouch();
 	EventListenerTouchOneByOne* _touchListener;
@@ -27,16 +21,14 @@ private:
 	Touch _touchClick;
 
 	bool isScrollMap(Touch* touch);
-
 public:
-    static cocos2d::Scene* createScene();
+	static GameScene* create(SoundController* soundController);
+	virtual bool init(SoundController* soundController);
 
 	virtual bool touchBegan(Touch* touch, Event* event);
 	virtual void touchMoved(Touch* touch, Event* event);
 	virtual void touchEnded(Touch* touch, Event* event);
 
-    virtual bool init();  
-    CREATE_FUNC(HelloWorld);
 };
 
-#endif // __HELLOWORLD_SCENE_H__
+#endif // GAME_SCENE_H__

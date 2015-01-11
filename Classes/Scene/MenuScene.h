@@ -3,11 +3,14 @@
 
 #include "Scene/AbstractScene.h"
 #include "Controller/MenuController.h"
-#include "HelloWorldScene.h"
+#include "Controller/SoundController.h"
+#include "GameScene.h"
+
 
 class MenuScene : public AbstractScene {
 
 private:
+	SoundController* _soundController;
 	EventListenerTouchOneByOne* touchListener_;
 	MenuController* menuController_;
 public:

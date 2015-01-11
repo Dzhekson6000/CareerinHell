@@ -1,6 +1,8 @@
 #ifndef __COMMON_H__
 #define __COMMON_H__
 
+#define PATH_FONTS					"fonts/"
+
 #define PATH_IMG					"img/"
 #define PATH_FLOOR		PATH_IMG	"flooring/"
 #define PATH_PORTALS	PATH_IMG	"portals/"
@@ -10,5 +12,9 @@
 #define PATH_EXTRA		PATH_IMG	"extra/"
 
 #define defaultImage	PATH_IMG	"defaultImage.png"
+
+#define PATH_MAP					"map/"
+
+#define PATH_SOUND					"sound/"
 
 #endif    // __COMMON_H__
