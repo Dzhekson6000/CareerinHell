@@ -5,6 +5,8 @@ Cell::Cell(PPoint* point)
 	_order = 0;
 	_width = 0;
 	_height = 0;
+	_inversionX = false;
+	_inversionY = false;
 	this->_sprite = Sprite::create(defaultImage);
 	this->setSize(100,100);
 	setPosition(point);
