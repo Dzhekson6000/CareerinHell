@@ -1,10 +1,13 @@
 #include "MapController.h"
 
+#define DNT_WALK 255
+
 MapController::MapController(Level* level, Scroller* scroll, InterfaceGame* interfaceGame)
 {
 	_level = level;
 	_scroll = scroll;
 	_interfaceGame = interfaceGame;
+	initPassageWays();
 }
 
 void MapController::click(Touch* touch)
@@ -34,4 +37,61 @@ void MapController::click(Touch* touch)
 		}
 	}
 
+}
+
+int** MapController::getPassageWays()
+{
+	std::vector<Cell*>* cells = _level->getCells();
+	clearPassageWays();
+
+	for(time_t i = 0; i < cells->size(); i++)
+	{
+		PPoint * point =  cells->at(cells->size() -1 -i)->getPosition();
+		int x = (int)floor(point->getXOriginal()/50);
+		int y = (int)floor(point->getYOriginal()/50);
+		_passageWays[x][y] = cells->at(cells->size() -1 -i)->getPassage();
+	}
+
+	for(int i=0; i<_xMax; i++)
+	{
+		for(int j=0; j<_yMax; j++)
+		{
+			if(_passageWays[i][j] == -1) _passageWays[i][j] = DNT_WALK;
+		}
+	}
+
+	return _passageWays;
+}
+
+void MapController::initPassageWays()
+{
+	std::vector<Cell*>* cells = _level->getCells();
+	for(time_t i = 0; i < cells->size(); i++)
+	{
+		PPoint * point =  cells->at(cells->size() -1 -i)->getPosition();
+		int x = (int)floor(point->getXOriginal()/50);
+		int y = (int)floor(point->getYOriginal()/50);
+		if(_xMax < x) _xMax = x;
+		if(_yMax < y) _yMax = y;
+	}
+
+	_passageWays = new int*[_xMax];
+	for(int i=0; i<_xMax; i++)
+	{
+		_passageWays[i] = new int [_yMax];
+		for(int j=0; j<_yMax; j++)
+		{
+			_passageWays[i][j] = -1;
+		}
+	}
+}
+void MapController::clearPassageWays()
+{
+	for(int i=0; i<_xMax; i++)
+	{
+		for(int j=0; j<_yMax; j++)
+		{
+			_passageWays[i][j] = -1;
+		}
+	}
 }

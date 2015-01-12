@@ -18,6 +18,7 @@ private:
 	int getInverse(bool inversion);
 protected:
 	int _order;
+	int _passage;
 	PPoint* _point;
 	Sprite* _sprite;
 	void createSprite(std::string textureName);
@@ -31,7 +32,8 @@ public:
 	void setPosition(PPoint* point);
 	void setInversionX(bool inversion);
 	void setInversionY(bool inversion);
-
+	
+	int getPassage(){ return _passage; }
 	int getOrder(){ return _order; }
 
 	virtual void click(){};

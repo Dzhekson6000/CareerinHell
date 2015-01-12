@@ -7,6 +7,7 @@ Cell::Cell(PPoint* point)
 	_height = 0;
 	_xCenter = 0;
 	_yCenter = 0;
+	_passage = 255;
 	_inversionX = false;
 	_inversionY = false;
 	this->_sprite = Sprite::create(defaultImage);
