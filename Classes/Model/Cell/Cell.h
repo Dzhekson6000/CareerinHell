@@ -11,6 +11,8 @@ class Cell
 private:
 	int _width;
 	int _height;
+	int _xCenter;
+	int _yCenter;
 	bool _inversionX;
 	bool _inversionY;
 	int getInverse(bool inversion);
@@ -25,6 +27,7 @@ public:
 	Sprite* getTexture();
 
 	void setSize(int width, int height);
+	void setCenter(int xCenter, int yCenter);
 	void setPosition(PPoint* point);
 	void setInversionX(bool inversion);
 	void setInversionY(bool inversion);

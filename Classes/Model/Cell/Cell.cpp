@@ -5,6 +5,8 @@ Cell::Cell(PPoint* point)
 	_order = 0;
 	_width = 0;
 	_height = 0;
+	_xCenter = 0;
+	_yCenter = 0;
 	_inversionX = false;
 	_inversionY = false;
 	this->_sprite = Sprite::create(defaultImage);
@@ -34,13 +36,20 @@ Sprite* Cell::getTexture()
 void Cell::setPosition(PPoint* point)
 {
 	_point = point;
-	this->_sprite->setPosition(point->getX(), point->getY() + (_height/2) );
+	this->_sprite->setPosition(point->getX() - _xCenter, point->getY() + _yCenter);
 }
 
 void Cell::setSize(int width, int height)
 {
 	_width = width;
 	_height = height;
+	_yCenter = (_height/2);
+}
+
+void Cell::setCenter(int xCenter, int yCenter)
+{
+	_xCenter = xCenter;
+	_yCenter = yCenter;
 }
 
 void Cell::setInversionX(bool inversion)

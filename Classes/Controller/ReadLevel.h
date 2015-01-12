@@ -18,6 +18,7 @@
 
 #include "Model/Characters/Boat.h"
 
+#include "Model/Object/Bed.h"
 
 #include <TinyXml/tinyxml.h>
 

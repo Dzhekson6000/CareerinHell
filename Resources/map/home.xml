@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <level name="Demo Level 1">
+	<Bed x="2" y="2" rotate="r"/>
 	<AngleWall  x="0" y="-10" tipAngle="3" tip="def" show="false" />
 	<Wall x="0" y="-9" x2="0" y2="-1" rotate="r" tip="def" show="false" />
 	<IntersectionWall  x="0" y="0" tipIntersection="4" tip="def" show="false" />

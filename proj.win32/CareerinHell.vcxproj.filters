@@ -40,15 +40,15 @@
     <Filter Include="Classes\Common">
       <UniqueIdentifier>{b5731c19-d0e3-4746-a94a-951d220ab007}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Model\Object">
+      <UniqueIdentifier>{773b5a00-f635-49cc-a981-7aa2af0de7e5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>win32</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Scene\LogoScene.cpp">
@@ -129,15 +129,15 @@
     <ClCompile Include="..\Classes\Scene\GameScene.cpp">
       <Filter>Classes\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Model\Object\Bed.cpp">
+      <Filter>Classes\Model\Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
       <Filter>win32</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\AppDelegate.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\HelloWorldScene.h">
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Scene\LogoScene.h">
@@ -217,6 +217,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Scene\GameScene.h">
       <Filter>Classes\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\Object\Bed.h">
+      <Filter>Classes\Model\Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

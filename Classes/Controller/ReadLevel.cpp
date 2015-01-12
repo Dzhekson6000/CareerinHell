@@ -128,6 +128,16 @@ void ReadLevel::readFile(std:: string fileName){
 			int y = atoi(xmlElement->Attribute("y"));
 
 			cells->push_back(new CellPortal(new PPoint(x*50, y*50), tip, rotate) );
+		}else
+		if(!strcmp(nameElement, "Bed") )
+		{
+			bool rotate=false;
+
+			if(!strcmp(xmlElement->Attribute("rotate"), "l") ) rotate = true;
+			int x = atoi(xmlElement->Attribute("x"));
+			int y = atoi(xmlElement->Attribute("y"));
+
+			cells->push_back(new Bed(new PPoint(x*50, y*50), rotate) );
 		}
 
 		xmlElement = xmlElement->NextSiblingElement();
