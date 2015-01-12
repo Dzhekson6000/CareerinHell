@@ -37,6 +37,7 @@ void Character::setPosition(PPoint* point)
 	float x = point->getX() - _width;
 	if(_inversionX)x = point->getX() + _width;
 	this->_sprite->setPosition(x, point->getY() + _height );
+	this->_sprite->setLocalZOrder(-(point->getXOriginal() + point->getYOriginal()) );
 }
 
 void Character::setSize(int width, int height)
