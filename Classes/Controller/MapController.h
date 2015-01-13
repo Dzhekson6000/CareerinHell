@@ -22,7 +22,7 @@ public:
 	MapController(Level* level, Scroller* scroll, InterfaceGame* interfaceGame);
 	void click(Touch* touch);
 	int** getPassageWays();
-	CC_SYNTHESIZE(int, _xMax, Width);
-	CC_SYNTHESIZE(int, _yMax, Height);
+	CC_SYNTHESIZE_READONLY(int, _xMax, Width);
+	CC_SYNTHESIZE_READONLY(int, _yMax, Height);
 };
 #endif // MAPCONTROLLER_H__
