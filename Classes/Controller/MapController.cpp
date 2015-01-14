@@ -25,31 +25,34 @@ void MapController::click(Touch* touch)
 		_interfaceGame->getSelectCharacter()->setPosition(new PPoint(xCell * 50, yCell *50) );
 	}
 
-	std::vector<Cell*>* cells = _level->getCells();
-
-	for(time_t i = 0; i < cells->size(); i++)
+	std::vector<TileCell*>* tileCells = _level->getTileCells();
+	for(time_t i = 0; i < tileCells->size(); i++)
 	{
-		
-		PPoint * point =  cells->at(cells->size() -1 -i)->getPosition();
-		if( (int)floor(point->getXOriginal()/50) == xCell && (int)floor(point->getYOriginal()/50) == yCell)
+		std::vector<Cell*>* cells = tileCells->at(i)->getCells();
+		for(time_t i = 0; i < cells->size(); i++)
 		{
-			cells->at(cells->size() -1 -i)->click();
+			if( cells->at(i)->getCellX() == xCell && cells->at(i)->getCellY() == yCell)
+			{
+				tileCells->at(i)->click();
+			}
 		}
 	}
-
 }
 
 int** MapController::getPassageWays()
 {
-	std::vector<Cell*>* cells = _level->getCells();
 	clearPassageWays();
 
-	for(time_t i = 0; i < cells->size(); i++)
+	std::vector<TileCell*>* tileCells = _level->getTileCells();
+	for(time_t i = 0; i < tileCells->size(); i++)
 	{
-		PPoint * point =  cells->at(cells->size() -1 -i)->getPosition();
-		int x = (int)floor(point->getXOriginal()/50);
-		int y = (int)floor(point->getYOriginal()/50);
-		_passageWays[x][y] = cells->at(cells->size() -1 -i)->getPassage();
+		std::vector<Cell*>* cells = tileCells->at(i)->getCells();
+		for(time_t i = 0; i < cells->size(); i++)
+		{
+			int x = cells->at(i)->getCellX();
+			int y = cells->at(i)->getCellY();
+			_passageWays[x][y] = cells->at(cells->size() -1 -i)->getPassage();
+		}
 	}
 
 	for(int i=0; i<_xMax; i++)
@@ -65,14 +68,17 @@ int** MapController::getPassageWays()
 
 void MapController::initPassageWays()
 {
-	std::vector<Cell*>* cells = _level->getCells();
-	for(time_t i = 0; i < cells->size(); i++)
+	std::vector<TileCell*>* tileCells = _level->getTileCells();
+	for(time_t i = 0; i < tileCells->size(); i++)
 	{
-		PPoint * point =  cells->at(cells->size() -1 -i)->getPosition();
-		int x = (int)floor(point->getXOriginal()/50);
-		int y = (int)floor(point->getYOriginal()/50);
-		if(_xMax < x) _xMax = x;
-		if(_yMax < y) _yMax = y;
+		std::vector<Cell*>* cells = tileCells->at(i)->getCells();
+		for(time_t i = 0; i < cells->size(); i++)
+		{
+			int x = cells->at(i)->getCellX();
+			int y = cells->at(i)->getCellY();
+			if(_xMax < x) _xMax = x;
+			if(_yMax < y) _yMax = y;
+		}
 	}
 
 	_passageWays = new int*[_xMax];

@@ -1,22 +1,19 @@
 #include "AngleWall.h"
 
-AngleWall::AngleWall(PPoint* point, std::string tip, int tipAngle, bool show):Cell(point)
+AngleWall::AngleWall(PPoint* point, std::string tip, int tipAngle, bool show):TileCell()
 {
-	
-	if(show) setSize(100, 204); else setSize(100, 64);
-
+	bool inversionX = false;
 	if(tipAngle == 4)
 	{
 		tipAngle = 2;
-		setInversionX(true);
+		inversionX = true;
 	}
 
 	char tipAngle_str[25];
 	_itoa(tipAngle,tipAngle_str,10);
-
 	std::string path = PATH_WALLS + tip + tipAngle_str;
-
 	if(!show) path+= "_s";
 
-	createSprite(path);
+	setPosition(point);
+	addCell(path, inversionX, false);
 }

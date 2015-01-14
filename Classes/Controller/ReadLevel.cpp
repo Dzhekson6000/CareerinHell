@@ -5,7 +5,7 @@ ReadLevel::ReadLevel(){
 }
 
 void ReadLevel::readFile(std:: string fileName){
-	std::vector<Cell*>* cells = new std::vector<Cell*>;
+	std::vector<TileCell*>* cells = new std::vector<TileCell*>;
 
 	std::string fullPath = FileUtils::sharedFileUtils()->fullPathForFilename(fileName);
 
@@ -147,6 +147,6 @@ void ReadLevel::readFile(std:: string fileName){
 	std::vector<Character*>* characters = new std::vector<Character*>;
 	characters->push_back(new Boat(1, new PPoint(5*50, 50*5), "boat", true ) );
 
-	_level->setCells(cells);
+	_level->setTileCells(cells);
 	_level->setCharacters(characters);
 }

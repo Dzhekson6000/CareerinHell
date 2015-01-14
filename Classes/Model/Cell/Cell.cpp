@@ -1,71 +1,74 @@
 #include "Cell.h"
 
-Cell::Cell(PPoint* point)
+Cell::Cell(PPoint* point, PPoint* pointTile, std::string textureName, bool inversionX, bool inversionY)
 {
-	_order = 0;
-	_width = 0;
-	_height = 0;
-	_xCenter = 0;
-	_yCenter = 0;
-	_passage = 255;
-	_inversionX = false;
-	_inversionY = false;
-	this->_sprite = Sprite::create(defaultImage);
-	this->setSize(100,100);
+	_inversionX = inversionX;
+	_inversionY = inversionY;
+	_texture = Sprite::create(textureName + ".png");
+	_pointTile = pointTile;
 	setPosition(point);
+	_texture->setScaleX(getInverse(_inversionX));
+	_texture->setScaleY(getInverse(_inversionY));
 }
 
-
-PPoint* Cell::getPosition()
+void Cell::updateOrder()
 {
-	return _point;
-}
-
-void Cell::createSprite(std::string textureName)
-{
-	_sprite = Sprite::create(textureName + ".png");
-	setPosition(_point);
-	_sprite->setScaleX(getInverse(_inversionX));
-	_sprite->setScaleY(getInverse(_inversionY));
-}
-
-Sprite* Cell::getTexture()
-{
-	return _sprite;
+	_texture->setLocalZOrder(
+		-(
+		_pointTile->getXOriginal() + _point->getXOriginal()
+			+
+		_pointTile->getYOriginal() + _point->getYOriginal()
+		)
+		+ _order * 200
+		);
 }
 
 void Cell::setPosition(PPoint* point)
 {
 	_point = point;
-	this->_sprite->setPosition(point->getX() - _xCenter, point->getY() + _yCenter);
+	_texture->setPosition(_pointTile->getX() + point->getX(), _pointTile->getY() + point->getY() + _texture->getContentSize().height/2);
 }
 
-void Cell::setSize(int width, int height)
+void Cell::setPositionTile(PPoint* point)
 {
-	_width = width;
-	_height = height;
-	_yCenter = (_height/2);
+	_pointTile = point;
+	_texture->setPosition(_pointTile->getX() + point->getX(), _pointTile->getY() + point->getY() + _texture->getContentSize().height/2);
 }
 
-void Cell::setCenter(int xCenter, int yCenter)
+void Cell::setOrder(int order)
 {
-	_xCenter = xCenter;
-	_yCenter = yCenter;
+	_order = order;
+	updateOrder();
 }
 
 void Cell::setInversionX(bool inversion)
 {
 	_inversionX = inversion;
-	_sprite->setScaleX(getInverse(inversion));
+	_texture->setScaleX(getInverse(inversion));
 }
 
 void Cell::setInversionY(bool inversion)
 {
 	_inversionY = inversion;
-	_sprite->setScaleY(getInverse(inversion));
+	_texture->setScaleY(getInverse(inversion));
 }
 
 int Cell::getInverse(bool inversion)
 {
 	return inversion ? -1: 1;
+}
+
+Sprite* Cell::getTexture()
+{
+	return _texture;
+}
+
+int Cell::getCellX()
+{
+	return floor((_pointTile->getXOriginal() + _point->getXOriginal() )/50);
+}
+
+int Cell::getCellY()
+{
+	return floor((_pointTile->getYOriginal() + _point->getYOriginal() )/50);
 }

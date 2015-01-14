@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "SimpleAudioEngine.h"
+#include "Common\common.h"
 
 enum ESounds {
 	ES_FIRE = 0,
@@ -14,7 +15,7 @@ class SoundController {
 private:
 
 	std::vector<std::string>* _musics;
-	int countPlayed;
+	unsigned int countPlayed;
 	bool _statusPlay;
 public:
 	SoundController();

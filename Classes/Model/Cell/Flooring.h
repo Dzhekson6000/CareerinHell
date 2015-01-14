@@ -1,10 +1,10 @@
 #ifndef FLOORING_H__
 #define FLOORING_H__
 
-#include "Cell.h"
+#include "TileCell.h"
 
 
-class Flooring:public Cell
+class Flooring:public TileCell
 {
 private:
 public:

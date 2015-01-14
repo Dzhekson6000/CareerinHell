@@ -4,7 +4,7 @@
 
 #include "Scene/AbstractScene.h"
 #include "MenuScene.h"
-
+#include "Common\common.h"
 
 USING_NS_CC;
 

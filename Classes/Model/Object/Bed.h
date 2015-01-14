@@ -1,10 +1,10 @@
 #ifndef BED_H__
 #define BED_H__
 
-#include "../Cell/Cell.h"
+#include "Model/Cell/TileCell.h"
 
 
-class Bed:public Cell
+class Bed:public TileCell
 {
 private:
 public:

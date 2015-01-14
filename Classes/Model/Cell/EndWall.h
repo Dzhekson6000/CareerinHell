@@ -1,10 +1,10 @@
 #ifndef END_WALL_H__
 #define END_WALL_H__
 
-#include "Cell.h"
+#include "TileCell.h"
 
 
-class EndWall:public Cell
+class EndWall:public TileCell
 {
 private:
 public:

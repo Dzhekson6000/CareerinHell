@@ -1,10 +1,10 @@
 #ifndef INTERSECTION_WALL_H__
 #define INTERSECTION_WALL_H__
 
-#include "Cell.h"
+#include "TileCell.h"
 
 
-class IntersectionWall:public Cell
+class IntersectionWall:public TileCell
 {
 private:
 public:

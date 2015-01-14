@@ -1,10 +1,10 @@
 #ifndef CELLPORTAL_H__
 #define CELLPORTAL_H__
 
-#include "Cell.h"
+#include "TileCell.h"
 
 
-class CellPortal:public Cell
+class CellPortal:public TileCell
 {
 private:
 public:

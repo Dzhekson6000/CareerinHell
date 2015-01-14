@@ -5,6 +5,7 @@
 #include "Controller/MenuController.h"
 #include "Controller/SoundController.h"
 #include "GameScene.h"
+#include "Common\common.h"
 
 
 class MenuScene : public AbstractScene {

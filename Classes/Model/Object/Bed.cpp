@@ -1,16 +1,11 @@
 #include "Bed.h"
 
-Bed::Bed(PPoint* point, bool rotate):Cell(point)
+Bed::Bed(PPoint* point, bool rotate):TileCell()
 {
-	setInversionX(!rotate);
-	setSize(143, 114);
-	if(!rotate)
-	{
-		setCenter(25, 57);
-	} else {
-		setCenter(-25, 57);
-	}
-	std::string path = PATH_OBJECT "bed";
+	std::string path1 = PATH_OBJECT "bed1";
+	std::string path2 = PATH_OBJECT "bed2";
 
-	createSprite(path);
+	setPosition(point);
+	addCell(path1, !rotate, false);
+	addCell(new PPoint(50, 0), path2, !rotate, false);
 }

@@ -1,10 +1,10 @@
 #ifndef ANGLE_WALL_H__
 #define ANGLE_WALL_H__
 
-#include "Cell.h"
+#include "TileCell.h"
 
 
-class AngleWall:public Cell
+class AngleWall:public TileCell
 {
 private:
 public:

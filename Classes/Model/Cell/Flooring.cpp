@@ -1,11 +1,10 @@
 #include "Flooring.h"
 
-Flooring::Flooring(PPoint* point, std::string tip):Cell(point)
+Flooring::Flooring(PPoint* point, std::string tip):TileCell()
 {
-	_passage = 0;
-	_order = -1;
-	setSize(100, 52);
-
 	std::string path = PATH_FLOOR + tip;
-	createSprite(path);
+	setPassage(0);
+	setOrder(-1);
+	setPosition(point);
+	addCell(path, false, false);
 }

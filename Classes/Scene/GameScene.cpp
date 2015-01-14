@@ -20,7 +20,7 @@ bool GameScene::init(SoundController* soundController)
     }
 
 	ReadLevel rl = ReadLevel();
-	rl.readFile("map/home.xml");
+	rl.readFile(PATH_MAP "home.xml");
 	
 	_scroll = Scroller::create();
 	this->addChild(_scroll);
@@ -30,14 +30,14 @@ bool GameScene::init(SoundController* soundController)
 
 	_mapController = new MapController(rl.getLevel(), _scroll, _interfaceGame);
 
-	std::vector<Cell*>* cells = rl.getLevel()->getCells();
-
-	for(time_t i = 0; i < cells->size(); i++)
+	std::vector<TileCell*>* tileCells = rl.getLevel()->getTileCells();
+	for(time_t i = 0; i < tileCells->size(); i++)
 	{
-		PPoint * point =  cells->at(cells->size() -1 -i)->getPosition();
-		_scroll->addChild(cells->at(cells->size() -1 -i)->getTexture(),
-			-(point->getXOriginal() + point->getYOriginal()) + cells->at(cells->size() -1 -i)->getOrder() * 200
-			);
+		std::vector<Cell*>* cells = tileCells->at(i)->getCells();
+		for(time_t i = 0; i < cells->size(); i++)
+		{
+			_scroll->addChild(cells->at(cells->size() -1 -i)->getTexture());
+		}
 	}
 
 	std::vector<Character*>* characters = rl.getLevel()->getCharacters();

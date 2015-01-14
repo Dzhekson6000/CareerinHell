@@ -1,7 +1,7 @@
 #include "Controller/SoundController.h"
 
 static char soundNames [ES_LAST][60]= {
-	"sound/fire.wav",//	ES_FIRE
+	PATH_SOUND "fire.wav",//	ES_FIRE
 
 };
 

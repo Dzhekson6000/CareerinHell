@@ -19,11 +19,11 @@ bool MenuScene::init() {
 
 	_soundController = new SoundController();
 	_soundController->preloadEffect(ES_FIRE);
-	_soundController->preloadMusic("sound/1.wav");
-	_soundController->preloadMusic("sound/2.wav");
-	_soundController->preloadMusic("sound/3.wav");
-	_soundController->preloadMusic("sound/4.wav");
-	_soundController->preloadMusic("sound/5.wav");
+	_soundController->preloadMusic(PATH_SOUND "1.wav");
+	_soundController->preloadMusic(PATH_SOUND "2.wav");
+	_soundController->preloadMusic(PATH_SOUND "3.wav");
+	_soundController->preloadMusic(PATH_SOUND "4.wav");
+	_soundController->preloadMusic(PATH_SOUND "5.wav");
 
 	menuController_ = new MenuController();
 	menuController_->init();

@@ -15,8 +15,8 @@ private:
 	bool _moved;
 	float _xPosition;
 	float _yPosition;
-	CCPoint _offsetPoint;
-	bool isScrollMap(Touch* touch, const CCPoint point);
+	Point _offsetPoint;
+	bool isScrollMap(Touch* touch, const Point point);
 
 public:
 	virtual bool touchBegan(Touch* touch, Event* event);

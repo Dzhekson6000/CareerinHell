@@ -19,7 +19,7 @@ bool LogoScene::init()
 
 	_time = 0;
 
-	_logoImage  = Sprite::create("img/Logo.png");
+	_logoImage  = Sprite::create(PATH_IMG "Logo.png");
 	_logoImage->setPosition(Point(650,360));
 	this->addChild(_logoImage,0);
 

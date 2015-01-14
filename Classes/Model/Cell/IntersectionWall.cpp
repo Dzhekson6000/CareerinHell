@@ -1,21 +1,19 @@
 #include "IntersectionWall.h"
 
-IntersectionWall::IntersectionWall(PPoint* point, std::string tip, int tipIntersection, bool show):Cell(point)
+IntersectionWall::IntersectionWall(PPoint* point, std::string tip, int tipIntersection, bool show):TileCell()
 {
-	
-	if(show) setSize(100, 204); else setSize(100, 64);
-
+	bool inversionX = false;
 	std::string path = PATH_WALLS + tip + "_i";
 
 	if(tipIntersection == 1)
 	{
 		tipIntersection = 2;
-		setInversionX(true);
+		inversionX = true;
 	} else
 	if(tipIntersection == 4)
 	{
 		tipIntersection = 3;
-		setInversionX(true);
+		inversionX = true;
 	}
 
 	if(tipIntersection != 0){
@@ -26,5 +24,6 @@ IntersectionWall::IntersectionWall(PPoint* point, std::string tip, int tipInters
 
 	if(!show) path+= "_s";
 
-	createSprite(path);
+	setPosition(point);
+	addCell(path, inversionX, false);
 }

@@ -78,22 +78,10 @@
     <ClCompile Include="..\Classes\Controller\ReadLevel.cpp">
       <Filter>Classes\Controller</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Model\Cell\AngleWall.cpp">
-      <Filter>Classes\Model\Cell</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Model\Cell\Cell.cpp">
       <Filter>Classes\Model\Cell</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Model\Cell\EndWall.cpp">
-      <Filter>Classes\Model\Cell</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Model\Cell\Flooring.cpp">
-      <Filter>Classes\Model\Cell</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Model\Cell\IntersectionWall.cpp">
-      <Filter>Classes\Model\Cell</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Model\Cell\Wall.cpp">
       <Filter>Classes\Model\Cell</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Model\Characters\Character.cpp">
@@ -120,9 +108,6 @@
     <ClCompile Include="..\Classes\Tools\Snow.cpp">
       <Filter>Classes\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Model\Cell\CellPortal.cpp">
-      <Filter>Classes\Model\Cell</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Controller\SoundController.cpp">
       <Filter>Classes\Controller</Filter>
     </ClCompile>
@@ -131,6 +116,24 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Model\Object\Bed.cpp">
       <Filter>Classes\Model\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\Cell\TileCell.cpp">
+      <Filter>Classes\Model\Cell</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\Cell\Wall.cpp">
+      <Filter>Classes\Model\Cell</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\Cell\AngleWall.cpp">
+      <Filter>Classes\Model\Cell</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\Cell\CellPortal.cpp">
+      <Filter>Classes\Model\Cell</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\Cell\EndWall.cpp">
+      <Filter>Classes\Model\Cell</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\Cell\IntersectionWall.cpp">
+      <Filter>Classes\Model\Cell</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -164,22 +167,10 @@
     <ClInclude Include="..\Classes\Controller\ReadLevel.h">
       <Filter>Classes\Controller</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Model\Cell\AngleWall.h">
-      <Filter>Classes\Model\Cell</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Model\Cell\Cell.h">
       <Filter>Classes\Model\Cell</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Model\Cell\EndWall.h">
-      <Filter>Classes\Model\Cell</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Model\Cell\Flooring.h">
-      <Filter>Classes\Model\Cell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Model\Cell\IntersectionWall.h">
-      <Filter>Classes\Model\Cell</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Model\Cell\Wall.h">
       <Filter>Classes\Model\Cell</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Model\Characters\Character.h">
@@ -206,9 +197,6 @@
     <ClInclude Include="..\Classes\Tools\Snow.h">
       <Filter>Classes\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Model\Cell\CellPortal.h">
-      <Filter>Classes\Model\Cell</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Common\common.h">
       <Filter>Classes\Common</Filter>
     </ClInclude>
@@ -220,6 +208,24 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Model\Object\Bed.h">
       <Filter>Classes\Model\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\Cell\TileCell.h">
+      <Filter>Classes\Model\Cell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\Cell\Wall.h">
+      <Filter>Classes\Model\Cell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\Cell\AngleWall.h">
+      <Filter>Classes\Model\Cell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\Cell\CellPortal.h">
+      <Filter>Classes\Model\Cell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\Cell\EndWall.h">
+      <Filter>Classes\Model\Cell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\Cell\IntersectionWall.h">
+      <Filter>Classes\Model\Cell</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

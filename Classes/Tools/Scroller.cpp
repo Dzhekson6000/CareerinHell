@@ -55,7 +55,7 @@ void Scroller::touchMoved(Touch* touch, Event* event)
 
 }
 
-bool Scroller::isScrollMap(Touch* touch, const CCPoint point) {
+bool Scroller::isScrollMap(Touch* touch, const Point point) {
 	return std::abs(point.x - touch->getLocation().x) > OFFSET || std::abs(point.y - touch->getLocation().y) > OFFSET;
 }
 

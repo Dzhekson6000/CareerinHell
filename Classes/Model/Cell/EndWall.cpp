@@ -1,19 +1,17 @@
 #include "EndWall.h"
 
-EndWall::EndWall(PPoint* point, std::string tip, int tipEnd, bool show):Cell(point)
+EndWall::EndWall(PPoint* point, std::string tip, int tipEnd, bool show):TileCell()
 {
-	
-	if(show) setSize(100, 204); else setSize(100, 64);
-
+	bool inversionX = false;
 	if(tipEnd == 1)
 	{
 		tipEnd = 2;
-		setInversionX(true);
+		inversionX = true;
 	}else
 	if(tipEnd == 3)
 	{
 		tipEnd = 4;
-		setInversionX(true);
+		inversionX = true;
 	}
 
 	char tipEnd_str[25];
@@ -23,5 +21,6 @@ EndWall::EndWall(PPoint* point, std::string tip, int tipEnd, bool show):Cell(poi
 
 	if(!show) path+= "_s";
 
-	createSprite(path);
+	setPosition(point);
+	addCell(path, inversionX, false);
 }

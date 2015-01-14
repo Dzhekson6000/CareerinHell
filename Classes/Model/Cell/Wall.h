@@ -1,10 +1,10 @@
 #ifndef WALL_H__
 #define WALL_H__
 
-#include "Cell.h"
+#include "TileCell.h"
 
 
-class Wall:public Cell
+class Wall:public TileCell
 {
 private:
 public:

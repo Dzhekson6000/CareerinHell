@@ -8,6 +8,7 @@
 #include "Controller/SoundController.h"
 #include "Controller/InterfaceGame.h"
 #include "Controller/MapController.h"
+#include "Common\common.h"
 
 class GameScene : public AbstractScene {
 private:

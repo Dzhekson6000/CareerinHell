@@ -2,41 +2,37 @@
 #define CELL_H__
 #include "cocos2d.h"
 #include "Tools/PPoint.h"
-#include "Common/common.h"
 
 USING_NS_CC;
 
 class Cell
 {
 private:
-	int _width;
-	int _height;
-	int _xCenter;
-	int _yCenter;
+	Sprite* _texture;
+	PPoint* _point;
+	PPoint* _pointTile;
 	bool _inversionX;
 	bool _inversionY;
+	int _passage;
+	int _order;
+
 	int getInverse(bool inversion);
 protected:
-	int _order;
-	int _passage;
-	PPoint* _point;
-	Sprite* _sprite;
-	void createSprite(std::string textureName);
 public:
-	Cell(PPoint* point);
-	PPoint* getPosition();
+	Cell(PPoint* point, PPoint* pointTile, std::string textureName, bool inversionX, bool inversionY);
 	Sprite* getTexture();
+	void updateOrder();
 
-	void setSize(int width, int height);
-	void setCenter(int xCenter, int yCenter);
 	void setPosition(PPoint* point);
+	void setPositionTile(PPoint* point);
+	void setPassage(int passage){ _passage = passage; }
+	void setOrder(int order);
 	void setInversionX(bool inversion);
 	void setInversionY(bool inversion);
-	
+
 	int getPassage(){ return _passage; }
 	int getOrder(){ return _order; }
-
-	virtual void click(){};
-
+	int getCellX();
+	int getCellY();
 };
 #endif // CELL_H__
