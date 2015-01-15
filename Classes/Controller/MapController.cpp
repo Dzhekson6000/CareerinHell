@@ -51,7 +51,12 @@ int** MapController::getPassageWays()
 		{
 			int x = cells->at(i)->getCellX();
 			int y = cells->at(i)->getCellY();
-			_passageWays[x][y] = cells->at(cells->size() -1 -i)->getPassage();
+			int passage = cells->at(cells->size() -1 -i)->getPassage();
+			if( (_passageWays[x][y] == -1) || (passage > _passageWays[x][y]) )
+			{
+				_passageWays[x][y] = passage;
+			}
+			
 		}
 	}
 
