@@ -86,11 +86,11 @@ void MapController::initPassageWays()
 		}
 	}
 
-	_passageWays = new int*[_xMax];
-	for(int i=0; i<_xMax; i++)
+	_passageWays = new int*[_xMax+1];
+	for(int i=0; i<_xMax+1; i++)
 	{
-		_passageWays[i] = new int [_yMax];
-		for(int j=0; j<_yMax; j++)
+		_passageWays[i] = new int [_yMax+1];
+		for(int j=0; j<_yMax+1; j++)
 		{
 			_passageWays[i][j] = -1;
 		}
