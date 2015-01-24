@@ -1,4 +1,4 @@
-#include "GameScene.h"
+﻿#include "GameScene.h"
 
 #define OFFSET    20
 
@@ -48,7 +48,7 @@ bool GameScene::init(SoundController* soundController)
 	}
 
 	initTouch();
-  	
+
 	scene_ = Scene::create();
 	scene_->addChild(this);
 

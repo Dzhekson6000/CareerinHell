@@ -14,8 +14,8 @@ EndWall::EndWall(PPoint* point, std::string tip, int tipEnd, bool show):TileCell
 		inversionX = true;
 	}
 
-	char tipEnd_str[25];
-	_itoa(tipEnd,tipEnd_str,10);
+	char tipEnd_str[25] = {0};
+	sprintf(tipEnd_str, "%d", tipEnd);
 
 	std::string path = PATH_WALLS + tip + "_e" + tipEnd_str;
 

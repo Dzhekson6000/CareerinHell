@@ -17,8 +17,8 @@ IntersectionWall::IntersectionWall(PPoint* point, std::string tip, int tipInters
 	}
 
 	if(tipIntersection != 0){
-		char tipIntersection_str[25];
-		_itoa(tipIntersection,tipIntersection_str,10);
+		char tipIntersection_str[25] = {0};
+		sprintf(tipIntersection_str, "%d", tipIntersection);
 		path += tipIntersection_str;
 	}
 

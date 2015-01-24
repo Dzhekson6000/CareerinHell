@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level name="Demo Level 1">
+	<!--<Wall x="1" y="1" x2="10" y2="1" rotate="l" tip="def" show="true" />
+	<AngleWall  x="5" y="3" tipAngle="1" tip="def" show="false" />
+	<AngleWall  x="6" y="3" tipAngle="2" tip="def" show="false" />
+	<AngleWall  x="7" y="3" tipAngle="3" tip="def" show="false" />
+	<AngleWall  x="8" y="3" tipAngle="4" tip="def" show="false" />
+	<AngleWall  x="5" y="4" tipAngle="1" tip="def" show="true" />
+	<AngleWall  x="6" y="4" tipAngle="2" tip="def" show="true" />
+	<AngleWall  x="7" y="4" tipAngle="3" tip="def" show="true" />
+	<AngleWall  x="8" y="4" tipAngle="4" tip="def" show="true" />
+	<IntersectionWall  x="8" y="5" tipIntersection="0" tip="def" show="true" />
+	<IntersectionWall  x="9" y="5" tipIntersection="1" tip="def" show="true" />
+	<IntersectionWall  x="10" y="5" tipIntersection="2" tip="def" show="true" />
+	<IntersectionWall  x="11" y="5" tipIntersection="3" tip="def" show="true" />
+	<IntersectionWall  x="12" y="5" tipIntersection="4" tip="def" show="true" />
+	<Flooring x="-10" y="-10" x2="20" y2="20" tip="def" />
+	<EndWall  x="12" y="5" tipEnd="1" tip="def" show="true" />
+	<EndWall  x="13" y="5" tipEnd="2" tip="def" show="true" />
+	<EndWall  x="14" y="5" tipEnd="3" tip="def" show="true" />
+	<EndWall  x="15" y="5" tipEnd="4" tip="def" show="true" />-->
+	<Flooring x="5" y="0" x2="10" y2="0" tip="def" />
+</level> 

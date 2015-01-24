@@ -9,8 +9,8 @@ AngleWall::AngleWall(PPoint* point, std::string tip, int tipAngle, bool show):Ti
 		inversionX = true;
 	}
 
-	char tipAngle_str[25];
-	_itoa(tipAngle,tipAngle_str,10);
+	char tipAngle_str[25] = {0};
+	sprintf(tipAngle_str, "%d", tipAngle);
 	std::string path = PATH_WALLS + tip + tipAngle_str;
 	if(!show) path+= "_s";
 

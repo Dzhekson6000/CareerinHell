@@ -9,9 +9,10 @@ void ReadLevel::readFile(std:: string fileName){
 
 	std::string fullPath = FileUtils::sharedFileUtils()->fullPathForFilename(fileName);
 
-	TiXmlDocument *xmlFile = new TiXmlDocument(fullPath.c_str());
-	if(!xmlFile->LoadFile()) //файл не открылся
-		CCLOG("[1]Error load file xml: %s", fullPath.c_str());
+	TiXmlDocument *xmlFile = new TiXmlDocument();
+	ssize_t fileSize = 0;
+	unsigned char * fileContents = CCFileUtils::sharedFileUtils( ) -> getFileData( fullPath.c_str() , "r", &fileSize );
+	xmlFile->Parse((const char*)fileContents, 0, TIXML_ENCODING_UTF8);
 
 	TiXmlElement *xmlLevel = 0;
 	xmlLevel = xmlFile->FirstChildElement("level");

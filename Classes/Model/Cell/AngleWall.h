@@ -3,7 +3,6 @@
 
 #include "TileCell.h"
 
-
 class AngleWall:public TileCell
 {
 private:

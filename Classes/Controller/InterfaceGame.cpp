@@ -12,9 +12,9 @@ bool InterfaceGame::init()
 	this->addChild(_spellbook);
 
 
-	_buttonEndÑourse = Sprite::create(PATH_INTERFACE  "buttonEndCourse.png");
-	_buttonEndÑourse->setPosition(650, 64);
-	this->addChild(_buttonEndÑourse);
+	_buttonEndCourse = Sprite::create(PATH_INTERFACE  "buttonEndCourse.png");
+	_buttonEndCourse->setPosition(650, 64);
+	this->addChild(_buttonEndCourse);
 
 	initTouch();
 

@@ -10,7 +10,7 @@ class InterfaceGame :public Layer
 {
 private:
 	Sprite* _spellbook;
-	Sprite* _buttonEnd—ourse;
+	Sprite* _buttonEndCourse;
 	Layer* _cardCharacterLayer;
 	std::vector<CardCharacter*>* _cardCharacters;
 
