@@ -18,4 +18,6 @@
 
 #define PATH_SOUND					"sound/"
 
+#define PATH_STRING					"string/"
+
 #endif    // __COMMON_H__

@@ -138,6 +138,8 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Controller\MapController.cpp" />
     <ClCompile Include="..\Classes\Controller\MenuController.cpp" />
     <ClCompile Include="..\Classes\Controller\ReadLevel.cpp" />
+    <ClCompile Include="..\Classes\Controller\ReadLocalization.cpp" />
+    <ClCompile Include="..\Classes\Controller\Settings.cpp" />
     <ClCompile Include="..\Classes\Controller\SoundController.cpp" />
     <ClCompile Include="..\Classes\Model\Cell\AngleWall.cpp" />
     <ClCompile Include="..\Classes\Model\Cell\Cell.cpp" />
@@ -159,9 +161,11 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\TinyXml\tinyxml.cpp" />
     <ClCompile Include="..\Classes\TinyXml\tinyxmlerror.cpp" />
     <ClCompile Include="..\Classes\TinyXml\tinyxmlparser.cpp" />
+    <ClCompile Include="..\Classes\Tools\AlertBox.cpp" />
     <ClCompile Include="..\Classes\Tools\PPoint.cpp" />
     <ClCompile Include="..\Classes\Tools\Scroller.cpp" />
     <ClCompile Include="..\Classes\Tools\Snow.cpp" />
+    <ClCompile Include="..\Classes\Tools\StringLocal.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +176,8 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Controller\MapController.h" />
     <ClInclude Include="..\Classes\Controller\MenuController.h" />
     <ClInclude Include="..\Classes\Controller\ReadLevel.h" />
+    <ClInclude Include="..\Classes\Controller\ReadLocalization.h" />
+    <ClInclude Include="..\Classes\Controller\Settings.h" />
     <ClInclude Include="..\Classes\Controller\SoundController.h" />
     <ClInclude Include="..\Classes\Model\Cell\AngleWall.h" />
     <ClInclude Include="..\Classes\Model\Cell\Cell.h" />
@@ -191,9 +197,11 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Scene\MenuScene.h" />
     <ClInclude Include="..\Classes\TinyXml\tinystr.h" />
     <ClInclude Include="..\Classes\TinyXml\tinyxml.h" />
+    <ClInclude Include="..\Classes\Tools\AlertBox.h" />
     <ClInclude Include="..\Classes\Tools\PPoint.h" />
     <ClInclude Include="..\Classes\Tools\Scroller.h" />
     <ClInclude Include="..\Classes\Tools\Snow.h" />
+    <ClInclude Include="..\Classes\Tools\StringLocal.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

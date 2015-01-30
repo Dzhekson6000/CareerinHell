@@ -3,12 +3,14 @@
 
 #include "Scene/AbstractScene.h"
 #include "Tools/Scroller.h"
+#include "Tools/StringLocal.h"
 
 #include "Controller/ReadLevel.h"
 #include "Controller/SoundController.h"
+#include "Controller/Settings.h"
 #include "Controller/InterfaceGame.h"
 #include "Controller/MapController.h"
-#include "Common\common.h"
+#include "Common/common.h"
 
 class GameScene : public AbstractScene {
 private:
@@ -23,8 +25,8 @@ private:
 
 	bool isScrollMap(Touch* touch);
 public:
-	static GameScene* create(SoundController* soundController);
-	virtual bool init(SoundController* soundController);
+	static GameScene* create(Settings* settings, SoundController* soundController);
+	virtual bool init(Settings* settings, SoundController* soundController);
 
 	virtual bool touchBegan(Touch* touch, Event* event);
 	virtual void touchMoved(Touch* touch, Event* event);

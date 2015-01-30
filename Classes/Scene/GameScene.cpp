@@ -2,17 +2,17 @@
 
 #define OFFSET    20
 
-GameScene* GameScene::create(SoundController* soundController)
+GameScene* GameScene::create(Settings* settings, SoundController* soundController)
 {
 	GameScene* scene = new GameScene();
-	if(scene && scene->init(soundController)){
+	if(scene && scene->init(settings, soundController)){
 		return (GameScene*)scene->autorelease();
 	}
 	CC_SAFE_DELETE(scene);
 	return scene;
 }
 
-bool GameScene::init(SoundController* soundController)
+bool GameScene::init(Settings* settings, SoundController* soundController)
 {
     if ( !Layer::init() )
     {

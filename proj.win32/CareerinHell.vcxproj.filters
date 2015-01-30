@@ -135,6 +135,18 @@
     <ClCompile Include="..\Classes\Model\Cell\IntersectionWall.cpp">
       <Filter>Classes\Model\Cell</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Tools\AlertBox.cpp">
+      <Filter>Classes\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Tools\StringLocal.cpp">
+      <Filter>Classes\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Controller\Settings.cpp">
+      <Filter>Classes\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Controller\ReadLocalization.cpp">
+      <Filter>Classes\Controller</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -226,6 +238,18 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Model\Cell\IntersectionWall.h">
       <Filter>Classes\Model\Cell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Tools\AlertBox.h">
+      <Filter>Classes\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Tools\StringLocal.h">
+      <Filter>Classes\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Controller\Settings.h">
+      <Filter>Classes\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Controller\ReadLocalization.h">
+      <Filter>Classes\Controller</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

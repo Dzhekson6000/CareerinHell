@@ -17,6 +17,12 @@ bool MenuScene::init() {
         return false;
     }
 
+	ReadLocalization * readLocalization = new ReadLocalization();
+	readLocalization->readLocalization();
+
+	_settings = new Settings();
+	_settings->setStringLocal(readLocalization->getStringLocal());
+
 	_soundController = new SoundController();
 	_soundController->preloadEffect(ES_FIRE);
 	_soundController->preloadMusic(PATH_SOUND "1.wav");
@@ -26,7 +32,7 @@ bool MenuScene::init() {
 	_soundController->preloadMusic(PATH_SOUND "5.wav");
 
 	menuController_ = new MenuController();
-	menuController_->init();
+	menuController_->init(_settings);
 
 	touchListener_ = EventListenerTouchOneByOne::create();
 	touchListener_->onTouchBegan = CC_CALLBACK_2(MenuScene::TouchBegan,this);
@@ -76,7 +82,7 @@ void MenuScene::TouchEnded(Touch* touch, Event* event) {
 			//клик на кнопку продолжить
 			_soundController->playEffect(ES_FIRE);
 			getEventDispatcher()->removeEventListener(touchListener_);
-			Director::getInstance()->pushScene(GameScene::create(_soundController)->getScene() );
+			Director::getInstance()->pushScene(GameScene::create(_settings, _soundController)->getScene() );
 			break;
 		case 2:
 			//клик на кнопку новая игра
