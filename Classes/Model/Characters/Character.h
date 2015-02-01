@@ -7,7 +7,7 @@
 
 USING_NS_CC;
 
-class Character
+class Character : public Layer
 {
 private:
 	int _width;
@@ -24,7 +24,6 @@ protected:
 public:
 	Character(int id, PPoint* point);
 	PPoint* getPosition();
-	Sprite* getTexture();
 	int getId(){ return _id; };
 
 	void setSize(int width, int height);

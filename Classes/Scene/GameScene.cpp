@@ -44,13 +44,13 @@ bool GameScene::init(Settings* settings, SoundController* soundController)
 	for(time_t i = 0; i < characters->size(); i++)
 	{
 		_interfaceGame->addCharacter(characters->at(characters->size() -1 -i   ));
-		_scroll->addChild(characters->at(characters->size() -1 -i   )->getTexture() );
+		_scroll->addChild(characters->at(characters->size() -1 -i   ));
 	}
 
 	std::vector<Character*>* charactersAI = rl.getLevel()->getCharactersAI();
 	for(time_t i = 0; i < charactersAI->size(); i++)
 	{
-		_scroll->addChild(charactersAI->at(charactersAI->size() -1 -i   )->getTexture() );
+		_scroll->addChild(charactersAI->at(charactersAI->size() -1 -i   ));
 	}
 
 	initTouch();
