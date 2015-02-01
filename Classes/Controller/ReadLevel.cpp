@@ -12,7 +12,8 @@ void ReadLevel::readFile(std:: string fileName){
 
 	TiXmlDocument *xmlFile = new TiXmlDocument();
 	ssize_t fileSize = 0;
-	unsigned char * fileContents = CCFileUtils::getInstance()->getFileData( fullPath.c_str() , "r", &fileSize );
+	Data data =  CCFileUtils::getInstance()->getDataFromFile(fullPath);
+	unsigned char * fileContents = data.getBytes() ;
 	xmlFile->Parse((const char*)fileContents, 0, TIXML_ENCODING_UTF8);
 
 	TiXmlElement *xmlLevel = 0;
