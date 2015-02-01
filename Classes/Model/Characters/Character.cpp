@@ -25,11 +25,7 @@ void Character::createSprite(std::string textureName)
 	setPosition(_point);
 	_sprite->setScaleX(getInverse(_inversionX));
 	_sprite->setScaleY(getInverse(_inversionY));
-}
-
-Sprite* Character::getTexture()
-{
-	return _sprite;
+	addChild(_sprite);
 }
 
 void Character::setPosition(PPoint* point)
