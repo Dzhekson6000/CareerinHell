@@ -20,6 +20,7 @@ private:
 	void clearPassageWays();
 public:
 	MapController(Level* level, Scroller* scroll, InterfaceGame* interfaceGame);
+	void update(float dt);
 	void click(Touch* touch);
 	int** getPassageWays();
 	CC_SYNTHESIZE_READONLY(int, _xMax, Width);

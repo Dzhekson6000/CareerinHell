@@ -14,8 +14,8 @@ private:
 	int _height;
 	bool _inversionX;
 	bool _inversionY;
-	void update();
 	int getInverse(bool inversion);
+	PPoint* _targetMove; 
 protected:
 	int _id;
 	PPoint* _point;
@@ -31,6 +31,9 @@ public:
 	void setPosition(PPoint* point);
 	void setInversionX(bool inversion);
 	void setInversionY(bool inversion);
+
+	void update();
+	void goMove(int x, int y);
 };
 
 #endif // CHARACTERS_H__

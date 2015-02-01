@@ -22,6 +22,7 @@ private:
 	MapController* _mapController;
 	
 	Touch _touchClick;
+	void update(float dt);
 
 	bool isScrollMap(Touch* touch);
 public:

@@ -22,7 +22,8 @@ void MapController::click(Touch* touch)
 
 	if(_interfaceGame->isSelectCharacter())
 	{
-		_interfaceGame->getSelectCharacter()->setPosition(new PPoint(xCell * 50, yCell *50) );
+		//_interfaceGame->getSelectCharacter()->setPosition(new PPoint(xCell * 50, yCell *50) );
+		_interfaceGame->getSelectCharacter()->goMove(xCell, yCell);
 	}
 
 	std::vector<TileCell*>* tileCells = _level->getTileCells();
@@ -104,5 +105,14 @@ void MapController::clearPassageWays()
 		{
 			_passageWays[i][j] = -1;
 		}
+	}
+}
+
+void MapController::update( float dt )
+{
+	std::vector<Character*>* characters = _level->getCharacters();
+	for(time_t i = 0; i < characters->size(); i++)
+	{
+		characters->at(characters->size() -1 -i   )->update();
 	}
 }

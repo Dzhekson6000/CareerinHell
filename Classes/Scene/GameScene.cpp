@@ -55,6 +55,8 @@ bool GameScene::init(Settings* settings, SoundController* soundController)
 
 	initTouch();
 
+	this->schedule(schedule_selector(GameScene::update),0.01f);
+
 	scene_ = Scene::create();
 	scene_->addChild(this);
 
@@ -90,4 +92,9 @@ void GameScene::touchEnded(Touch* touch, Event* event)
 
 bool GameScene::isScrollMap(Touch* touch) {
 	return std::abs(_touchClick.getLocation().x - touch->getLocation().x) > OFFSET || std::abs(_touchClick.getLocation().y - touch->getLocation().y) > OFFSET;
+}
+
+void GameScene::update( float dt )
+{
+	_mapController->update(dt);
 }
