@@ -6,6 +6,7 @@ ReadLevel::ReadLevel(){
 
 void ReadLevel::readFile(std:: string fileName){
 	std::vector<TileCell*>* cells = new std::vector<TileCell*>;
+	std::vector<Character*>* charactersAI = new std::vector<Character*>;
 
 	std::string fullPath = FileUtils::sharedFileUtils()->fullPathForFilename(fileName);
 
@@ -139,6 +140,14 @@ void ReadLevel::readFile(std:: string fileName){
 			int y = atoi(xmlElement->Attribute("y"));
 
 			cells->push_back(new Bed(new PPoint(x*50, y*50), rotate) );
+		}else
+		if(!strcmp(nameElement, "Character") )
+		{
+			int x = atoi(xmlElement->Attribute("x"));
+			int y = atoi(xmlElement->Attribute("y"));
+			std::string tip = xmlElement->Attribute("tip");
+
+			if(!strcmp(tip.c_str(), "boat") ) charactersAI->push_back(new Boat(1, new PPoint(x*50, y*50), tip, true ) );
 		}
 
 		xmlElement = xmlElement->NextSiblingElement();
@@ -150,4 +159,5 @@ void ReadLevel::readFile(std:: string fileName){
 
 	_level->setTileCells(cells);
 	_level->setCharacters(characters);
+	_level->setCharactersAI(charactersAI);
 }

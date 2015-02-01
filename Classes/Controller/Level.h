@@ -9,6 +9,7 @@ class Level {
 public:
 	CC_SYNTHESIZE(std::vector<TileCell*>*, _tileCells, TileCells );
 	CC_SYNTHESIZE(std::vector<Character*>*, _characters, Characters);
+	CC_SYNTHESIZE(std::vector<Character*>*, _charactersAI, CharactersAI);
 
 	~Level(){
 		delete _tileCells;

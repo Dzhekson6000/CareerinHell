@@ -47,6 +47,12 @@ bool GameScene::init(Settings* settings, SoundController* soundController)
 		_scroll->addChild(characters->at(characters->size() -1 -i   )->getTexture() );
 	}
 
+	std::vector<Character*>* charactersAI = rl.getLevel()->getCharactersAI();
+	for(time_t i = 0; i < charactersAI->size(); i++)
+	{
+		_scroll->addChild(charactersAI->at(charactersAI->size() -1 -i   )->getTexture() );
+	}
+
 	initTouch();
 
 	scene_ = Scene::create();
