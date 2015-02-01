@@ -20,10 +20,11 @@ protected:
 	int _id;
 	PPoint* _point;
 	Sprite* _sprite;
+	Path	_path;
 	void createSprite(std::string textureName);
 public:
 	Character(int id, PPoint* point);
-	PPoint* getPosition();
+	PPoint* getPPosition();
 	int getId(){ return _id; };
 
 	void setSize(int width, int height);
@@ -33,6 +34,9 @@ public:
 
 	void update();
 	void goMove(int x, int y);
+
+	void setPath(Path path);
+	void clearPath();
 };
 
 #endif // CHARACTERS_H__

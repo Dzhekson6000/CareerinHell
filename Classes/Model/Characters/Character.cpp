@@ -14,7 +14,7 @@ Character::Character(int id, PPoint* point)
 }
 
 
-PPoint* Character::getPosition()
+PPoint* Character::getPPosition()
 {
 	return _point;
 }
@@ -90,6 +90,17 @@ void Character::update()
 
 void Character::goMove( int x, int y )
 {
+	CCLOG("unit x=%f y=%f  moveto x=%f y=%f", _point->getXOriginal(), _point->getYOriginal(), _targetMove->getXOriginal(), _targetMove->getYOriginal() );
 	_targetMove = new PPoint(x * 50, y *50);
+}
+
+void Character::setPath(Path path)
+{
+	_path = path;
+}
+
+void Character::clearPath()
+{
+	_path.clear();
 }
 

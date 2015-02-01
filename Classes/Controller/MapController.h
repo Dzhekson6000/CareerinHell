@@ -6,6 +6,7 @@
 #include "Level.h"
 #include "Tools/Scroller.h"
 #include "Tools/PPoint.h"
+#include "Model/PMap.h"
 
 USING_NS_CC;
 
@@ -15,7 +16,6 @@ private:
 	Level* _level;
 	Scroller* _scroll;
 	InterfaceGame* _interfaceGame;
-	int** _passageWays;
 	void initPassageWays();
 	void clearPassageWays();
 public:
@@ -23,7 +23,6 @@ public:
 	void update(float dt);
 	void click(Touch* touch);
 	int** getPassageWays();
-	CC_SYNTHESIZE_READONLY(int, _xMax, Width);
-	CC_SYNTHESIZE_READONLY(int, _yMax, Height);
+	CC_SYNTHESIZE(PMap*, _map, Map);
 };
 #endif // MAPCONTROLLER_H__

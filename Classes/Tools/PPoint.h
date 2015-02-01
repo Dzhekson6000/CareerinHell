@@ -1,5 +1,6 @@
 #ifndef P_POINT_H_
 #define P_POINT_H_
+#include "cocos2d.h"
 
 class PPoint
 {
@@ -19,6 +20,8 @@ public:
 	float getXOriginal(){return _xOriginal; };
 	float getYOriginal(){return _yOriginal; };
 	void setPoint(float x, float y);
+	CC_SYNTHESIZE(int, _xCell, XCell);
+	CC_SYNTHESIZE(int, _yCell, YCell);
 };
 
 #endif // P_POINT_H_
