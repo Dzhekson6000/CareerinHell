@@ -8,11 +8,11 @@ void ReadLevel::readFile(std:: string fileName){
 	std::vector<TileCell*>* cells = new std::vector<TileCell*>;
 	std::vector<Character*>* charactersAI = new std::vector<Character*>;
 
-	std::string fullPath = FileUtils::sharedFileUtils()->fullPathForFilename(fileName);
+	std::string fullPath = FileUtils::getInstance()->fullPathForFilename(fileName);
 
 	TiXmlDocument *xmlFile = new TiXmlDocument();
 	ssize_t fileSize = 0;
-	unsigned char * fileContents = CCFileUtils::sharedFileUtils( ) -> getFileData( fullPath.c_str() , "r", &fileSize );
+	unsigned char * fileContents = CCFileUtils::getInstance()->getFileData( fullPath.c_str() , "r", &fileSize );
 	xmlFile->Parse((const char*)fileContents, 0, TIXML_ENCODING_UTF8);
 
 	TiXmlElement *xmlLevel = 0;

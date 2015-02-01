@@ -13,7 +13,7 @@ bool Snow::init()
 
 void Snow::update(float dt)
 {
-	for(int i = 0; i < _snews->size(); i++)
+	for(time_t i = 0; i < _snews->size(); i++)
 	{
 		Sprite* sprite = _snews->at(i);
 		sprite->setPosition(

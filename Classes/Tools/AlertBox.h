@@ -13,7 +13,7 @@ private:
 	void createMask();
 
 	Size _size;
-	CCClippingNode *_layerMask;
+	ClippingNode *_layerMask;
 	Layer* _scroll;
 
 	bool _moved;

@@ -13,11 +13,13 @@ void ReadLocalization::readLocalization()
 
 void ReadLocalization::readLocalization( std::string language )
 {
-	std::string fullPath = FileUtils::sharedFileUtils()->fullPathForFilename(PATH_STRING "localization.xml");
+	std::string fullPath = FileUtils::getInstance()->fullPathForFilename(PATH_STRING "localization.xml");
 
 	TiXmlDocument *xmlFile = new TiXmlDocument();
 	ssize_t fileSize = 0;
-	unsigned char * fileContents = CCFileUtils::sharedFileUtils( ) -> getFileData( fullPath.c_str() , "r", &fileSize );
+	Data data = FileUtils::getInstance()->getDataFromFile( fullPath );
+	unsigned char * fileContents = data.getBytes();
+
 	xmlFile->Parse((const char*)fileContents, 0, TIXML_ENCODING_UTF8);
 
 	TiXmlElement *xmlLocalization = 0;
