@@ -1,11 +1,6 @@
 #ifndef __COMMON_H__
 #define __COMMON_H__
 
-#include "cocos2d.h"
-#include "Tools/PPoint.h"
-#include <vector>
-USING_NS_CC;
-
 #define PATH_FONTS					"fonts/"
 
 #define PATH_IMG					"img/"
@@ -24,7 +19,5 @@ USING_NS_CC;
 #define PATH_SOUND					"sound/"
 
 #define PATH_STRING					"string/"
-
-typedef std::vector<PPoint*>		Path;
 
 #endif    // __COMMON_H__

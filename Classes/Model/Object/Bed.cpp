@@ -7,5 +7,5 @@ Bed::Bed(PPoint* point, bool rotate):TileCell()
 
 	setPosition(point);
 	addCell(path1, !rotate, false);
-	addCell(new PPoint(50, 0), path2, !rotate, false);
+	addCell(new PPoint(1, 0), path2, !rotate, false);
 }

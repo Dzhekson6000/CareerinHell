@@ -162,7 +162,6 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\TinyXml\tinyxmlerror.cpp" />
     <ClCompile Include="..\Classes\TinyXml\tinyxmlparser.cpp" />
     <ClCompile Include="..\Classes\Tools\AlertBox.cpp" />
-    <ClCompile Include="..\Classes\Tools\Pathfinding.cpp" />
     <ClCompile Include="..\Classes\Tools\PPoint.cpp" />
     <ClCompile Include="..\Classes\Tools\Scroller.cpp" />
     <ClCompile Include="..\Classes\Tools\Snow.cpp" />
@@ -191,7 +190,6 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Model\Characters\Boat.h" />
     <ClInclude Include="..\Classes\Model\Characters\Character.h" />
     <ClInclude Include="..\Classes\Model\Interface\CardCharacter.h" />
-    <ClInclude Include="..\Classes\Model\PMap.h" />
     <ClInclude Include="..\Classes\Model\Object\Bed.h" />
     <ClInclude Include="..\Classes\Scene\AbstractScene.h" />
     <ClInclude Include="..\Classes\Scene\GameScene.h" />
@@ -200,7 +198,6 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\TinyXml\tinystr.h" />
     <ClInclude Include="..\Classes\TinyXml\tinyxml.h" />
     <ClInclude Include="..\Classes\Tools\AlertBox.h" />
-    <ClInclude Include="..\Classes\Tools\Pathfinding.h" />
     <ClInclude Include="..\Classes\Tools\PPoint.h" />
     <ClInclude Include="..\Classes\Tools\Scroller.h" />
     <ClInclude Include="..\Classes\Tools\Snow.h" />
