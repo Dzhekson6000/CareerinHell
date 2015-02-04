@@ -150,6 +150,9 @@
     <ClCompile Include="..\Classes\Tools\HighlightingCells.cpp">
       <Filter>Classes\Tools</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Model\Object\Altar.cpp">
+      <Filter>Classes\Model\Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -256,6 +259,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Tools\HighlightingCells.h">
       <Filter>Classes\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\Object\Altar.h">
+      <Filter>Classes\Model\Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

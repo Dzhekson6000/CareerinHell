@@ -132,6 +132,14 @@ void ReadLevel::readFile(std:: string fileName){
 
 			cells->push_back(new CellPortal(new PPoint(x, y), tip, rotate) );
 		}else
+		if(!strcmp(nameElement, "Character") )
+		{
+			int x = atoi(xmlElement->Attribute("x"));
+			int y = atoi(xmlElement->Attribute("y"));
+			std::string tip = xmlElement->Attribute("tip");
+
+			if(!strcmp(tip.c_str(), "boat") ) charactersAI->push_back(new Boat(1, new PPoint(x, y), tip, true ) );
+		}else
 		if(!strcmp(nameElement, "Bed") )
 		{
 			bool rotate=false;
@@ -142,13 +150,15 @@ void ReadLevel::readFile(std:: string fileName){
 
 			cells->push_back(new Bed(new PPoint(x, y), rotate) );
 		}else
-		if(!strcmp(nameElement, "Character") )
+		if(!strcmp(nameElement, "Altar") )
 		{
+			bool rotate=false;
+
+			if(!strcmp(xmlElement->Attribute("rotate"), "l") ) rotate = true;
 			int x = atoi(xmlElement->Attribute("x"));
 			int y = atoi(xmlElement->Attribute("y"));
-			std::string tip = xmlElement->Attribute("tip");
 
-			if(!strcmp(tip.c_str(), "boat") ) charactersAI->push_back(new Boat(1, new PPoint(x, y), tip, true ) );
+			cells->push_back(new Altar(new PPoint(x, y), rotate) );
 		}
 
 		xmlElement = xmlElement->NextSiblingElement();
@@ -156,7 +166,6 @@ void ReadLevel::readFile(std:: string fileName){
 
 	
 	std::vector<Character*>* characters = new std::vector<Character*>;
-	characters->push_back(new Boat(1, new PPoint(5, 5), "boat", true ) );
 
 	_level->setTileCells(cells);
 	_level->setCharacters(characters);

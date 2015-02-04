@@ -19,6 +19,7 @@
 #include "Model/Characters/Boat.h"
 
 #include "Model/Object/Bed.h"
+#include "Model/Object/Altar.h"
 
 #include <TinyXml/tinyxml.h>
 

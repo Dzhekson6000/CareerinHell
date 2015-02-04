@@ -152,6 +152,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Model\Characters\Boat.cpp" />
     <ClCompile Include="..\Classes\Model\Characters\Character.cpp" />
     <ClCompile Include="..\Classes\Model\Interface\CardCharacter.cpp" />
+    <ClCompile Include="..\Classes\Model\Object\Altar.cpp" />
     <ClCompile Include="..\Classes\Model\Object\Bed.cpp" />
     <ClCompile Include="..\Classes\Scene\AbstractScene.cpp" />
     <ClCompile Include="..\Classes\Scene\GameScene.cpp" />
@@ -191,6 +192,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Model\Characters\Boat.h" />
     <ClInclude Include="..\Classes\Model\Characters\Character.h" />
     <ClInclude Include="..\Classes\Model\Interface\CardCharacter.h" />
+    <ClInclude Include="..\Classes\Model\Object\Altar.h" />
     <ClInclude Include="..\Classes\Model\Object\Bed.h" />
     <ClInclude Include="..\Classes\Scene\AbstractScene.h" />
     <ClInclude Include="..\Classes\Scene\GameScene.h" />
