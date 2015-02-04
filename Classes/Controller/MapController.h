@@ -6,6 +6,7 @@
 #include "Level.h"
 #include "Tools/Scroller.h"
 #include "Tools/PPoint.h"
+#include "Tools/HighlightingCells.h"
 
 USING_NS_CC;
 
@@ -15,9 +16,11 @@ private:
 	Level* _level;
 	Scroller* _scroll;
 	InterfaceGame* _interfaceGame;
+	HighlightingCells* _highlightingCells;
 	int** _passageWays;
 	void initPassageWays();
 	void clearPassageWays();
+	void transition();
 public:
 	MapController(Level* level, Scroller* scroll, InterfaceGame* interfaceGame);
 	void update(float dt);

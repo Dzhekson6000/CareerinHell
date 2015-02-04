@@ -1,16 +1,23 @@
 #include "Character.h"
 
-Character::Character(int id, PPoint* point)
+Character::Character(int id, PPoint* point, std::string textureName)
 {
 	_id = id;
-	_width = 0;
-	_height = 0;
+	_actionPoints = 10;
+	_actionPointsMax = 10;
+	_actionXCell = point->getXCell();
+	_actionYCell = point->getYCell();
+	_hitPoints = 100;
+	_hitPointsMax = 100;
+	_attackPoints = 10;
 	_inversionX = false;
 	_inversionY = false;
-	this->_sprite = Sprite::create(PATH_CHARACTERS "boat.png");
-	this->setSize(100,100);
-	setPPosition(point);
 	_path = new std::vector<PPoint*>;
+	this->_sprite = Sprite::create(textureName + ".png");
+	setPPosition(point);
+	_sprite->setScaleX(getInverse(_inversionX));
+	_sprite->setScaleY(getInverse(_inversionY));
+	addChild(_sprite);
 }
 
 
@@ -19,28 +26,12 @@ PPoint* Character::getPPosition()
 	return _point;
 }
 
-void Character::createSprite(std::string textureName)
-{
-	_sprite = Sprite::create(textureName + ".png");
-	setPPosition(_point);
-	_sprite->setScaleX(getInverse(_inversionX));
-	_sprite->setScaleY(getInverse(_inversionY));
-	addChild(_sprite);
-}
 
 void Character::setPPosition(PPoint* point)
 {
 	_point = point;
-	float x = point->getX() - _width;
-	if(_inversionX)x = point->getX() + _width;
-	this->setPosition(x, point->getY() + _height );
+	this->setPosition(point->getX(), point->getY() + _sprite->getContentSize().height/2 );
 	this->setLocalZOrder(-(point->getXOriginal() + point->getYOriginal()) );
-}
-
-void Character::setSize(int width, int height)
-{
-	_width = width;
-	_height = height;
 }
 
 void Character::setInversionX(bool inversion)
@@ -59,8 +50,15 @@ int Character::getInverse(bool inversion) {
 	return inversion ? -1: 1;
 }
 
+void Character::transition()
+{
+	_actionPoints = _actionPointsMax;
+}
+
 void Character::update()
 {
+	if(_actionPoints == 0)return;
+
 	int x = _point->getXOriginal();
 	int y = _point->getYOriginal();
 	PPoint* targetPoint = NULL;
@@ -96,6 +94,13 @@ void Character::update()
 		}
 	}
 	setPPosition(new PPoint((float)x,(float)y) );
+
+	if(_actionXCell != _point->getXCell() || _actionYCell != _point->getYCell())
+	{
+		_actionPoints--;
+		_actionXCell = _point->getXCell();
+		_actionYCell = _point->getYCell();
+	}
 }
 
 void Character::goMove(PPoint* point, Level* level)

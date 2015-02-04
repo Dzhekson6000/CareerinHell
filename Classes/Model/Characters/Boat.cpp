@@ -1,11 +1,6 @@
 #include "Boat.h"
 
-Boat::Boat(int id, PPoint* point,std::string tip,bool angle):Character(id, point)
+Boat::Boat(int id, PPoint* point,std::string tip,bool angle):Character(id, point, PATH_CHARACTERS + tip)
 {
 	setInversionX(true);
-	setSize(16, 77);
-
-	std::string path = PATH_CHARACTERS + tip;
-
-	createSprite(path);
 }

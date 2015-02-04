@@ -17,11 +17,26 @@ MapController::MapController(Level* level, Scroller* scroll, InterfaceGame* inte
  	_level->setYMaxCell(_yMax);
 	_level->setXMinCell(_xMin);
 	_level->setYMinCell(_yMin);
+
+	_highlightingCells = new HighlightingCells(_scroll, _level);
 }
 
 void MapController::click(Touch* touch)
 {
+	if(_interfaceGame->isSelectCharacter())
+	{
+		_highlightingCells->update(_interfaceGame->getSelectCharacter()->getPPosition(), _interfaceGame->getSelectCharacter()->getActionPoints());
+	}else{
+		_highlightingCells->setStatus(false);
+	}
+
+
 	if(_interfaceGame->isInterfaceClick(touch))return;
+	if(_interfaceGame->isButEndCoClick(touch))
+	{
+		transition();
+		return;
+	}
 
 	float xClick = touch->getLocation().x - _scroll->getPositionX();
 	float yClick = touch->getLocation().y - _scroll->getPositionY();
@@ -31,7 +46,6 @@ void MapController::click(Touch* touch)
 
 	if(_interfaceGame->isSelectCharacter())
 	{
-		//_interfaceGame->getSelectCharacter()->setPosition(new PPoint(xCell * 50, yCell *50) );
 		_interfaceGame->getSelectCharacter()->goMove(new PPoint(xCell, yCell), _level);
 	}
 
@@ -46,6 +60,15 @@ void MapController::click(Touch* touch)
 				tileCells->at(i)->click();
 			}
 		}
+	}
+}
+
+void MapController::transition()
+{
+	std::vector<Character*>* character = _level->getCharacters();
+	for(time_t i = 0; i < character->size(); i++)
+	{
+		character->at(i)->transition();
 	}
 }
 
@@ -124,5 +147,10 @@ void MapController::update( float dt )
 	for(time_t i = 0; i < characters->size(); i++)
 	{
 		characters->at(characters->size() -1 -i   )->update();
+	}
+
+	if(_interfaceGame->isSelectCharacter())
+	{
+		_highlightingCells->update(_interfaceGame->getSelectCharacter()->getPPosition(), _interfaceGame->getSelectCharacter()->getActionPoints() );
 	}
 }

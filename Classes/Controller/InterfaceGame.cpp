@@ -45,6 +45,22 @@ bool InterfaceGame::isSelectCharacter()
 	return false;
 }
 
+bool InterfaceGame::isButEndCoClick( Touch* touch )
+{
+	float xClick = touch->getLocation().x;
+	float yClick = touch->getLocation().y;
+	float x = _buttonEndCourse->getPositionX();
+	float y = _buttonEndCourse->getPositionY();
+	float w = _buttonEndCourse->getContentSize().width;
+	float h = _buttonEndCourse->getContentSize().height;
+	if( (xClick>x-w/2) && (xClick<x+w/2) &&
+		(yClick>y-h/2) && (yClick<y+h/2))
+	{
+		return true;
+	}
+	return false;
+}
+
 bool InterfaceGame::touchBegan(Touch* touch, Event* event)
 {
 	if(isInterfaceClick(touch))

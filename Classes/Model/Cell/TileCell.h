@@ -31,34 +31,5 @@ public:
 	int getPassage(){ return _passage; }
 
 	virtual void click(){};
-
-/*private:
-	int _width;
-	int _height;
-	int _xCenter;
-	int _yCenter;
-	bool _inversionX;
-	bool _inversionY;
-	int getInverse(bool inversion);
-protected:
-	PPoint* _point;
-	Sprite* _sprite;
-	void createSprite(std::string textureName);
-public:
-	Cell(PPoint* point);
-	PPoint* getPosition();
-	Sprite* getTexture();
-
-	void setSize(int width, int height);
-	void setCenter(int xCenter, int yCenter);
-	void setPosition(PPoint* point);
-	void setInversionX(bool inversion);
-	void setInversionY(bool inversion);
-	
-	int getPassage(){ return _passage; }
-	int getOrder(){ return _order; }
-
-	virtual void click(){};*/
-
 };
 #endif // TILECELL_H__

@@ -147,6 +147,9 @@
     <ClCompile Include="..\Classes\Controller\ReadLocalization.cpp">
       <Filter>Classes\Controller</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Tools\HighlightingCells.cpp">
+      <Filter>Classes\Tools</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -250,6 +253,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Controller\ReadLocalization.h">
       <Filter>Classes\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Tools\HighlightingCells.h">
+      <Filter>Classes\Tools</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

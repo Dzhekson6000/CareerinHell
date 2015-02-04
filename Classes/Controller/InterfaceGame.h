@@ -26,6 +26,7 @@ public:
 	virtual void touchEnded(Touch* touch, Event* event);
 
 	bool isInterfaceClick(Touch* touch);
+	bool isButEndCoClick(Touch* touch);
 
 	void addCharacter(Character* character);
 

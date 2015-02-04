@@ -14,29 +14,38 @@ USING_NS_CC;
 class Character : public Layer
 {
 private:
-	int _width;
-	int _height;
 	bool _inversionX;
 	bool _inversionY;
+	int _actionXCell;
+	int _actionYCell;
 	int getInverse(bool inversion);
+
  	std::vector<PPoint*>* _path;
 	void Character::findPath(PPoint* pointTarget, Level* level);
 	void clearPath();
+	
+	/*property*/
+	int _actionPoints;
+	int _actionPointsMax;
+	int _hitPoints;
+	int _hitPointsMax;
+	int _attackPoints;
 protected:
 	int _id;
 	PPoint* _point;
 	Sprite* _sprite;
-	void createSprite(std::string textureName);
 public:
-	Character(int id, PPoint* point);
-	PPoint* getPPosition();
+	Character(int id, PPoint* point, std::string textureName);
+	
 	int getId(){ return _id; };
 
-	void setSize(int width, int height);
+	PPoint* getPPosition();
+	int getActionPoints(){return _actionPoints;}
 	void setPPosition(PPoint* point);
 	void setInversionX(bool inversion);
 	void setInversionY(bool inversion);
 
+	void transition();
 	void update();
 	void goMove(PPoint* point, Level* level);
 	
