@@ -67,6 +67,9 @@ void Character::update()
 		targetPoint = new PPoint(_path->at(0)->getXCell(), _path->at(0)->getYCell());
 		if( (int)(_path->at(0)->getXOriginal()) == x && (int)(_path->at(0)->getYOriginal()) == y)
 		{
+			_actionPoints--;
+			_actionXCell = _point->getXCell();
+			_actionYCell = _point->getYCell();
 			_path->erase(_path->begin());
 		}
 	}
@@ -94,13 +97,6 @@ void Character::update()
 		}
 	}
 	setPPosition(new PPoint((float)x,(float)y) );
-
-	if(_actionXCell != _point->getXCell() || _actionYCell != _point->getYCell())
-	{
-		_actionPoints--;
-		_actionXCell = _point->getXCell();
-		_actionYCell = _point->getYCell();
-	}
 }
 
 void Character::goMove(PPoint* point, Level* level)

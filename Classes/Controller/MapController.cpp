@@ -149,7 +149,10 @@ void MapController::update( float dt )
 		characters->at(characters->size() -1 -i   )->update();
 	}
 
-	if(_interfaceGame->isSelectCharacter())
+	if(_interfaceGame->isSelectCharacter() && (
+		_interfaceGame->getSelectCharacter()->getPPosition()->getXCell() == _interfaceGame->getSelectCharacter()->getActionXCell() &&
+		_interfaceGame->getSelectCharacter()->getPPosition()->getYCell() == _interfaceGame->getSelectCharacter()->getActionYCell()
+		) )
 	{
 		_highlightingCells->update(_interfaceGame->getSelectCharacter()->getPPosition(), _interfaceGame->getSelectCharacter()->getActionPoints() );
 	}

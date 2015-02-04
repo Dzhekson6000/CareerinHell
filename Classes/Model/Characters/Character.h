@@ -16,8 +16,6 @@ class Character : public Layer
 private:
 	bool _inversionX;
 	bool _inversionY;
-	int _actionXCell;
-	int _actionYCell;
 	int getInverse(bool inversion);
 
  	std::vector<PPoint*>* _path;
@@ -49,6 +47,9 @@ public:
 	void update();
 	void goMove(PPoint* point, Level* level);
 	
+	CC_SYNTHESIZE_READONLY(int, _actionXCell, ActionXCell);
+	CC_SYNTHESIZE_READONLY(int, _actionYCell, ActionYCell);
+
 };
 
 #endif // CHARACTERS_H__
