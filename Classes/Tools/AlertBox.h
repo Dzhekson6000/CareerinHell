@@ -29,6 +29,6 @@ public:
 	virtual void touchEnded(Touch* touch, Event* event);
 	virtual bool init();
 
-	static AlertBox* create(std::string text);
+	static AlertBox* create();
 };
 #endif // ALERTBOX_H__

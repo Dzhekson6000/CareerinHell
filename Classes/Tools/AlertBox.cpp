@@ -1,10 +1,10 @@
 #include "AlertBox.h"
 
 
-AlertBox* AlertBox::create(std::string text)
+AlertBox* AlertBox::create()
 {
 	AlertBox *pRet = new AlertBox();
-	if (pRet && pRet->init(text))
+	if (pRet && pRet->init())
 	{
 		pRet->autorelease();
 		return pRet;
