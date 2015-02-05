@@ -17,7 +17,7 @@ AlertBox* AlertBox::create(std::string text)
 	}
 }
 
-bool AlertBox::init(std::string text)
+bool AlertBox::init()
 {
 	if ( !Layer::init() )  {
 		return false;
@@ -32,13 +32,9 @@ bool AlertBox::init(std::string text)
 	Sprite* sprite = Sprite::create(PATH_INTERFACE "AlertBox.png");
 	this->addChild(sprite);
 
-	auto label = Label::createWithTTF(text.c_str(), "fonts/rupster.ttf", 36, Size(_size.width -20, 0));
-	label->setAnchorPoint(Point(0.5, 1));
-
-
 	_scroll = Layer::create();
 	_scroll->setPosition( Point(0, _size.height/2) );
-	_scroll->addChild(label);
+	
 
 	createMask();
 	_layerMask->addChild(_scroll);
@@ -102,4 +98,11 @@ void AlertBox::touchEnded(Touch* touch, Event* event)
 {
 	_offsetPoint = touch->getLocation();
 	_moved = false;
+}
+
+void AlertBox::createText(std::string text, std::string fontFile)
+{
+	Label* label = Label::createWithTTF(text.c_str(), fontFile.c_str(), 36, Size(_size.width -20, 0));
+	label->setAnchorPoint(Point(0.5, 1));
+	_scroll->addChild(label);
 }
