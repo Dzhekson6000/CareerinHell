@@ -4,10 +4,11 @@ CellPortal::CellPortal(PPoint* point, std::string tip, bool rotate):TileCell()
 {
 	std::string path = PATH_PORTALS + tip;
 	setPosition(point);
+	setPassage(0);
 	addCell(path, !rotate, false);
 }
 
-void CellPortal::click()
+void CellPortal::click(InterfaceGame* interfaceGame)
 {
-	CCLOG("Portal warp =)");
+	interfaceGame->createPortalBox();
 }

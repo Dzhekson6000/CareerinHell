@@ -1,7 +1,18 @@
 #include "InterfaceGame.h"
 
-bool InterfaceGame::init()
+InterfaceGame* InterfaceGame::create(Settings* settings)
 {
+	InterfaceGame* scene = new InterfaceGame();
+	if(scene && scene->init(settings)){
+		return (InterfaceGame*)scene->autorelease();
+	}
+	CC_SAFE_DELETE(scene);
+	return scene;
+}
+
+bool InterfaceGame::init(Settings* settings)
+{
+	_settings = settings;
 	_selectCharacter = NULL;
 	_cardCharacters = new std::vector<CardCharacter*>;
 	_cardCharacterLayer = Layer::create();
@@ -117,4 +128,36 @@ void InterfaceGame::cardClear()
 	{
 		_cardCharacters->at(i)->setSelect(false);
 	}
+}
+
+bool InterfaceGame::isAlertBoxs()
+{
+	if(_alertBoxs.size() != 0)return true;
+	return false;
+}
+
+void InterfaceGame::deadAlertBox()
+{
+	for(time_t i = 0; i < _alertBoxs.size(); i++)
+	{
+		if(_alertBoxs.at(i)->_dead)_alertBoxs.erase(_alertBoxs.begin()+i);
+	}
+}
+
+void InterfaceGame::createHiringUnits()
+{
+	AlertHiringBox * alertHiringBox = new AlertHiringBox(_settings);
+	alertHiringBox->setPosition(650, 360);
+	alertHiringBox->addEventOnClick(_onHiringUnit);
+	this->addChild(alertHiringBox);
+	_alertBoxs.push_back(alertHiringBox);
+}
+
+void InterfaceGame::createPortalBox()
+{
+	AlertPortalBox * alertPortalBox = new AlertPortalBox(_settings);
+	alertPortalBox->setPosition(650, 360);
+	alertPortalBox->addEventOnClick(_onWarpPortal);
+	this->addChild(alertPortalBox);
+	_alertBoxs.push_back(alertPortalBox);
 }

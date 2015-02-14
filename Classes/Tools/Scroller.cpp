@@ -10,6 +10,7 @@ bool Scroller::init()
 	
 	_size = Director::getInstance()->getWinSize();
 	_moved = false;
+	_notScroll = false;
 
 	initTouch();
 	return true;
@@ -56,7 +57,7 @@ void Scroller::touchMoved(Touch* touch, Event* event)
 }
 
 bool Scroller::isScrollMap(Touch* touch, const Point point) {
-	return std::abs(point.x - touch->getLocation().x) > OFFSET || std::abs(point.y - touch->getLocation().y) > OFFSET;
+	return (std::abs(point.x - touch->getLocation().x) > OFFSET || std::abs(point.y - touch->getLocation().y) > OFFSET) && !_notScroll;
 }
 
 void Scroller::touchEnded(Touch* touch, Event* event)

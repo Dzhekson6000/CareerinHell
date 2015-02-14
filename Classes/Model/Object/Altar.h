@@ -8,9 +8,10 @@ class Altar:public TileCell
 {
 private:
 public:
-	Altar(PPoint* point, //положение
-		bool rotate // поворот true=l=налево, false=r=направо
+	Altar(PPoint* point,
+		bool rotate
 		);
+	void click(InterfaceGame* interfaceGame);
 
 };
 #endif // ALTAR_H__

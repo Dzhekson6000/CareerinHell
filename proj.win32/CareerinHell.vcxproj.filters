@@ -99,9 +99,6 @@
     <ClCompile Include="..\Classes\Model\Interface\CardCharacter.cpp">
       <Filter>Classes\Model\Interface</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Controller\MapController.cpp">
-      <Filter>Classes\Controller</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Scene\AbstractScene.cpp">
       <Filter>Classes\Scene</Filter>
     </ClCompile>
@@ -150,8 +147,20 @@
     <ClCompile Include="..\Classes\Tools\HighlightingCells.cpp">
       <Filter>Classes\Tools</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Model\Interface\AlertHiringBox.cpp">
+      <Filter>Classes\Model\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\Interface\AlertTextBox.cpp">
+      <Filter>Classes\Model\Interface</Filter>
+    </ClCompile>
     <ClCompile Include="..\Classes\Model\Object\Altar.cpp">
       <Filter>Classes\Model\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Controller\GameController.cpp">
+      <Filter>Classes\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\Interface\AlertPortalBox.cpp">
+      <Filter>Classes\Model\Interface</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -206,9 +215,6 @@
     <ClInclude Include="..\Classes\Model\Interface\CardCharacter.h">
       <Filter>Classes\Model\Interface</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Controller\MapController.h">
-      <Filter>Classes\Controller</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Scene\AbstractScene.h">
       <Filter>Classes\Scene</Filter>
     </ClInclude>
@@ -260,8 +266,23 @@
     <ClInclude Include="..\Classes\Tools\HighlightingCells.h">
       <Filter>Classes\Tools</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Model\Interface\AlertHiringBox.h">
+      <Filter>Classes\Model\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\Interface\AlertTextBox.h">
+      <Filter>Classes\Model\Interface</Filter>
+    </ClInclude>
     <ClInclude Include="..\Classes\Model\Object\Altar.h">
       <Filter>Classes\Model\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Controller\GameController.h">
+      <Filter>Classes\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Controller\Player.h">
+      <Filter>Classes\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\Interface\AlertPortalBox.h">
+      <Filter>Classes\Model\Interface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

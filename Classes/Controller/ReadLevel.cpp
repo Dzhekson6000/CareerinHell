@@ -7,6 +7,8 @@ ReadLevel::ReadLevel(){
 void ReadLevel::readFile(std:: string fileName){
 	std::vector<TileCell*>* cells = new std::vector<TileCell*>;
 	std::vector<Character*>* charactersAI = new std::vector<Character*>;
+	int xPortalCell = 0;
+	int yPortalCell = 0;
 
 	std::string fullPath = FileUtils::getInstance()->fullPathForFilename(fileName);
 
@@ -129,7 +131,8 @@ void ReadLevel::readFile(std:: string fileName){
 			if(!strcmp(xmlElement->Attribute("rotate"), "l") ) rotate = true;
 			int x = atoi(xmlElement->Attribute("x"));
 			int y = atoi(xmlElement->Attribute("y"));
-
+			xPortalCell = x;
+			yPortalCell = y;
 			cells->push_back(new CellPortal(new PPoint(x, y), tip, rotate) );
 		}else
 		if(!strcmp(nameElement, "Character") )
@@ -167,6 +170,8 @@ void ReadLevel::readFile(std:: string fileName){
 	
 	std::vector<Character*>* characters = new std::vector<Character*>;
 
+	_level->setXPortalCell(xPortalCell);
+	_level->setYPortalCell(yPortalCell);
 	_level->setTileCells(cells);
 	_level->setCharacters(characters);
 	_level->setCharactersAI(charactersAI);

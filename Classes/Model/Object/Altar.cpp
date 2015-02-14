@@ -6,3 +6,8 @@ Altar::Altar(PPoint* point, bool rotate):TileCell()
 	setPosition(point);
 	addCell(path1, !rotate, false);
 }
+
+void Altar::click(InterfaceGame* interfaceGame)
+{
+	interfaceGame->createHiringUnits();
+}

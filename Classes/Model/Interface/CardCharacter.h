@@ -7,6 +7,8 @@
 
 USING_NS_CC;
 
+class Character;
+
 class CardCharacter
 {
 private:

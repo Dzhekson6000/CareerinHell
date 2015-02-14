@@ -9,7 +9,7 @@
 #include "Controller/SoundController.h"
 #include "Controller/Settings.h"
 #include "Controller/InterfaceGame.h"
-#include "Controller/MapController.h"
+#include "Controller/GameController.h"
 #include "Common/common.h"
 
 class GameScene : public AbstractScene {
@@ -19,12 +19,10 @@ private:
 
 	InterfaceGame* _interfaceGame;
 	Scroller* _scroll;
-	MapController* _mapController;
+	GameController* _mapController;
 	
 	Touch _touchClick;
 	void update(float dt);
-
-	bool isScrollMap(Touch* touch);
 public:
 	static GameScene* create(Settings* settings, SoundController* soundController);
 	virtual bool init(Settings* settings, SoundController* soundController);

@@ -7,13 +7,16 @@
 #include "Tools/Scroller.h"
 #include "Tools/PPoint.h"
 #include "Tools/HighlightingCells.h"
+#include "Controller/ReadLevel.h"
+#include "Player.h"
 
 USING_NS_CC;
 
-class MapController
+class GameController
 {
 private:
 	Level* _level;
+	Player* _player;
 	Scroller* _scroll;
 	InterfaceGame* _interfaceGame;
 	HighlightingCells* _highlightingCells;
@@ -22,7 +25,7 @@ private:
 	void clearPassageWays();
 	void transition();
 public:
-	MapController(Level* level, Scroller* scroll, InterfaceGame* interfaceGame);
+	GameController(Scroller* scroll, InterfaceGame* interfaceGame);
 	void update(float dt);
 	void click(Touch* touch);
 	int** getPassageWays();
@@ -30,5 +33,10 @@ public:
 	CC_SYNTHESIZE_READONLY(int, _yMax, Height);
 	CC_SYNTHESIZE_READONLY(int, _xMin, WidthMin);
 	CC_SYNTHESIZE_READONLY(int, _yMin, HeightMin);
+	void nextLevel(std::string level, bool isHell = false);
+	void clearLevel();
+
+	void eventUnit(int id);
+	void eventWarpPortal(std::string nameLevel);
 };
 #endif // MAPCONTROLLER_H__

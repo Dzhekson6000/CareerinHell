@@ -18,41 +18,14 @@ bool GameScene::init(Settings* settings, SoundController* soundController)
     {
         return false;
     }
-
-	ReadLevel rl = ReadLevel();
-	rl.readFile(PATH_MAP "home.xml");
 	
 	_scroll = Scroller::create();
 	this->addChild(_scroll);
 
-	_interfaceGame = InterfaceGame::create();
+	_interfaceGame = InterfaceGame::create(settings);
 	this->addChild(_interfaceGame);
 
-	_mapController = new MapController(rl.getLevel(), _scroll, _interfaceGame);
-
-	std::vector<TileCell*>* tileCells = rl.getLevel()->getTileCells();
-	for(time_t i = 0; i < tileCells->size(); i++)
-	{
-		std::vector<Cell*>* cells = tileCells->at(i)->getCells();
-		for(time_t i = 0; i < cells->size(); i++)
-		{
-			_scroll->addChild(cells->at(cells->size() -1 -i)->getTexture());
-		}
-	}
-
-	std::vector<Character*>* characters = rl.getLevel()->getCharacters();
-	for(time_t i = 0; i < characters->size(); i++)
-	{
-		_interfaceGame->addCharacter(characters->at(characters->size() -1 -i   ));
-		_scroll->addChild(characters->at(characters->size() -1 -i   ));
-	}
-
-	std::vector<Character*>* charactersAI = rl.getLevel()->getCharactersAI();
-	for(time_t i = 0; i < charactersAI->size(); i++)
-	{
-		_scroll->addChild(charactersAI->at(charactersAI->size() -1 -i   ));
-	}
-
+	_mapController = new GameController(_scroll, _interfaceGame);
 	initTouch();
 
 	this->schedule(schedule_selector(GameScene::update),0.01f);
@@ -74,6 +47,8 @@ void GameScene::initTouch()
 
 bool GameScene::touchBegan(Touch* touch, Event* event)
 {
+	_interfaceGame->deadAlertBox();
+	_scroll->_notScroll = _interfaceGame->isAlertBoxs();
 	_touchClick = *touch;
 	return true;
 }
@@ -84,14 +59,10 @@ void GameScene::touchMoved(Touch* touch, Event* event)
 
 void GameScene::touchEnded(Touch* touch, Event* event)
 {
-	if(!isScrollMap(touch))
+	if(!_scroll->isScrollMap(touch, _touchClick.getLocation() ))
 	{
 		_mapController->click(touch);
 	}
-}
-
-bool GameScene::isScrollMap(Touch* touch) {
-	return std::abs(_touchClick.getLocation().x - touch->getLocation().x) > OFFSET || std::abs(_touchClick.getLocation().y - touch->getLocation().y) > OFFSET;
 }
 
 void GameScene::update( float dt )

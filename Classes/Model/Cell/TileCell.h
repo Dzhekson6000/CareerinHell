@@ -1,11 +1,12 @@
 #ifndef TILECELL_H__
 #define TILECELL_H__
-#include "cocos2d.h"
+
 #include "Tools/PPoint.h"
 #include "Common/common.h"
 #include "Cell.h"
+#include "Controller/InterfaceGame.h"
 
-USING_NS_CC;
+class InterfaceGame;
 
 class TileCell
 {
@@ -30,6 +31,6 @@ public:
 	std::vector <Cell*>* getCells();
 	int getPassage(){ return _passage; }
 
-	virtual void click(){};
+	virtual void click(InterfaceGame* interfaceGame){};
 };
 #endif // TILECELL_H__

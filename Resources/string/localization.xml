@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <localization>
-  <string local="ru" name="ResumeGame">Продолжить</string>
+	<string local="ru" name="ResumeGame">Продолжить</string>
 	<string local="eng" name="ResumeGame">Resume</string>
 	<string local="ru" name="NewGame">Новая игра</string>
 	<string local="eng" name="NewGame">New Game</string>
 	<string local="ru" name="Exit">Выход</string>
 	<string local="eng" name="Exit">Exit</string>
+	<string local="ru" name="Loc">Локация</string>
+	<string local="eng" name="Loc">Lacation</string>
 </localization> 

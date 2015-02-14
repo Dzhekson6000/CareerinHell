@@ -8,6 +8,6 @@ class AlertTextBox:public AlertBox
 private:
 
 public:
-	AlertTextBox(std::string text);
+	AlertTextBox(Settings* settings, std::string text);
 };
 #endif // ALERTTEXTBOX_H__

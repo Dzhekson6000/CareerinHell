@@ -16,13 +16,14 @@ private:
 	float _xPosition;
 	float _yPosition;
 	Point _offsetPoint;
-	bool isScrollMap(Touch* touch, const Point point);
 
 public:
 	virtual bool touchBegan(Touch* touch, Event* event);
 	virtual void touchMoved(Touch* touch, Event* event);
 	virtual void touchEnded(Touch* touch, Event* event);
 	virtual bool init();
+	bool isScrollMap(Touch* touch, const Point point);
+	bool _notScroll;
 	
 	CREATE_FUNC(Scroller);
 };

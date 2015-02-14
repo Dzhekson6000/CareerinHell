@@ -8,11 +8,11 @@ class CellPortal:public TileCell
 {
 private:
 public:
-	CellPortal(PPoint* point, //положение
-		std::string tip, //тип
-		bool rotate // поворот true=l=налево, false=r=направо
+	CellPortal(PPoint* point,
+		std::string tip,
+		bool rotate
 		);
-	void click();
+	void click(InterfaceGame* interfaceGame);
 
 };
 #endif // CELLPORTAL_H__

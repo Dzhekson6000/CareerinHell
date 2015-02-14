@@ -1,27 +1,24 @@
-#include "MapController.h"
+#include "GameController.h"
 
 #define DNT_WALK 255
 
-MapController::MapController(Level* level, Scroller* scroll, InterfaceGame* interfaceGame)
+GameController::GameController(Scroller* scroll, InterfaceGame* interfaceGame)
 {
-	_level = level;
+	_level = new Level;
 	_scroll = scroll;
-	_interfaceGame = interfaceGame;
-	_xMin = 0;
-	_yMin = 0;
-	_xMax = 0;
-	_yMax = 0;
-	initPassageWays();
- 	_level->setPassageWays(getPassageWays());
- 	_level->setXMaxCell(_xMax);
- 	_level->setYMaxCell(_yMax);
-	_level->setXMinCell(_xMin);
-	_level->setYMinCell(_yMin);
 
+	_player = new Player;
+	_player->setCharacters(new std::vector<Character*>);
+
+	_interfaceGame = interfaceGame;
+	_interfaceGame->addEventOnHiringUnit(INTERFACE_CALLBACK_1(GameController::eventUnit, this) );
+	_interfaceGame->addEventOnWarpPortal(INTERFACE_CALLBACK_1(GameController::eventWarpPortal, this) );
+
+	nextLevel("hell.xml", true);
 	_highlightingCells = new HighlightingCells(_scroll, _level);
 }
 
-void MapController::click(Touch* touch)
+void GameController::click(Touch* touch)
 {
 	if(_interfaceGame->isSelectCharacter())
 	{
@@ -29,7 +26,6 @@ void MapController::click(Touch* touch)
 	}else{
 		_highlightingCells->setStatus(false);
 	}
-
 
 	if(_interfaceGame->isInterfaceClick(touch))return;
 	if(_interfaceGame->isButEndCoClick(touch))
@@ -53,17 +49,17 @@ void MapController::click(Touch* touch)
 	for(time_t i = 0; i < tileCells->size(); i++)
 	{
 		std::vector<Cell*>* cells = tileCells->at(i)->getCells();
-		for(time_t i = 0; i < cells->size(); i++)
+		for(time_t j = 0; j < cells->size(); j++)
 		{
-			if( cells->at(i)->getCellX() == xCell && cells->at(i)->getCellY() == yCell)
+			if( cells->at(j)->getCellX() == xCell && cells->at(j)->getCellY() == yCell)
 			{
-				tileCells->at(i)->click();
+				tileCells->at(i)->click(_interfaceGame);
 			}
 		}
 	}
 }
 
-void MapController::transition()
+void GameController::transition()
 {
 	std::vector<Character*>* character = _level->getCharacters();
 	for(time_t i = 0; i < character->size(); i++)
@@ -72,7 +68,7 @@ void MapController::transition()
 	}
 }
 
-int** MapController::getPassageWays()
+int** GameController::getPassageWays()
 {
 	clearPassageWays();
 
@@ -102,8 +98,9 @@ int** MapController::getPassageWays()
 	return _passageWays;
 }
 
-void MapController::initPassageWays()
+void GameController::initPassageWays()
 {
+	_xMin = 0;_yMin = 0;_xMax = 0;_yMax = 0;
 	std::vector<TileCell*>* tileCells = _level->getTileCells();
 	for(time_t i = 0; i < tileCells->size(); i++)
 	{
@@ -130,7 +127,8 @@ void MapController::initPassageWays()
 	}
 	getPassageWays();
 }
-void MapController::clearPassageWays()
+
+void GameController::clearPassageWays()
 {
 	for(int i=0; i<_xMax-_xMin+1; i++)
 	{
@@ -141,7 +139,7 @@ void MapController::clearPassageWays()
 	}
 }
 
-void MapController::update( float dt )
+void GameController::update( float dt )
 {
 	std::vector<Character*>* characters = _level->getCharacters();
 	for(time_t i = 0; i < characters->size(); i++)
@@ -156,4 +154,68 @@ void MapController::update( float dt )
 	{
 		_highlightingCells->update(_interfaceGame->getSelectCharacter()->getPPosition(), _interfaceGame->getSelectCharacter()->getActionPoints() );
 	}
+}
+
+void GameController::nextLevel( std::string level, bool isHell )
+{
+	clearLevel();
+	ReadLevel rl = ReadLevel();
+	rl.readFile(PATH_MAP + level);
+	_level = rl.getLevel();
+	std::vector<Character*>* characters = rl.getLevel()->getCharacters();
+	if(!isHell)
+	{
+		std::vector<Character*>* playerCharacters = _player->getCharacters();
+		for(time_t i = 0; i < playerCharacters->size(); i++)
+		{
+			playerCharacters->at(i)->setPPosition(new PPoint(_level->getXPortalCell(), _level->getYPortalCell()) );
+			characters->push_back(playerCharacters->at(i));
+		}
+	}
+	std::vector<TileCell*>* tileCells = rl.getLevel()->getTileCells();
+	for(time_t i = 0; i < tileCells->size(); i++)
+	{
+		std::vector<Cell*>* cells = tileCells->at(i)->getCells();
+		for(time_t j = 0; j < cells->size(); j++)
+		{
+			_scroll->addChild(cells->at(cells->size() -1 -j)->getTexture());
+		}
+	}
+
+	for(time_t i = 0; i < characters->size(); i++)
+	{
+		_interfaceGame->addCharacter(characters->at(characters->size() -1 -i   ));
+		_scroll->addChild(characters->at(characters->size() -1 -i   ));
+	}
+
+	std::vector<Character*>* charactersAI = rl.getLevel()->getCharactersAI();
+	for(time_t i = 0; i < charactersAI->size(); i++)
+	{
+		_scroll->addChild(charactersAI->at(charactersAI->size() -1 -i   ));
+	}
+
+	initPassageWays();
+	_level->setPassageWays(getPassageWays());
+	_level->setXMaxCell(_xMax);
+	_level->setYMaxCell(_yMax);
+	_level->setXMinCell(_xMin);
+	_level->setYMinCell(_yMin);
+}
+
+void GameController::clearLevel()
+{
+	_scroll->removeAllChildren();
+}
+
+void GameController::eventUnit( int id )
+{
+	std::string tip = "";
+	if(id == 1) tip = "boat";
+	std::vector<Character*>* playerCharacter = _player->getCharacters();
+	playerCharacter->push_back(new Boat(1, new PPoint(0, 0), tip, true ));
+}
+
+void GameController::eventWarpPortal( std::string nameLevel )
+{
+	nextLevel(nameLevel);
 }

@@ -5,6 +5,7 @@
 #include "Model/Characters/Character.h"
 
 class Character;
+class TileCell;
 
 class Level {
 
@@ -17,6 +18,8 @@ public:
 	CC_SYNTHESIZE(int, _yMaxCell, YMaxCell);
 	CC_SYNTHESIZE(int, _xMinCell, XMinCell);
 	CC_SYNTHESIZE(int, _yMinCell, YMinCell);
+	CC_SYNTHESIZE(int, _xPortalCell, XPortalCell);
+	CC_SYNTHESIZE(int, _yPortalCell, YPortalCell);
 
 	~Level(){
 		delete _tileCells;

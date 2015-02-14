@@ -135,7 +135,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\Controller\InterfaceGame.cpp" />
-    <ClCompile Include="..\Classes\Controller\MapController.cpp" />
+    <ClCompile Include="..\Classes\Controller\GameController.cpp" />
     <ClCompile Include="..\Classes\Controller\MenuController.cpp" />
     <ClCompile Include="..\Classes\Controller\ReadLevel.cpp" />
     <ClCompile Include="..\Classes\Controller\ReadLocalization.cpp" />
@@ -151,6 +151,9 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Model\Cell\Wall.cpp" />
     <ClCompile Include="..\Classes\Model\Characters\Boat.cpp" />
     <ClCompile Include="..\Classes\Model\Characters\Character.cpp" />
+    <ClCompile Include="..\Classes\Model\Interface\AlertHiringBox.cpp" />
+    <ClCompile Include="..\Classes\Model\Interface\AlertPortalBox.cpp" />
+    <ClCompile Include="..\Classes\Model\Interface\AlertTextBox.cpp" />
     <ClCompile Include="..\Classes\Model\Interface\CardCharacter.cpp" />
     <ClCompile Include="..\Classes\Model\Object\Altar.cpp" />
     <ClCompile Include="..\Classes\Model\Object\Bed.cpp" />
@@ -175,8 +178,9 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Common\common.h" />
     <ClInclude Include="..\Classes\Controller\InterfaceGame.h" />
     <ClInclude Include="..\Classes\Controller\Level.h" />
-    <ClInclude Include="..\Classes\Controller\MapController.h" />
+    <ClInclude Include="..\Classes\Controller\GameController.h" />
     <ClInclude Include="..\Classes\Controller\MenuController.h" />
+    <ClInclude Include="..\Classes\Controller\Player.h" />
     <ClInclude Include="..\Classes\Controller\ReadLevel.h" />
     <ClInclude Include="..\Classes\Controller\ReadLocalization.h" />
     <ClInclude Include="..\Classes\Controller\Settings.h" />
@@ -191,6 +195,9 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Model\Cell\Wall.h" />
     <ClInclude Include="..\Classes\Model\Characters\Boat.h" />
     <ClInclude Include="..\Classes\Model\Characters\Character.h" />
+    <ClInclude Include="..\Classes\Model\Interface\AlertHiringBox.h" />
+    <ClInclude Include="..\Classes\Model\Interface\AlertPortalBox.h" />
+    <ClInclude Include="..\Classes\Model\Interface\AlertTextBox.h" />
     <ClInclude Include="..\Classes\Model\Interface\CardCharacter.h" />
     <ClInclude Include="..\Classes\Model\Object\Altar.h" />
     <ClInclude Include="..\Classes\Model\Object\Bed.h" />

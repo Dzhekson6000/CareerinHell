@@ -8,7 +8,6 @@
 
 class Level;
 
-
 USING_NS_CC;
 
 class Character : public Layer
