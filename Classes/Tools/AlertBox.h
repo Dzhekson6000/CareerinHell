@@ -45,6 +45,23 @@ public:
 	bool _dead;
 	virtual void deadChild(){};
 
+	template< typename TAlert >
+	static TAlert* create(Settings* settings)
+	{
+			TAlert *pRet = new TAlert();
+			if (pRet && pRet->init(settings))
+			{
+				pRet->autorelease();
+				return pRet;
+			}
+			else
+			{
+				delete pRet;
+				pRet = NULL;
+				return NULL;
+			}
+	}
+
 	static AlertBox* create(Settings* settings);
 };
 #endif // ALERTBOX_H__

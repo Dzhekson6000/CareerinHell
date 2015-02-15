@@ -10,7 +10,7 @@ private:
 
 	onClickString _onClick;
 public:
-	AlertPortalBox(Settings* settings);
+	virtual bool init(Settings* settings);
 
 	void addEventOnClick(onClickString callback){ _onClick = callback; };
 	void click(Touch* touch);

@@ -10,7 +10,7 @@ private:
 
 	onClick _onClick;
 public:
-	AlertHiringBox(Settings* settings);
+	virtual bool init(Settings* settings);
 
 	void addEventOnClick(onClick callback){ _onClick = callback; };
 	void click(Touch* touch);

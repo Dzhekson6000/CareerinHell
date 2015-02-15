@@ -146,7 +146,7 @@ void InterfaceGame::deadAlertBox()
 
 void InterfaceGame::createHiringUnits()
 {
-	AlertHiringBox * alertHiringBox = new AlertHiringBox(_settings);
+	AlertHiringBox * alertHiringBox = AlertBox::create< AlertHiringBox >( _settings );
 	alertHiringBox->setPosition(650, 360);
 	alertHiringBox->addEventOnClick(_onHiringUnit);
 	this->addChild(alertHiringBox);
@@ -155,7 +155,7 @@ void InterfaceGame::createHiringUnits()
 
 void InterfaceGame::createPortalBox()
 {
-	AlertPortalBox * alertPortalBox = new AlertPortalBox(_settings);
+	AlertPortalBox * alertPortalBox = AlertBox::create< AlertPortalBox >( _settings );
 	alertPortalBox->setPosition(650, 360);
 	alertPortalBox->addEventOnClick(_onWarpPortal);
 	this->addChild(alertPortalBox);

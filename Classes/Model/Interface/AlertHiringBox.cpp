@@ -1,11 +1,14 @@
 #include "AlertHiringBox.h"
 
-AlertHiringBox::AlertHiringBox(Settings* settings)
+bool AlertHiringBox::init(Settings* settings)
 {
-	AlertBox::init(settings);
+	if(!AlertBox::init(settings)) {
+		return false;
+	}
 	_hiringUnits = Sprite::create(PATH_INTERFACE "HiringUnits.png");
 	_hiringUnits->setPositionY(-(_hiringUnits->getContentSize().height/2) - 20);
 	_scroll->addChild(_hiringUnits);
+	return true;
 }
 
 void AlertHiringBox::click( Touch* touch )

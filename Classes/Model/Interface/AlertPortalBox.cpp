@@ -1,9 +1,10 @@
 #include "AlertPortalBox.h"
 
-
-AlertPortalBox::AlertPortalBox(Settings* settings)
+bool AlertPortalBox::init(Settings* settings)
 {
-	AlertBox::init(settings);
+	if(!AlertBox::init(settings)){
+		return false;
+	}
 	_alertBoxMenu = Sprite::create(PATH_INTERFACE "AlertBoxMenu.png");
 	_alertBoxMenu->setPositionY(-(_alertBoxMenu->getContentSize().height/2) - 20);
 	_scroll->addChild(_alertBoxMenu);
@@ -11,6 +12,7 @@ AlertPortalBox::AlertPortalBox(Settings* settings)
 	auto labelButtonLoc = Label::createWithTTF(_settings->getStringLocal()->getString("Loc").c_str(), "fonts/rupster.ttf", 36);
 	labelButtonLoc->setPosition(Point(_alertBoxMenu->getContentSize().width/2,_alertBoxMenu->getContentSize().height/2));
 	_alertBoxMenu->addChild(labelButtonLoc);
+	return true;
 }
 
 void AlertPortalBox::click( Touch* touch )

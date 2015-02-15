@@ -2,22 +2,6 @@
 
 #define OFFSET    20
 
-AlertBox* AlertBox::create(Settings* settings)
-{
-	AlertBox *pRet = new AlertBox();
-	if (pRet && pRet->init(settings))
-	{
-		pRet->autorelease();
-		return pRet;
-	}
-	else
-	{
-		delete pRet;
-		pRet = NULL;
-		return NULL;
-	}
-}
-
 bool AlertBox::init(Settings* settings)
 {
 	if ( !Layer::init() )  {
