@@ -97,7 +97,8 @@ void AlertBox::touchMoved(Touch* touch, Event* event)
 	if(_dead)return;
 	if(_moved)
 	{
-		_scroll->setPositionY(_scroll->getPositionY() + (touch->getLocation().y - _yPosition) );
+		if(_size.height/2 > _scroll->getPositionY() + (touch->getLocation().y - _yPosition))
+			_scroll->setPositionY(_scroll->getPositionY() + (touch->getLocation().y - _yPosition) );
 		_yPosition = touch->getLocation().y;
 	}
 
