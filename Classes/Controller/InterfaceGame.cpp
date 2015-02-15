@@ -90,9 +90,8 @@ void InterfaceGame::touchEnded(Touch* touch, Event* event)
 	if(_click)
 	{
 		if(isInterfaceClick(touch) ){
-		//клик по карте героя
 
-			for(time_t i = 0; i < _cardCharacters->size(); i++)//определяем по какой карте
+			for(time_t i = 0; i < _cardCharacters->size(); i++)
 			{
 				if(touch->getLocation().y > (175 * i) && touch->getLocation().y < 175 + (175 * i) )
 				{

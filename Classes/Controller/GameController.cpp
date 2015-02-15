@@ -8,6 +8,7 @@ GameController::GameController(Scroller* scroll, InterfaceGame* interfaceGame)
 	_scroll = scroll;
 
 	_player = new Player;
+	_player->setNCharacter(0);
 	_player->setCharacters(new std::vector<Character*>);
 
 	_interfaceGame = interfaceGame;
@@ -212,7 +213,7 @@ void GameController::eventUnit( int id )
 	std::string tip = "";
 	if(id == 1) tip = "boat";
 	std::vector<Character*>* playerCharacter = _player->getCharacters();
-	playerCharacter->push_back(new Boat(1, _level, new PPoint(0, 0), tip, true ));
+	playerCharacter->push_back(new Boat(_player->augmentN(), _level, new PPoint(0, 0), tip, true ));
 }
 
 void GameController::eventWarpPortal( std::string nameLevel )
