@@ -9,9 +9,10 @@ class Boat:public Character
 private:
 public:
 	Boat(int id,
-		PPoint* point, //начальное положение
-		std::string tip, //тип существа
-		bool angle // поворот true=l=налево, false=r=направо
+		Level* level,
+		PPoint* point,
+		std::string tip,
+		bool angle
 		);
 
 	void setPosition(PPoint* point);

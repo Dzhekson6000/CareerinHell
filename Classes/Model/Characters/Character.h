@@ -31,8 +31,9 @@ protected:
 	int _id;
 	PPoint* _point;
 	Sprite* _sprite;
+	Level* _level;
 public:
-	Character(int id, PPoint* point, std::string textureName);
+	Character(int id, Level* level, PPoint* point, std::string textureName);
 	
 	int getId(){ return _id; };
 
@@ -44,7 +45,7 @@ public:
 
 	void transition();
 	void update();
-	void goMove(PPoint* point, Level* level);
+	void goMove(PPoint* point);
 	
 	CC_SYNTHESIZE_READONLY(int, _actionXCell, ActionXCell);
 	CC_SYNTHESIZE_READONLY(int, _actionYCell, ActionYCell);

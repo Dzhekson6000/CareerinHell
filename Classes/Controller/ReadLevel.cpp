@@ -141,7 +141,7 @@ void ReadLevel::readFile(std:: string fileName){
 			int y = atoi(xmlElement->Attribute("y"));
 			std::string tip = xmlElement->Attribute("tip");
 
-			if(!strcmp(tip.c_str(), "boat") ) charactersAI->push_back(new Boat(1, new PPoint(x, y), tip, true ) );
+			if(!strcmp(tip.c_str(), "boat") ) charactersAI->push_back(new Boat(1, _level, new PPoint(x, y), tip, true ) );
 		}else
 		if(!strcmp(nameElement, "Bed") )
 		{

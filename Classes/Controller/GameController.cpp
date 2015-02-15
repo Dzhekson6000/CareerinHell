@@ -42,7 +42,7 @@ void GameController::click(Touch* touch)
 
 	if(_interfaceGame->isSelectCharacter())
 	{
-		_interfaceGame->getSelectCharacter()->goMove(new PPoint(xCell, yCell), _level);
+		_interfaceGame->getSelectCharacter()->goMove(new PPoint(xCell, yCell));
 	}
 
 	std::vector<TileCell*>* tileCells = _level->getTileCells();
@@ -212,7 +212,7 @@ void GameController::eventUnit( int id )
 	std::string tip = "";
 	if(id == 1) tip = "boat";
 	std::vector<Character*>* playerCharacter = _player->getCharacters();
-	playerCharacter->push_back(new Boat(1, new PPoint(0, 0), tip, true ));
+	playerCharacter->push_back(new Boat(1, _level, new PPoint(0, 0), tip, true ));
 }
 
 void GameController::eventWarpPortal( std::string nameLevel )

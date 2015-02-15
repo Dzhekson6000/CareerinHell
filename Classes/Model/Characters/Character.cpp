@@ -1,8 +1,9 @@
 #include "Character.h"
 
-Character::Character(int id, PPoint* point, std::string textureName)
+Character::Character(int id, Level* level, PPoint* point, std::string textureName)
 {
 	_id = id;
+	_level = level;
 	_actionPoints = 10;
 	_actionPointsMax = 10;
 	_actionXCell = point->getXCell();
@@ -61,6 +62,16 @@ void Character::update()
 
 	int x = _point->getXOriginal();
 	int y = _point->getYOriginal();
+
+
+	if(this->isVisible() && _level->getXPortalCell() == _point->getXCell() && _level->getYPortalCell() == _point->getYCell())
+	{
+		this->setVisible(false);
+	} else if(!this->isVisible() && _level->getXPortalCell() != _point->getXCell() || _level->getYPortalCell() != _point->getYCell())
+	{
+		this->setVisible(true);
+	}
+
 	PPoint* targetPoint = NULL;
 	if(_path->size() != 0)
 	{
@@ -99,12 +110,12 @@ void Character::update()
 	setPPosition(new PPoint((float)x,(float)y) );
 }
 
-void Character::goMove(PPoint* point, Level* level)
+void Character::goMove(PPoint* point)
 {
-	if(point->getXCell() < level->getXMinCell() || point->getYCell() < level->getYMinCell() ||
-		point->getXCell() > level->getXMaxCell() || point->getYCell() > level->getYMaxCell()) return;
+	if(point->getXCell() < _level->getXMinCell() || point->getYCell() < _level->getYMinCell() ||
+		point->getXCell() > _level->getXMaxCell() || point->getYCell() > _level->getYMaxCell()) return;
 	clock_t time = clock();
-	findPath(point, level);
+	findPath(point, _level);
 	time = clock() - time;
 	CCLOG("----END----");
 	CCLOG("time = %f", (double)time/CLOCKS_PER_SEC);
