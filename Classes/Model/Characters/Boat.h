@@ -10,7 +10,7 @@ private:
 public:
 	Boat(int id,
 		Level* level,
-		PPoint* point,
+		PPoint point,
 		std::string tip,
 		bool angle
 		);

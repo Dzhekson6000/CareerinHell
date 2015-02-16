@@ -1,6 +1,6 @@
 #include "EndWall.h"
 
-EndWall::EndWall(PPoint* point, std::string tip, int tipEnd, bool show):TileCell()
+EndWall::EndWall(PPoint point, std::string tip, int tipEnd, bool show):TileCell()
 {
 	bool inversionX = false;
 	if(tipEnd == 1)

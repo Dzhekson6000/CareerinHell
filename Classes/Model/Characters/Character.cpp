@@ -1,19 +1,18 @@
 #include "Character.h"
 
-Character::Character(int id, Level* level, PPoint* point, std::string textureName)
+Character::Character(int id, Level* level, PPoint point, std::string textureName)
 {
 	_id = id;
 	_level = level;
 	_actionPoints = 10;
 	_actionPointsMax = 10;
-	_actionXCell = point->getXCell();
-	_actionYCell = point->getYCell();
+	_actionXCell = point.getXCell();
+	_actionYCell = point.getYCell();
 	_hitPoints = 100;
 	_hitPointsMax = 100;
 	_attackPoints = 10;
 	_inversionX = false;
 	_inversionY = false;
-	_path = new std::vector<PPoint*>;
 	this->_sprite = Sprite::create(textureName + ".png");
 	setPPosition(point);
 	_sprite->setScaleX(getInverse(_inversionX));
@@ -24,15 +23,15 @@ Character::Character(int id, Level* level, PPoint* point, std::string textureNam
 
 PPoint* Character::getPPosition()
 {
-	return _point;
+	return &_point;
 }
 
 
-void Character::setPPosition(PPoint* point)
+void Character::setPPosition(PPoint point)
 {
 	_point = point;
-	this->setPosition(point->getX(), point->getY() + _sprite->getContentSize().height/2 );
-	this->setLocalZOrder(-(point->getXOriginal() + point->getYOriginal()) );
+	this->setPosition(point.getX(), point.getY() + _sprite->getContentSize().height/2 );
+	this->setLocalZOrder(-(point.getXOriginal() + point.getYOriginal()) );
 }
 
 void Character::setInversionX(bool inversion)
@@ -60,65 +59,61 @@ void Character::update()
 {
 	if(_actionPoints == 0)return;
 
-	int x = _point->getXOriginal();
-	int y = _point->getYOriginal();
+	int x = _point.getXOriginal();
+	int y = _point.getYOriginal();
 
 
-	if(this->isVisible() && _level->getXPortalCell() == _point->getXCell() && _level->getYPortalCell() == _point->getYCell())
+	if(this->isVisible() && _level->getXPortalCell() == _point.getXCell() && _level->getYPortalCell() == _point.getYCell())
 	{
 		this->setVisible(false);
-	} else if(!this->isVisible() && _level->getXPortalCell() != _point->getXCell() || _level->getYPortalCell() != _point->getYCell())
+	} else if(!this->isVisible() && _level->getXPortalCell() != _point.getXCell() || _level->getYPortalCell() != _point.getYCell())
 	{
 		this->setVisible(true);
 	}
 
 	PPoint* targetPoint = NULL;
-	if(_path->size() != 0)
+	if(_path.size() != 0)
 	{
-		targetPoint = new PPoint(_path->at(0)->getXCell(), _path->at(0)->getYCell());
-		if( (int)(_path->at(0)->getXOriginal()) == x && (int)(_path->at(0)->getYOriginal()) == y)
+		targetPoint = &_path.at(0);
+		if( (int)(_path.at(0).getXOriginal()) == x && (int)(_path.at(0).getYOriginal()) == y)
 		{
 			_actionPoints--;
-			_actionXCell = _point->getXCell();
-			_actionYCell = _point->getYCell();
-			_path->erase(_path->begin());
+			_actionXCell = _point.getXCell();
+			_actionYCell = _point.getYCell();
+			_path.erase(_path.begin());
 		}
 	}
 	if(targetPoint == NULL)return;
-	if(_point->getXOriginal() != targetPoint->getXOriginal())
+	if(_point.getXOriginal() != targetPoint->getXOriginal())
 	{
-		if(_point->getXOriginal() > targetPoint->getXOriginal())
+		if(_point.getXOriginal() > targetPoint->getXOriginal())
 		{
 			x--;
 		}
-		if(_point->getXOriginal() < targetPoint->getXOriginal())
+		if(_point.getXOriginal() < targetPoint->getXOriginal())
 		{
 			x++;
 		}
 	}
-	if(_point->getYOriginal() != targetPoint->getYOriginal())
+	if(_point.getYOriginal() != targetPoint->getYOriginal())
 	{
-		if(_point->getYOriginal() > targetPoint->getYOriginal())
+		if(_point.getYOriginal() > targetPoint->getYOriginal())
 		{
 			y--;
 		}
-		if(_point->getYOriginal() < targetPoint->getYOriginal())
+		if(_point.getYOriginal() < targetPoint->getYOriginal())
 		{
 			y++;
 		}
 	}
-	setPPosition(new PPoint((float)x,(float)y) );
+	setPPosition(PPoint((float)x,(float)y) );
 }
 
-void Character::goMove(PPoint* point)
+void Character::goMove(PPoint point)
 {
-	if(point->getXCell() < _level->getXMinCell() || point->getYCell() < _level->getYMinCell() ||
-		point->getXCell() > _level->getXMaxCell() || point->getYCell() > _level->getYMaxCell()) return;
-	clock_t time = clock();
-	findPath(point, _level);
-	time = clock() - time;
-	CCLOG("----END----");
-	CCLOG("time = %f", (double)time/CLOCKS_PER_SEC);
+	if(point.getXCell() < _level->getXMinCell() || point.getYCell() < _level->getYMinCell() ||
+		point.getXCell() > _level->getXMaxCell() || point.getYCell() > _level->getYMaxCell()) return;
+	findPath(&point, _level);
 }
 
 void Character::findPath(PPoint* pointTarget, Level* level)
@@ -151,7 +146,7 @@ void Character::findPath(PPoint* pointTarget, Level* level)
 		}
 	}
 
-	if (grid[_point->getXCell()-level->getXMinCell()][_point->getYCell()-level->getYMinCell()] == WALL ||
+	if (grid[_point.getXCell()-level->getXMinCell()][_point.getYCell()-level->getYMinCell()] == WALL ||
 		grid[pointTarget->getXCell()-level->getXMinCell()][pointTarget->getYCell()-level->getYMinCell()] == WALL)
 	{
 		CCLOG("Failed WALL");
@@ -159,7 +154,7 @@ void Character::findPath(PPoint* pointTarget, Level* level)
 	}
 
 	d = 0;
-	grid[_point->getXCell()-level->getXMinCell()][_point->getYCell()-level->getYMinCell()] = 0;
+	grid[_point.getXCell()-level->getXMinCell()][_point.getYCell()-level->getYMinCell()] = 0;
 	do {
 		stop = true;
 		for ( x = 0; x <= level->getXMaxCell() - level->getXMinCell(); ++x )
@@ -214,12 +209,19 @@ void Character::findPath(PPoint* pointTarget, Level* level)
 
 	for(time_t i = 0; i < len; i++)
 	{
-		_path->push_back(new PPoint(px[i], py[i]));
+		_path.push_back(PPoint(px[i], py[i]));
 	}
 
+	for(int i=0; i<=level->getXMaxCell() - level->getXMinCell(); i++)
+	{
+		delete[] grid[i];
+	}
+	delete[] grid;
+	delete[] px;
+	delete[] py;
 }
 
 void Character::clearPath()
 {
-	_path->clear();
+	_path.clear();
 }

@@ -8,7 +8,7 @@ class Altar:public TileCell
 {
 private:
 public:
-	Altar(PPoint* point,
+	Altar(PPoint point,
 		bool rotate
 		);
 	void click(InterfaceGame* interfaceGame);

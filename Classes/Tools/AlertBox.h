@@ -62,6 +62,5 @@ public:
 			}
 	}
 
-	static AlertBox* create(Settings* settings);
 };
 #endif // ALERTBOX_H__

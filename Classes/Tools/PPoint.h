@@ -5,10 +5,10 @@
 class PPoint
 {
 private:
-	//изометрические координаты
+	//isometric coordinates
 	float _x;
 	float _y;
-	//реальные координаты
+	//real coordinates
 	float _xOriginal;
 	float _yOriginal;
 	void updateIsometric();

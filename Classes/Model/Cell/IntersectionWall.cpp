@@ -1,6 +1,6 @@
 #include "IntersectionWall.h"
 
-IntersectionWall::IntersectionWall(PPoint* point, std::string tip, int tipIntersection, bool show):TileCell()
+IntersectionWall::IntersectionWall(PPoint point, std::string tip, int tipIntersection, bool show):TileCell()
 {
 	bool inversionX = false;
 	std::string path = PATH_WALLS + tip + "_i";

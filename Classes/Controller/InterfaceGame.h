@@ -24,7 +24,7 @@ private:
 	Sprite* _spellbook;
 	Sprite* _buttonEndCourse;
 	Layer* _cardCharacterLayer;
-	std::vector<CardCharacter*>* _cardCharacters;
+	std::vector<CardCharacter*> _cardCharacters;
 
 	void initTouch();
 	EventListenerTouchOneByOne* _touchListener;
@@ -49,6 +49,7 @@ public:
 	void deadAlertBox();
 
 	void addCharacter(Character* character);
+	void clearCharacter();
 
 	bool isSelectCharacter();
 

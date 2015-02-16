@@ -8,7 +8,7 @@ class IntersectionWall:public TileCell
 {
 private:
 public:
-	IntersectionWall(PPoint* point, //положение
+	IntersectionWall(PPoint point, //положение
 		std::string tip, //тип
 		int tipIntersection, // поворот true=l=налево, false=r=направо
 		bool show //скрыть стену

@@ -1,6 +1,6 @@
 #include "AngleWall.h"
 
-AngleWall::AngleWall(PPoint* point, std::string tip, int tipAngle, bool show):TileCell()
+AngleWall::AngleWall(PPoint point, std::string tip, int tipAngle, bool show):TileCell()
 {
 	bool inversionX = false;
 	if(tipAngle == 4)

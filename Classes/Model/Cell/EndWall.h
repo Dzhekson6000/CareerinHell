@@ -8,7 +8,7 @@ class EndWall:public TileCell
 {
 private:
 public:
-	EndWall(PPoint* point, //положение
+	EndWall(PPoint point, //положение
 		std::string tip, //тип
 		int tipEnd, // поворот true=l=налево, false=r=направо
 		bool show //скрыть стену

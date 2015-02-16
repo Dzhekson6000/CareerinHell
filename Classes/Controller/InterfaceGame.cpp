@@ -14,7 +14,6 @@ bool InterfaceGame::init(Settings* settings)
 {
 	_settings = settings;
 	_selectCharacter = NULL;
-	_cardCharacters = new std::vector<CardCharacter*>;
 	_cardCharacterLayer = Layer::create();
 	this->addChild(_cardCharacterLayer);
 
@@ -44,10 +43,19 @@ void InterfaceGame::initTouch()
 void InterfaceGame::addCharacter(Character* character)
 {
 	CardCharacter* cardCharacter = new CardCharacter(character);//138x167
-	cardCharacter->getTexture()->setPosition(70, 83.5+ (175 * _cardCharacters->size()) );
+	cardCharacter->getTexture()->setPosition(70, 83.5+ (175 * _cardCharacters.size()) );
 	this->addChild(cardCharacter->getTexture());
+	_cardCharacters.push_back(cardCharacter);
+}
 
-	_cardCharacters->push_back(cardCharacter);
+void InterfaceGame::clearCharacter()
+{
+	for(auto cardCharacter: _cardCharacters)
+	{
+		this->removeChild(cardCharacter->getTexture());
+		delete cardCharacter;
+	}
+	_cardCharacters.clear();
 }
 
 bool InterfaceGame::isSelectCharacter()
@@ -91,19 +99,19 @@ void InterfaceGame::touchEnded(Touch* touch, Event* event)
 	{
 		if(isInterfaceClick(touch) ){
 
-			for(time_t i = 0; i < _cardCharacters->size(); i++)
+			for(time_t i = 0; i < _cardCharacters.size(); i++)
 			{
 				if(touch->getLocation().y > (175 * i) && touch->getLocation().y < 175 + (175 * i) )
 				{
 					 
-					 if(isSelectCharacter() && _selectCharacter->getId() == _cardCharacters->at(i)->getCharacter()->getId())
+					 if(isSelectCharacter() && _selectCharacter->getId() == _cardCharacters.at(i)->getCharacter()->getId())
 					 {
-						 _cardCharacters->at(i)->setSelect(false);
+						 _cardCharacters.at(i)->setSelect(false);
 						 _selectCharacter = NULL;
 					 } else {
 						 cardClear();
-						 _cardCharacters->at(i)->setSelect(true);
-						_selectCharacter = _cardCharacters->at(i)->getCharacter();
+						 _cardCharacters.at(i)->setSelect(true);
+						_selectCharacter = _cardCharacters.at(i)->getCharacter();
 					 }
 					break;
 				}
@@ -115,7 +123,7 @@ void InterfaceGame::touchEnded(Touch* touch, Event* event)
 
 bool InterfaceGame::isInterfaceClick(Touch* touch)
 {
-	if(touch->getLocation().x < 138 && touch->getLocation().y < (175 * _cardCharacters->size()) )
+	if(touch->getLocation().x < 138 && touch->getLocation().y < (175 * _cardCharacters.size()) )
 		return true;
 
 	return false;
@@ -123,9 +131,9 @@ bool InterfaceGame::isInterfaceClick(Touch* touch)
 
 void InterfaceGame::cardClear()
 {
-	for(time_t i = 0; i < _cardCharacters->size(); i++)//определяем по какой карте
+	for(time_t i = 0; i < _cardCharacters.size(); i++)//определяем по какой карте
 	{
-		_cardCharacters->at(i)->setSelect(false);
+		_cardCharacters.at(i)->setSelect(false);
 	}
 }
 

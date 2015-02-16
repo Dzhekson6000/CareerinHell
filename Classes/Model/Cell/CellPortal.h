@@ -8,7 +8,7 @@ class CellPortal:public TileCell
 {
 private:
 public:
-	CellPortal(PPoint* point,
+	CellPortal(PPoint point,
 		std::string tip,
 		bool rotate
 		);

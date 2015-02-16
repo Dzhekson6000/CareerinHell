@@ -9,7 +9,7 @@ class Cell
 {
 private:
 	Sprite* _texture;
-	PPoint* _point;
+	PPoint _point;
 	PPoint* _pointTile;
 	bool _inversionX;
 	bool _inversionY;
@@ -19,11 +19,11 @@ private:
 	int getInverse(bool inversion);
 protected:
 public:
-	Cell(PPoint* point, PPoint* pointTile, std::string textureName, bool inversionX, bool inversionY);
+	Cell(PPoint point, PPoint* pointTile, std::string textureName, bool inversionX, bool inversionY);
 	Sprite* getTexture();
 	void updateOrder();
 
-	void setPosition(PPoint* point);
+	void setPosition(PPoint point);
 	void setPositionTile(PPoint* point);
 	void setPassage(int passage){ _passage = passage; }
 	void setOrder(int order);

@@ -1,6 +1,6 @@
 #include "Cell.h"
 
-Cell::Cell(PPoint* point, PPoint* pointTile, std::string textureName, bool inversionX, bool inversionY)
+Cell::Cell(PPoint point, PPoint* pointTile, std::string textureName, bool inversionX, bool inversionY)
 {
 	_inversionX = inversionX;
 	_inversionY = inversionY;
@@ -15,18 +15,18 @@ void Cell::updateOrder()
 {
 	_texture->setLocalZOrder(
 		-(
-		_pointTile->getXOriginal() + _point->getXOriginal()
+		_pointTile->getXOriginal() + _point.getXOriginal()
 			+
-		_pointTile->getYOriginal() + _point->getYOriginal()
+		_pointTile->getYOriginal() + _point.getYOriginal()
 		)
 		+ _order * 200
 		);
 }
 
-void Cell::setPosition(PPoint* point)
+void Cell::setPosition(PPoint point)
 {
 	_point = point;
-	_texture->setPosition(_pointTile->getX() + point->getX(), _pointTile->getY() + point->getY() + _texture->getContentSize().height/2);
+	_texture->setPosition(_pointTile->getX() + point.getX(), _pointTile->getY() + point.getY() + _texture->getContentSize().height/2);
 }
 
 void Cell::setPositionTile(PPoint* point)
@@ -65,10 +65,10 @@ Sprite* Cell::getTexture()
 
 int Cell::getCellX()
 {
-	return floor((_pointTile->getXOriginal() + _point->getXOriginal() )/50);
+	return floor((_pointTile->getXOriginal() + _point.getXOriginal() )/50);
 }
 
 int Cell::getCellY()
 {
-	return floor((_pointTile->getYOriginal() + _point->getYOriginal() )/50);
+	return floor((_pointTile->getYOriginal() + _point.getYOriginal() )/50);
 }

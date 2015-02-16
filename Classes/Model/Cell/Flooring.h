@@ -8,7 +8,7 @@ class Flooring:public TileCell
 {
 private:
 public:
-	Flooring(PPoint* point, //положение
+	Flooring(PPoint point, //положение
 		std::string tip //тип
 		);
 

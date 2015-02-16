@@ -8,7 +8,7 @@ class Bed:public TileCell
 {
 private:
 public:
-	Bed(PPoint* point, //положение
+	Bed(PPoint point, //положение
 		bool rotate // поворот true=l=налево, false=r=направо
 		);
 

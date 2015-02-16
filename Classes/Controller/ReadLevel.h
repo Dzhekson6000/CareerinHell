@@ -30,6 +30,7 @@ private:
 public:
 	CC_SYNTHESIZE(Level*, _level, Level);
 	ReadLevel();
+	ReadLevel(std:: string fileName);
 	void readFile(std:: string fileName);
 
 };

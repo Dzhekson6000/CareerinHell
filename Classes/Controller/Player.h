@@ -12,7 +12,7 @@ class Player {
 
 public:
 	CC_SYNTHESIZE(int, _nCharacter, NCharacter);
-	CC_SYNTHESIZE(std::vector<Character*>*, _characters, Characters);
+	std::vector<Character*> _characters;
 	int augmentN(){_nCharacter++; return _nCharacter;};
 
 	~Player(){

@@ -2,16 +2,16 @@
 
 HighlightingCells::HighlightingCells(Layer* parentLayer, Level* level)
 {
+	_actionXCell = 0;
+	_actionXCell = 0;
 	_parentLayer = parentLayer;
 	_level = level;
 	_order = -1;
-	_sprites = new std::vector<Sprite*>;
 	updateGrid();
 }
 
-void HighlightingCells::update( PPoint* point, int length )
+void HighlightingCells::update( PPoint point, int length )
 {
-	clearSprite();
 	_point = point;
 	_length = length;
 	setStatus(true);
@@ -19,22 +19,27 @@ void HighlightingCells::update( PPoint* point, int length )
 
 void HighlightingCells::clearSprite()
 {
-	for(time_t i = 0; i < _sprites->size(); i++)
+	for(auto sprite:_sprites)
 	{
-		_parentLayer->removeChild(_sprites->at(i));
+		_parentLayer->removeChild(sprite);
 	}
-	_sprites->clear();
+	_sprites.clear();
 }
 
 void HighlightingCells::setStatus( bool status )
 {
 	_status = status;
+	clearSprite();
 	if(status)
 	{
+		
 		updateGrid();
 		createHighlightingCells();
-	} else {
-		clearSprite();
+		for(int i=0; i<=_level->getXMaxCell() - _level->getXMinCell(); i++)
+		{
+			delete[] _grid[i];
+		}
+		delete[] _grid;
 	}
 }
 
@@ -47,7 +52,7 @@ void HighlightingCells::createHighlightingCells()
 	bool stop;
 
 	d = 0;
-	_grid[_point->getXCell()-_level->getXMinCell()][_point->getYCell()-_level->getYMinCell()] = 0;
+	_grid[_point.getXCell()-_level->getXMinCell()][_point.getYCell()-_level->getYMinCell()] = 0;
 	do {
 		stop = true;
 		for ( x = 0; x <= _level->getXMaxCell() - _level->getXMinCell(); ++x )
@@ -63,20 +68,20 @@ void HighlightingCells::createHighlightingCells()
 							stop = false;
 							_grid[ix][iy] = d + 1;
 						}
-						addSprite(new PPoint(x+_level->getXMinCell(),y+_level->getYMinCell()));
+						addSprite(PPoint(x+_level->getXMinCell(),y+_level->getYMinCell()));
 					}
 				}
 				d++;
 	} while ( !stop && d <= _length);
 }
 
-void HighlightingCells::addSprite( PPoint* point )
+void HighlightingCells::addSprite(PPoint point )
 {
 	Sprite* sprite = Sprite::create(PATH_EXTRA "canPass.png");
-	sprite->setPosition(point->getX(), point->getY() + sprite->getContentSize().height/2);
-	sprite->setLocalZOrder(-(point->getXOriginal() + point->getYOriginal()) + _order * 200 );
+	sprite->setPosition(point.getX(), point.getY() + sprite->getContentSize().height/2);
+	sprite->setLocalZOrder(-(point.getXOriginal() + point.getYOriginal()) + _order * 200 );
 	_parentLayer->addChild(sprite);
-	_sprites->push_back(sprite);
+	_sprites.push_back(sprite);
 }
 
 void HighlightingCells::updateGrid()
@@ -84,6 +89,8 @@ void HighlightingCells::updateGrid()
 	const int WALL   = -1;
 	const int BLANK  = -2;
 	int** passageWays = _level->getPassageWays();
+
+	if(_level->getXMaxCell() == 0 && _level->getXMaxCell() == 0)return;
 
 	_grid = new int*[_level->getXMaxCell() - _level->getXMinCell()+1];
 	for(int i=0; i<=_level->getXMaxCell() - _level->getXMinCell(); i++)
