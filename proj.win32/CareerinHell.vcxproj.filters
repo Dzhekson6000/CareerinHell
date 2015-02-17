@@ -43,6 +43,12 @@
     <Filter Include="Classes\Model\Object">
       <UniqueIdentifier>{773b5a00-f635-49cc-a981-7aa2af0de7e5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Model\Interface\Question">
+      <UniqueIdentifier>{00865b9f-671b-4077-8f66-33902d0f2d4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Model\Interface\AlertBox">
+      <UniqueIdentifier>{a404abed-3737-4f17-b221-6401830ff3ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -147,20 +153,32 @@
     <ClCompile Include="..\Classes\Tools\HighlightingCells.cpp">
       <Filter>Classes\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Model\Interface\AlertHiringBox.cpp">
-      <Filter>Classes\Model\Interface</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Model\Interface\AlertTextBox.cpp">
-      <Filter>Classes\Model\Interface</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Model\Object\Altar.cpp">
       <Filter>Classes\Model\Object</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Controller\GameController.cpp">
       <Filter>Classes\Controller</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Model\Interface\AlertPortalBox.cpp">
+    <ClCompile Include="..\Classes\Model\Interface\Questions.cpp">
       <Filter>Classes\Model\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\Interface\Question\Question.cpp">
+      <Filter>Classes\Model\Interface\Question</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\Interface\Question\KillQuestion.cpp">
+      <Filter>Classes\Model\Interface\Question</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\Interface\AlertBox\AlertHiringBox.cpp">
+      <Filter>Classes\Model\Interface\AlertBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\Interface\AlertBox\AlertPortalBox.cpp">
+      <Filter>Classes\Model\Interface\AlertBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\Interface\AlertBox\AlertTextBox.cpp">
+      <Filter>Classes\Model\Interface\AlertBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\Interface\AlertBox\AlertQuestionsBox.cpp">
+      <Filter>Classes\Model\Interface\AlertBox</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -266,12 +284,6 @@
     <ClInclude Include="..\Classes\Tools\HighlightingCells.h">
       <Filter>Classes\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Model\Interface\AlertHiringBox.h">
-      <Filter>Classes\Model\Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Model\Interface\AlertTextBox.h">
-      <Filter>Classes\Model\Interface</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Model\Object\Altar.h">
       <Filter>Classes\Model\Object</Filter>
     </ClInclude>
@@ -281,8 +293,26 @@
     <ClInclude Include="..\Classes\Controller\Player.h">
       <Filter>Classes\Controller</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Model\Interface\AlertPortalBox.h">
+    <ClInclude Include="..\Classes\Model\Interface\Questions.h">
       <Filter>Classes\Model\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\Interface\Question\Question.h">
+      <Filter>Classes\Model\Interface\Question</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\Interface\Question\KillQuestion.h">
+      <Filter>Classes\Model\Interface\Question</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\Interface\AlertBox\AlertHiringBox.h">
+      <Filter>Classes\Model\Interface\AlertBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\Interface\AlertBox\AlertPortalBox.h">
+      <Filter>Classes\Model\Interface\AlertBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\Interface\AlertBox\AlertTextBox.h">
+      <Filter>Classes\Model\Interface\AlertBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\Interface\AlertBox\AlertQuestionsBox.h">
+      <Filter>Classes\Model\Interface\AlertBox</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

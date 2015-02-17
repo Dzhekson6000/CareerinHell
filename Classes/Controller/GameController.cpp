@@ -2,10 +2,11 @@
 
 #define DNT_WALK 255
 
-GameController::GameController(Scroller* scroll, InterfaceGame* interfaceGame)
+GameController::GameController(Scroller* scroll, InterfaceGame* interfaceGame, Settings* settings)
 {
 	_level = new Level;
 	_scroll = scroll;
+	_settings = settings;
 
 	_player = new Player;
 	_player->setNCharacter(0);
@@ -13,9 +14,12 @@ GameController::GameController(Scroller* scroll, InterfaceGame* interfaceGame)
 	_interfaceGame = interfaceGame;
 	_interfaceGame->addEventOnHiringUnit(INTERFACE_CALLBACK_1(GameController::eventUnit, this) );
 	_interfaceGame->addEventOnWarpPortal(INTERFACE_CALLBACK_1(GameController::eventWarpPortal, this) );
+	_interfaceGame->addEventOnTransition(INTERFACE_CALLBACK_0(GameController::transition, this) );
+	_interfaceGame->setQuestions(_level->getQuestions());
 
 	nextLevel("hell.xml", true);
 	_highlightingCells = new HighlightingCells(_scroll, _level);
+	
 }
 
 void GameController::click(Touch* touch)
@@ -30,11 +34,6 @@ void GameController::click(Touch* touch)
 	}
 
 	if(_interfaceGame->isInterfaceClick(touch))return;
-	if(_interfaceGame->isButEndCoClick(touch))
-	{
-		transition();
-		return;
-	}
 
 	float xClick = touch->getLocation().x - _scroll->getPositionX();
 	float yClick = touch->getLocation().y - _scroll->getPositionY();
@@ -155,7 +154,7 @@ void GameController::update( float dt )
 void GameController::nextLevel( std::string level, bool isHell )
 {
 	clearLevel();
-	ReadLevel rl = ReadLevel(PATH_MAP + level);
+	ReadLevel rl = ReadLevel(_settings,PATH_MAP + level);
 	*_level = *rl.getLevel();
 
 	if(!isHell)

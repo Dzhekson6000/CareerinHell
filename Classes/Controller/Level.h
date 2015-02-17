@@ -3,6 +3,7 @@
 
 #include "Model/Cell/TileCell.h"
 #include "Model/Characters/Character.h"
+#include "Model/Interface/Questions.h"
 
 class Character;
 class TileCell;
@@ -20,9 +21,11 @@ public:
 	CC_SYNTHESIZE(int, _yMinCell, YMinCell);
 	CC_SYNTHESIZE(int, _xPortalCell, XPortalCell);
 	CC_SYNTHESIZE(int, _yPortalCell, YPortalCell);
+	Questions _questions;
 
 	Level()
 	{
+		_questions = Questions();
 		_xMaxCell = 0;
 		_yMaxCell = 0;
 		_xMinCell = 0;
@@ -30,6 +33,9 @@ public:
 		_xPortalCell = NULL;
 		_yPortalCell = NULL;
 	}
+
+	void setQuestions(Questions questions){_questions = questions;}
+	Questions* getQuestions(){return &_questions;}
 
 	void release()
 	{

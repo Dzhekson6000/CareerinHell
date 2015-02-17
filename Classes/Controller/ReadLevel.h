@@ -21,16 +21,20 @@
 #include "Model/Object/Bed.h"
 #include "Model/Object/Altar.h"
 
+#include "Model/Interface/Questions.h"
+#include "Model/Interface/Question/KillQuestion.h"
+
 #include <TinyXml/tinyxml.h>
 
 USING_NS_CC;
 
 class ReadLevel {
 private:
+	Settings* _settings;
 public:
 	CC_SYNTHESIZE(Level*, _level, Level);
-	ReadLevel();
-	ReadLevel(std:: string fileName);
+	ReadLevel(Settings* settings);
+	ReadLevel(Settings* settings, std:: string fileName);
 	void readFile(std:: string fileName);
 
 };

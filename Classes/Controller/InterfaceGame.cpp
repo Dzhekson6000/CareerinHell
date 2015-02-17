@@ -14,6 +14,7 @@ bool InterfaceGame::init(Settings* settings)
 {
 	_settings = settings;
 	_selectCharacter = NULL;
+	_questions = NULL;
 	_cardCharacterLayer = Layer::create();
 	this->addChild(_cardCharacterLayer);
 
@@ -25,6 +26,11 @@ bool InterfaceGame::init(Settings* settings)
 	_buttonEndCourse = Sprite::create(PATH_INTERFACE  "buttonEndCourse.png");
 	_buttonEndCourse->setPosition(650, 64);
 	this->addChild(_buttonEndCourse);
+
+	_buttonQuestions = Sprite::create(PATH_INTERFACE  "questionButton.png");
+	_buttonQuestions->setPosition(1238, 666);
+	this->addChild(_buttonQuestions);
+
 
 	initTouch();
 
@@ -66,14 +72,27 @@ bool InterfaceGame::isSelectCharacter()
 
 bool InterfaceGame::isButEndCoClick( Touch* touch )
 {
-	float xClick = touch->getLocation().x;
-	float yClick = touch->getLocation().y;
-	float x = _buttonEndCourse->getPositionX();
-	float y = _buttonEndCourse->getPositionY();
-	float w = _buttonEndCourse->getContentSize().width;
-	float h = _buttonEndCourse->getContentSize().height;
-	if( (xClick>x-w/2) && (xClick<x+w/2) &&
-		(yClick>y-h/2) && (yClick<y+h/2))
+	if( isSpriteClick(touch, _buttonEndCourse) )
+	{
+		return true;
+	}
+	return false;
+}
+
+
+bool InterfaceGame::isButQuestionsClick( Touch* touch )
+{
+	if( isSpriteClick(touch, _buttonQuestions) )
+	{
+		return true;
+	}
+	return false;
+}
+
+bool InterfaceGame::isSpriteClick(Touch* touch, Sprite* sprite )
+{
+	if( (touch->getLocation().x>sprite->getPositionX()-sprite->getContentSize().width/2) && (touch->getLocation().x<sprite->getPositionX()+sprite->getContentSize().width/2) &&
+		(touch->getLocation().y>sprite->getPositionY()-sprite->getContentSize().height/2) && (touch->getLocation().y<sprite->getPositionY()+sprite->getContentSize().height/2))
 	{
 		return true;
 	}
@@ -98,6 +117,20 @@ void InterfaceGame::touchEnded(Touch* touch, Event* event)
 	if(_click)
 	{
 		if(isInterfaceClick(touch) ){
+
+			if(isButEndCoClick(touch ) )
+			{
+				_onTransition();
+				_click = false;
+				return;
+			}
+
+			if(isButQuestionsClick(touch))
+			{
+				createQuestions();
+				_click = false;
+				return;
+			}
 
 			for(time_t i = 0; i < _cardCharacters.size(); i++)
 			{
@@ -125,7 +158,8 @@ bool InterfaceGame::isInterfaceClick(Touch* touch)
 {
 	if(touch->getLocation().x < 138 && touch->getLocation().y < (175 * _cardCharacters.size()) )
 		return true;
-
+	if(isButEndCoClick(touch))return true;
+	if(isButQuestionsClick(touch))return true;
 	return false;
 }
 
@@ -154,17 +188,30 @@ void InterfaceGame::deadAlertBox()
 void InterfaceGame::createHiringUnits()
 {
 	AlertHiringBox * alertHiringBox = AlertBox::create< AlertHiringBox >( _settings );
-	alertHiringBox->setPosition(650, 360);
 	alertHiringBox->addEventOnClick(_onHiringUnit);
-	this->addChild(alertHiringBox);
-	_alertBoxs.push_back(alertHiringBox);
+	addAlertBox(alertHiringBox);
 }
 
 void InterfaceGame::createPortalBox()
 {
 	AlertPortalBox * alertPortalBox = AlertBox::create< AlertPortalBox >( _settings );
-	alertPortalBox->setPosition(650, 360);
 	alertPortalBox->addEventOnClick(_onWarpPortal);
-	this->addChild(alertPortalBox);
-	_alertBoxs.push_back(alertPortalBox);
+	addAlertBox(alertPortalBox);
+}
+
+void InterfaceGame::createQuestions()
+{
+	if(_questions != NULL)
+	{
+		AlertQuestionsBox* alertQuestionsBox = AlertBox::create<AlertQuestionsBox>(_settings);
+		alertQuestionsBox->setQuestions(_questions);
+		addAlertBox(alertQuestionsBox);
+	}
+}
+
+void InterfaceGame::addAlertBox( AlertBox* alertBox )
+{
+	alertBox->setPosition(650, 360);
+	this->addChild(alertBox);
+	_alertBoxs.push_back(alertBox);
 }

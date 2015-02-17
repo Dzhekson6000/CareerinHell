@@ -1,18 +1,21 @@
 #include "ReadLevel.h"
 
-ReadLevel::ReadLevel(){
+ReadLevel::ReadLevel(Settings* settings){
 	_level = new Level();
+	_settings = settings;
 }
 
-ReadLevel::ReadLevel( std:: string fileName )
+ReadLevel::ReadLevel(Settings* settings, std:: string fileName )
 {
 	_level = new Level();
+	_settings = settings;
 	readFile(fileName);
 }
 
 void ReadLevel::readFile(std::string fileName){
 	std::vector<TileCell*> cells;
 	std::vector<Character*> charactersAI;
+	Questions question = Questions();
 	int xPortalCell = 0;
 	int yPortalCell = 0;
 
@@ -168,11 +171,32 @@ void ReadLevel::readFile(std::string fileName){
 			int y = atoi(xmlElement->Attribute("y"));
 
 			cells.push_back(new Altar(PPoint(x, y), rotate) );
+		}else
+		if(!strcmp(nameElement, "Questions") )
+		{
+			TiXmlElement *xmlQuestionsElement = xmlQuestionsElement = xmlElement->FirstChildElement();
+			if(xmlQuestionsElement == NULL)
+			{
+				xmlElement = xmlElement->NextSiblingElement();
+				continue;
+			}
+			while(xmlQuestionsElement != NULL)
+			{
+				const char * nameQuestionsElement = xmlQuestionsElement->Value();
+				if(!strcmp(nameQuestionsElement, "Kill") )
+				{
+					int id = atoi(xmlQuestionsElement->Attribute("id"));
+					question.addQuestion(new KillQuestion(_settings, id));
+				}
+				
+				xmlQuestionsElement = xmlQuestionsElement->NextSiblingElement();
+			}
 		}
 
 		xmlElement = xmlElement->NextSiblingElement();
 	}
 
+	_level->setQuestions(question);
 	_level->setXPortalCell(xPortalCell);
 	_level->setYPortalCell(yPortalCell);
 	_level->setTileCells(cells);

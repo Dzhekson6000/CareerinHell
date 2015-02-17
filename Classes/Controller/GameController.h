@@ -18,6 +18,7 @@ private:
 	Level* _level;
 	Player* _player;
 	Scroller* _scroll;
+	Settings* _settings;
 	InterfaceGame* _interfaceGame;
 	HighlightingCells* _highlightingCells;
 	int** _passageWays;
@@ -25,7 +26,7 @@ private:
 	void clearPassageWays();
 	void transition();
 public:
-	GameController(Scroller* scroll, InterfaceGame* interfaceGame);
+	GameController(Scroller* scroll, InterfaceGame* interfaceGame, Settings* settings);
 	void update(float dt);
 	void click(Touch* touch);
 	int** getPassageWays();

@@ -25,7 +25,7 @@ bool GameScene::init(Settings* settings, SoundController* soundController)
 	_interfaceGame = InterfaceGame::create(settings);
 	this->addChild(_interfaceGame);
 
-	_mapController = new GameController(_scroll, _interfaceGame);
+	_mapController = new GameController(_scroll, _interfaceGame, settings);
 	initTouch();
 
 	this->schedule(schedule_selector(GameScene::update),0.01f);
