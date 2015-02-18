@@ -43,19 +43,32 @@ void GameController::click(Touch* touch)
 
 	if(_interfaceGame->isSelectCharacter())
 	{
-		_interfaceGame->getSelectCharacter()->goMove(PPoint(xCell, yCell));
-	}
-
-	for(auto tileCell: _level->getTileCells())
-	{
-		for(auto cell: *(tileCell->getCells()))
+		bool isAttack = false;
+		for(auto character:_level->getCharactersAI())
 		{
-			if( cell.getCellX() == xCell && cell.getCellY() == yCell)
+			if(xCell == character->getPPosition()->getXCell() && yCell == character->getPPosition()->getYCell())
 			{
-				tileCell->click(_interfaceGame);
+				character->attack(_interfaceGame->getSelectCharacter());
+				if(character->isDead())_interfaceGame->getQuestions()->killEvent(character->getId());
+				isAttack = true;
+				break;
+			}
+		}
+		if(!isAttack)_interfaceGame->getSelectCharacter()->goMove(PPoint(xCell, yCell));
+	}
+	else{
+		for(auto tileCell: _level->getTileCells())
+		{
+			for(auto cell: *(tileCell->getCells()))
+			{
+				if( cell.getCellX() == xCell && cell.getCellY() == yCell)
+				{
+					tileCell->click(_interfaceGame);
+				}
 			}
 		}
 	}
+	
 }
 
 void GameController::transition()
@@ -135,9 +148,18 @@ void GameController::clearPassageWays()
 
 void GameController::update( float dt )
 {
-	for(auto characters: _level->getCharacters())
+	for (int i = 0; i < _level->getCharactersAI().size(); i++)
 	{
-		characters->update();
+		Character* character = _level->getCharactersAI().at(i);
+		if(character->isDead())
+		{
+			_scroll->removeChild(character);
+			_level->killCharacterAI(i);
+		}
+	}
+	for(auto character: _level->getCharacters())
+	{
+		character->update();
 	}
 
 	if(_interfaceGame->isSelectCharacter() && (

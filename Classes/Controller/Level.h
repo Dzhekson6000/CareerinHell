@@ -36,6 +36,7 @@ public:
 
 	void setQuestions(Questions questions){_questions = questions;}
 	Questions* getQuestions(){return &_questions;}
+	void killCharacterAI(int n){ _charactersAI.erase(_charactersAI.begin() + n); }
 
 	void release()
 	{

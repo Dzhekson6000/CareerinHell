@@ -225,3 +225,26 @@ void Character::clearPath()
 {
 	_path.clear();
 }
+
+void Character::spendingActionPoints( int actionPoints )
+{
+	_actionPoints-=actionPoints;
+}
+
+int Character::getAttackPoints()
+{
+	return _attackPoints;
+}
+
+void Character::attack( Character* character )
+{
+	if(character->getActionPoints() < 1) return;
+	_hitPoints-=character->getAttackPoints();
+	character->spendingActionPoints(1);
+}
+
+bool Character::isDead()
+{
+	if(_hitPoints <= 0) return true;
+	return false;
+}

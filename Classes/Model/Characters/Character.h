@@ -50,10 +50,11 @@ public:
 	CC_SYNTHESIZE_READONLY(int, _actionXCell, ActionXCell);
 	CC_SYNTHESIZE_READONLY(int, _actionYCell, ActionYCell);
 
-	~Character()
-	{
-		_sprite->release();
-	}
+	int getAttackPoints();
+	void spendingActionPoints(int actionPoints);
+	void attack(Character* character);
+
+	bool isDead();
 
 };
 
